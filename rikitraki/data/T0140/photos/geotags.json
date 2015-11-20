@@ -1,0 +1,79 @@
+{
+	"geoTags": {
+		"trackId": "T0140",
+		"trackPhotos": [
+			{
+				"picName": "SAM_5006.jpg",
+				"picThumb": "thumbSAM_5006.jpg",
+				"picLatLng": [
+					48.77726,
+					-113.684969
+				],
+				"picCaption": "Lake Josephine"
+			},
+			{
+				"picName": "SAM_5025.jpg",
+				"picThumb": "thumbSAM_5025.jpg",
+				"picLatLng": [
+					48.773101,
+					-113.702955
+				],
+				"picCaption": "Walking up towards Grinnell Glacier"
+			},
+			{
+				"picName": "SAM_5033.jpg",
+				"picThumb": "thumbSAM_5033.jpg",
+				"picLatLng": [
+					48.773982,
+					-113.712841
+				],
+				"picCaption": "Grinnell Lake"
+			},
+			{
+				"picName": "SAM_5050.jpg",
+				"picThumb": "thumbSAM_5050.jpg",
+				"picLatLng": [
+					48.766979,
+					-113.720701
+				],
+				"picCaption": "Grinnell Falls"
+			},
+			{
+				"picName": "SAM_5060.jpg",
+				"picThumb": "thumbSAM_5060.jpg",
+				"picLatLng": [
+					48.763471,
+					-113.725092
+				],
+				"picCaption": "View of lakes Grinnell, Josephine and Sherburne"
+			},
+			{
+				"picName": "SAM_5078.jpg",
+				"picThumb": "thumbSAM_5078.jpg",
+				"picLatLng": [
+					48.760137,
+					-113.730341
+				],
+				"picCaption": "Upper Grinnell Lake and glacier"
+			},
+			{
+				"picName": "SAM_5110.jpg",
+				"picThumb": "thumbSAM_5110.jpg",
+				"picLatLng": [
+					48.760008,
+					-113.730315
+				],
+				"picCaption": "Waterfalls on Upper Grinnell Lake"
+			},
+			{
+				"picName": "SAM_5119.jpg",
+				"picThumb": "thumbSAM_5119.jpg",
+				"picLatLng": [
+					48.760939,
+					-113.728635
+				],
+				"picCaption": "Bighorn sheep along the trail near the glacier"
+			}
+		]
+	}
+}

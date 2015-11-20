@@ -1,0 +1,34 @@
+{
+	"geoTags": {
+		"trackId": "T0142",
+		"trackPhotos": [
+			{
+				"picName": "SAM_4939.jpg",
+				"picThumb": "thumbSAM_4939.jpg",
+				"picLatLng": [
+					48.827569,
+					-114.194097
+				],
+				"picCaption": "Bowman Lake"
+			},
+			{
+				"picName": "SAM_4943.jpg",
+				"picThumb": "thumbSAM_4943.jpg",
+				"picLatLng": [
+					48.801773,
+					-114.183316
+				],
+				"picCaption": "Walking in the woods"
+			},
+			{
+				"picName": "SAM_4948.jpg",
+				"picThumb": "thumbSAM_4948.jpg",
+				"picLatLng": [
+					48.798633,
+					-114.173177
+				],
+				"picCaption": "Lower Quartz Lake"
+			}
+		]
+	}
+}

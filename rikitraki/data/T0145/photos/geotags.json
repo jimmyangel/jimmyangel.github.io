@@ -1,0 +1,61 @@
+{
+	"geoTags": {
+		"trackId": "T0145",
+		"trackPhotos": [
+			{
+				"picName": "08260011.jpg",
+				"picThumb": "thumb08260011.jpg",
+				"picLatLng": [
+					44.560659,
+					-121.872216
+				],
+				"picCaption": "Marion Lake"
+			},
+			{
+				"picName": "08260020.jpg",
+				"picThumb": "thumb08260020.jpg",
+				"picLatLng": [
+					44.561274,
+					-121.874406
+				],
+				"picCaption": "Marion Lake near the outlet"
+			},
+			{
+				"picName": "08260027.jpg",
+				"picThumb": "thumb08260027.jpg",
+				"picLatLng": [
+					44.563313,
+					-121.874709
+				],
+				"picCaption": "A walk in the woods"
+			},
+			{
+				"picName": "08260030.jpg",
+				"picThumb": "thumb08260030.jpg",
+				"picLatLng": [
+					44.567099,
+					-121.875985
+				],
+				"picCaption": "Upper Marion Falls"
+			},
+			{
+				"picName": "08260036.jpg",
+				"picThumb": "thumb08260036.jpg",
+				"picLatLng": [
+					44.567133,
+					-121.876392
+				],
+				"picCaption": "Lower Marion Falls"
+			},
+			{
+				"picName": "08260047.jpg",
+				"picThumb": "thumb08260047.jpg",
+				"picLatLng": [
+					44.571044,
+					-121.873769
+				],
+				"picCaption": "Lake Ann"
+			}
+		]
+	}
+}

@@ -1,0 +1,61 @@
+{
+	"geoTags": {
+		"trackId": "T0141",
+		"trackPhotos": [
+			{
+				"picName": "SAM_5270.jpg",
+				"picThumb": "thumbSAM_5270.jpg",
+				"picLatLng": [
+					48.478284,
+					-113.368735
+				],
+				"picCaption": "Beaver pond"
+			},
+			{
+				"picName": "SAM_5273.jpg",
+				"picThumb": "thumbSAM_5273.jpg",
+				"picLatLng": [
+					48.475659,
+					-113.37202
+				],
+				"picCaption": "Sinopah Mountain"
+			},
+			{
+				"picName": "SAM_5275.jpg",
+				"picThumb": "thumbSAM_5275.jpg",
+				"picLatLng": [
+					48.466675,
+					-113.377774
+				],
+				"picCaption": "Two Medicine Lake from Aster Park viewpoint"
+			},
+			{
+				"picName": "SAM_5281.jpg",
+				"picThumb": "thumbSAM_5281.jpg",
+				"picLatLng": [
+					48.466406,
+					-113.377456
+				],
+				"picCaption": "Aster Park"
+			},
+			{
+				"picName": "SAM_5291.jpg",
+				"picThumb": "thumbSAM_5291.jpg",
+				"picLatLng": [
+					48.471444,
+					-113.3758
+				],
+				"picCaption": "Aster Falls"
+			},
+			{
+				"picName": "SAM_5320.jpg",
+				"picThumb": "thumbSAM_5320.jpg",
+				"picLatLng": [
+					48.45305,
+					-113.403382
+				],
+				"picCaption": "Rockwell Falls"
+			}
+		]
+	}
+}

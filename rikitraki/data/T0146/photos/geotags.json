@@ -1,0 +1,43 @@
+{
+	"geoTags": {
+		"trackId": "T0146",
+		"trackPhotos": [
+			{
+				"picName": "09230086.jpg",
+				"picThumb": "thumb09230086.jpg",
+				"picLatLng": [
+					48.400437,
+					7.436972
+				],
+				"picCaption": "Ripe grapes ready for picking"
+			},
+			{
+				"picName": "09230099.jpg",
+				"picThumb": "thumb09230099.jpg",
+				"picLatLng": [
+					48.400721,
+					7.427113
+				],
+				"picCaption": "Zotzenberg vineyards"
+			},
+			{
+				"picName": "09230106.jpg",
+				"picThumb": "thumb09230106.jpg",
+				"picLatLng": [
+					48.399468,
+					7.423101
+				],
+				"picCaption": "At the Sentier des Espiègles"
+			},
+			{
+				"picName": "09230115.jpg",
+				"picThumb": "thumb09230115.jpg",
+				"picLatLng": [
+					48.396065,
+					7.41437
+				],
+				"picCaption": "The view from Rocher Sainte-Richard"
+			}
+		]
+	}
+}

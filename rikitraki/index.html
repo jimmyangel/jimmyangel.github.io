@@ -1,0 +1,250 @@
+<!doctype html>
+<html class="no-js">
+  <head>
+    <meta charset="utf-8">
+    <!-- Google site verification, do not remove -->
+    <meta name="google-site-verification" content="V3zPYd6pZFm3oRhweiVTRbjETwWLS62wUoitWk4KFmw" />
+    <!-- End of Google site verification -->
+    <!-- Domain verification, do not remove -->
+    <meta name="globalsign-domain-verification" content="d77HuFbkaXg5CVjeSwr7Q913KE6mFgsKO6YkhawWUW" />
+     <!-- End of domain verification, do not remove -->
+   
+    <title>RikiTraki</title>
+    <meta name="description" content="Welcome to RikiTraki, a personal hiking log. Feel free to use the slippy map to explore our hiking experiences and learn more about their locations.">
+    <meta name="keywords" content="maps,hiking,travel,leaflet,gps,gpx">
+    <meta name="viewport" content="width=device-width">
+    <meta property="og:image" content="http://rikitraki.com/images/hikinglg.png" />
+    <link rel="shortcut icon" href="/favicon.ico">
+    
+    <!-- bower:css -->
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
+    <link rel="stylesheet" href="bower_components/leaflet/dist/leaflet.css" />
+    <link rel="stylesheet" href="bower_components/leaflet.elevation/dist/Leaflet.Elevation-0.0.4.css" />
+    <link rel="stylesheet" href="bower_components/leaflet.markercluster/dist/MarkerCluster.css" />
+    <link rel="stylesheet" href="bower_components/leaflet.markercluster/dist/MarkerCluster.Default.css" />
+    <link rel="stylesheet" href="bower_components/lightbox2/dist/css/lightbox.css" />
+    <!-- endbower -->
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+
+    <!-- Fonts -->
+    <link rel="stylesheet" href="components/icomoon/style.css" />
+
+    <!-- build: use this block later with processhtml to prepare dist-->
+    <link rel="stylesheet" href="css/main.css">
+    <!-- endbuild -->
+
+    <!-- Google Analytics Code -->
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-64070309-1', 'auto');
+      ga('send', 'pageview');
+
+    </script>
+
+  </head>
+  <body>
+    <!--[if lt IE 10]>
+      <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+    <![endif]-->
+    <div id="fb-root"></div>
+    <div id="navigationBar" class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <button type="button" data-target="#navbarCollapse" data-toggle="collapse" class="navbar-toggle">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+          <a class="navbar-brand" href=".">RikiTraki</a>
+        </div>
+        <div id="navbarCollapse" class="collapse navbar-collapse">
+          <ul class="nav navbar-nav">
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Go to <span class="caret"></span></a>
+              <ul id="goto-menu" class="dropdown-menu scrollable-menu" role="menu">
+              </ul>
+            </li>
+          </ul>
+          <ul class="nav navbar-nav">
+            <li>
+              <a data-toggle="collapse" id="tracks-btn" role="button" href="#" data-target="#trackstModal">Tracks</a>
+            </li>
+          </ul>
+          <ul id="mapGlobeButton" class="nav navbar-nav">
+          </ul>
+          <ul class="nav navbar-nav navbar-right">
+            <li>
+              <a data-toggle="collapse" id="about-btn" role="button" href="#" data-target="#aboutModal">About</a>
+            </li>
+          </ul>
+          <ul class="nav navbar-nav navbar-right nav-pills">
+            <li>
+              <a href="#" id="fb-btn" title="Share on Facebook" class="btn btn-social-icon btn-facebook">
+                <i class="fa fa-facebook"></i>
+              </a>
+            </li>
+            <li>
+              <a href="https://twitter.com/" title="Share on Twitter" class="btn btn-social-icon btn-twitter custom-tweet-button">
+                <i class="fa fa-twitter"></i>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal fade" id="tracksModal" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
+      <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+            <h3 class="modal-title">Track List</h3>
+            <input type="text" class="form-control" id="tracksSearch" placeholder="Search..." />
+          </div>
+          <div>
+            <table id="tracksTable" class="table table-condensed table-hover">
+              <thead>
+                 <tr>
+                  <th data-sort="string" data-sort-default="desc">&#10029;</th>
+                  <th data-sort="string">Track</th>
+                  <th data-sort="string">Difficulty</th>
+                  <th data-sort="string">Region</th>
+                  <th style="display:none">TrackId</th>
+                </tr>
+             </thead>
+              <tbody>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal fade" id="aboutModal" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
+      <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+            <h3 class="modal-title">RikiTraki</h3><b>v0.1.5<sup>Alpha</sup> by Ricardo Morin</b>
+          </div>
+          <div class="modal-body">
+            <h4>About this site</h4>
+            Welcome to my personal hiking log.
+            Feel free to use the slippy map to explore our hiking experiences and learn more about their locations. Tracks, markers and photos
+            are clickable. The controls at the top left part of the map provide for zooming, base map and layer display control. The control at the bottom left
+            is an interactive elevation profile widget. The track label at the top right provides track information and a slide show (if pictures are available.)<br><br>
+            <b>This is a work in progress.</b> Please forgive the bugs and omissions. I will be adding tracks to the site and continue testing and enhancing it over time.<br><br>
+            Photos by:<a href="http://hildemorin.aminus3.com/portfolio" target="_blank"> Hilde Morin</a>
+            <div>
+              <h4>Feedback and questions are greatly appreciated</h4>
+              <a href="https://twitter.com/intent/tweet?screen_name=jimmieangel" class="twitter-mention-button" data-related="jimmieangel">Tweet to @jimmieangel</a>
+              <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');
+              </script>
+            </div> <!-- feedback -->
+            <hr>
+            <a class="btn btn-default" data-toggle="collapse" href="#buildingBlocks" aria-expanded="false" aria-controls="collapseExample">Geek info...</a>
+            <div class="collapse" id="buildingBlocks">
+            <h4>Building blocks</h4>
+              This project uses free and open source components and data as shown below.<br><br>
+              <b>Core mapping framework:</b>
+              <ul>
+               <li>The powerful <a href="http://leafletjs.com/" target="_blank">Leaflet</a> Javascript library for projection maps</li>
+               <li>The amazing <a href="http://cesiumjs.org/" target="_blank">Cesium</a> Javascript library for globe and 3D mapping</li>
+              </ul>
+              <b>Components and plugins:</b>
+                <ul>
+                  <li><a href="http://getbootstrap.com/" target="_blank">Bootstrap</a> for mobile friendly navigation bar and dialogs</li>
+                  <li><a href="https://jquery.com/" target="_blank">jQuery</a> mobile-friendly Javascript utility library</li>
+                  <li><a href="https://github.com/MrMufflon/Leaflet.Elevation" target="_blank">Leaflet.Elevation</a> to display trail elevation profile</li>
+                  <li><a href="https://github.com/jseppi/Leaflet.MakiMarkers" target="_blank">Leaflet.MakiMarkers</a> to display nice Maki icons in markers</li>
+                  <li><a href="http://fortawesome.github.io/Font-Awesome/" target="_blank">Font Awesome</a> icons</li>
+                  <li><a href="https://icomoon.io/" target="_blank">IcoMoon</a> icons</li>
+                  <li><a href="http://lokeshdhakar.com/projects/lightbox2/" target="_blank">Lightbox2</a> to display pictures and slideshow</li>
+                  <li><a href="https://github.com/mapbox/leaflet-omnivore" target="_blank">Omnivore</a> plug-in to consume GPS tracks in .GPX format</li>
+                  <li><a href="http://spin.js.org/" target="_blank">spin.js</a> spinning activity indicator</li>
+                  <li><a href="http://joequery.github.io/Stupid-Table-Plugin/" target="_blank">Stupid-table-plugin</a> super simple table sort plug-in</li>
+                  <li><a href="http://publicdomainvectors.org/" target="_blank">publicdomainvectors.org</a> public domain icons</li>
+               </ul>
+              <b>Base maps:</b>
+                <ul>
+                  <li><a href="http://www.thunderforest.com/" target="_blank">Thunderforest</a> outdoors map that shows topographic features and information relevant to hiking</li>
+                  <li><a href="http://openstreetmap.org" target="_blank">Open Street Map</a> that shows roads, labels and geographic features</li>
+                  <li><a href="http://www.arcgis.com/home/item.html?id=10df2279f9684e4a9f6a7f08febac2a9" target="_blank">ESRI World Imagery</a> to show satellite and aerial imagery</li>
+                  <li><a href="http://www.usgs.gov/" target="_blank">US Geological Service</a> official topographic map for the US only</li>
+                  <li><a href="http://www.arcgis.com/home/item.html?id=99cd5fbd98934028802b4f797c4b1732" target="_blank">ESRI USA Topo Maps</a> that present detailed topographic maps for the US only</li>
+                </ul>
+            </div>
+          </div> <!-- modal body -->
+        </div> <!-- modal content -->
+      </div> <!-- modal dialog -->
+    </div> <!-- modal -->
+
+    <div id="map"></div>
+    <div id="globe" class="leaflet-container" style="position: relative;">
+      <div>
+        <div class="leaflet-top leaflet-left">
+          <div class="leaflet-bar leaflet-control">
+            <a class="leaflet-control-zoom-in" href="#" title="Zoom in">+</a>
+            <a class="leaflet-control-zoom-out" href="#" title="Zoom out">-</a>
+          </div>
+          <div class="leaflet-control leaflet-bar">
+            <a id="globe-control-refresh" href="#" title="Reset view"><span class="glyphicon glyphicon-refresh" aria-hidden="true"></span></a>
+          </div>
+          <div class="leaflet-control leaflet-bar">
+            <a id="globe-control-north" href="#" title="North">N</a>
+          </div>
+        </div>
+        <div id="infoPanel" class="leaflet-top leaflet-right">
+        </div>
+        <div class="leaflet-bottom leaflet-right">
+          <div class="help3d leaflet-control" style="display: none;"><div>Control-Drag to rotate and tilt</div></div>
+          <div id="creditContainer" class="leaflet-control-attribution leaflet-control"></div>
+        </div>
+      </div>
+      <div id="trackPopUp" style="display: none;">
+        <div id="trackPopUpContent" class="leaflet-popup" style="z-index: 10;">
+          <a class="leaflet-popup-close-button" href="#">×</a>
+          <div class="leaflet-popup-content-wrapper">
+            <div id="trackPopUpLink" class="leaflet-popup-content" style="max-width: 300px;">
+            </div>
+          </div>
+            <div class="leaflet-popup-tip-container">
+              <div class="leaflet-popup-tip"></div>
+            </div>
+        </div>
+      </div>
+   </div>
+
+    <!-- bower:js -->
+    <script src="bower_components/jquery/dist/jquery.js"></script>
+    <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
+    <script src="bower_components/leaflet/dist/leaflet.js"></script>
+    <script src="bower_components/leaflet/dist/leaflet-src.js"></script>
+    <script src="bower_components/leaflet-omnivore/leaflet-omnivore.js"></script>
+    <script src="bower_components/d3/d3.js"></script>
+    <script src="bower_components/leaflet.elevation/dist/Leaflet.Elevation-0.0.4.min.js"></script>
+    <script src="bower_components/leaflet.elevation/dist/Leaflet.Elevation-0.0.4.src.js"></script>
+    <script src="bower_components/Leaflet.MakiMarkers/Leaflet.MakiMarkers.js"></script>
+    <script src="bower_components/leaflet.markercluster/dist/leaflet.markercluster-src.js"></script>
+    <script src="bower_components/spin.js/spin.js"></script>
+    <script src="bower_components/jquery-stupid-table/stupidtable.min.js"></script>
+    <script src="bower_components/lightbox2/dist/js/lightbox.js"></script>
+    <!-- endbower -->
+    <!-- For Globe -->
+    <script src="components/Cesium/Cesium.js"></script>
+    <!-- build: use this block later with processhtml to prepare dist -->
+    <script src="bower_components/spin.js/jquery.spin.js"></script>    
+    <script src="js/config.js"></script>
+    <script src="js/utils.js"></script>
+    <script src="js/data.js"></script>
+    <script src="js/mapper.js"></script>
+    <script src="js/main.js"></script>
+    <!-- endbuild -->
+
+</body>
+</html>

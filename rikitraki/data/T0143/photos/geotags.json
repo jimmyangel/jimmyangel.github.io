@@ -1,0 +1,25 @@
+{
+	"geoTags": {
+		"trackId": "T0143",
+		"trackPhotos": [
+			{
+				"picName": "SAM_4999.jpg",
+				"picThumb": "thumbSAM_4999.jpg",
+				"picLatLng": [
+					48.796479,
+					-113.657988
+				],
+				"picCaption": "The view from Swiftcurrent Lake"
+			},
+			{
+				"picName": "SAM_5004.jpg",
+				"picThumb": "thumbSAM_5004.jpg",
+				"picLatLng": [
+					48.779889,
+					-113.67679
+				],
+				"picCaption": "The view from Lake Josephine"
+			}
+		]
+	}
+}

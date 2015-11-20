@@ -1,0 +1,70 @@
+{
+	"geoTags": {
+		"trackId": "T0144",
+		"trackPhotos": [
+			{
+				"picName": "2015-08-13-15-43-02.jpg",
+				"picThumb": "thumb2015-08-13-15-43-02.jpg",
+				"picLatLng": [
+					45.409386,
+					-121.698509
+				],
+				"picCaption": "Approaching Elk Cove"
+			},
+			{
+				"picName": "2015-08-13-16-14-41.jpg",
+				"picThumb": "thumb2015-08-13-16-14-41.jpg",
+				"picLatLng": [
+					45.407311,
+					-121.698913
+				],
+				"picCaption": "Elk Cove"
+			},
+			{
+				"picName": "2015-08-13-16-20-16.jpg",
+				"picThumb": "thumb2015-08-13-16-20-16.jpg",
+				"picLatLng": [
+					45.407225,
+					-121.699442
+				],
+				"picCaption": "Elk Cove"
+			},
+			{
+				"picName": "2015-08-13-16-53-54.jpg",
+				"picThumb": "thumb2015-08-13-16-53-54.jpg",
+				"picLatLng": [
+					45.409731,
+					-121.696734
+				],
+				"picCaption": "Elk Cove and the Coe Glacier"
+			},
+			{
+				"picName": "2015-08-13-17-31-35.jpg",
+				"picThumb": "thumb2015-08-13-17-31-35.jpg",
+				"picLatLng": [
+					45.418644,
+					-121.69141
+				],
+				"picCaption": "Huckleberries!"
+			},
+			{
+				"picName": "2015-08-13-18-19-14.jpg",
+				"picThumb": "thumb2015-08-13-18-19-14.jpg",
+				"picLatLng": [
+					45.42712,
+					-121.682042
+				],
+				"picCaption": "A devastating fire"
+			},
+			{
+				"picName": "2015-08-13-18-24-02.jpg",
+				"picThumb": "thumb2015-08-13-18-24-02.jpg",
+				"picLatLng": [
+					45.427402,
+					-121.680506
+				],
+				"picCaption": "Coe Glacier from the Coe overlook"
+			}
+		]
+	}
+}

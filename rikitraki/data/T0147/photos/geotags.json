@@ -1,0 +1,76 @@
+{
+	"geoTags": {
+		"trackId": "T0147",
+		"trackPhotos": [
+			{
+				"picName": "09290011.jpg",
+				"picThumb": "thumb09290011.jpg",
+				"picLatLng": [
+					47.260952,
+					4.676144
+				],
+				"picCaption": "At the start of the hike"
+			},
+			{
+				"picName": "09290013.jpg",
+				"picThumb": "thumb09290013.jpg",
+				"picLatLng": [
+					47.259019,
+					4.679653
+				],
+				"picCaption": "Climbing up the hill"
+			},
+			{
+				"picName": "09290025.jpg",
+				"picThumb": "thumb09290025.jpg",
+				"picLatLng": [
+					47.257247,
+					4.681688
+				],
+				"picCaption": "Le Château de Loizerolle"
+			},
+			{
+				"picName": "09290029.jpg",
+				"picThumb": "thumb09290029.jpg",
+				"picLatLng": [
+					47.21975,
+					4.639442
+				],
+				"picCaption": "View from the Château de Châteauneuf (Canal de Borgogne at the top left)"
+			},
+			{
+				"picName": "09290042.jpg",
+				"picThumb": "thumb09290042.jpg",
+				"picLatLng": [
+					47.217636,
+					4.639811
+				],
+				"picCaption": "Château de Châteauneuf-en-Auxois"
+			},
+			{
+				"picName": "09290063.jpg",
+				"picThumb": "thumb09290063.jpg",
+				"picLatLng": [
+					47.229511,
+					4.643598
+				],
+				"picCaption": "Ruins of the Chapelle de Saint Julien"
+			},
+			{
+				"picName": "09290081.jpg",
+				"picThumb": "thumb09290081.jpg",
+				"picLatLng": [
+					47.250725,
+					4.634369
+				],
+				"picCaption": "Réservoir de Panthier"
+			},
+			{
+				"picName": "2015-09-29-17.54.58.jpg",
+				"picThumb": "thumb2015-09-29-17.54.58.jpg",
+				"picLatLng": [47.25605, 4.64854],
+				"picCaption": "Château de Commarin"
+			}
+		]
+	}
+}
