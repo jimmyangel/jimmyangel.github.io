@@ -10,7 +10,7 @@ In my blog, I will discuss RikiTraki, but I will likely include all kinds of ran
 
 ### More Information
 
-I live in beautiful Portland, Oregon. I used to work for [Intel Corporation](http://intel.com) and I retired in March, 2015.
+I live in beautiful Portland, Oregon. I used to work for [Intel Corporation](http://intel.com) and I retired in March, 2015. I am now freelancing and doing my own stuff.
 
 I was born in Caracas, Venezuela, and immigrated to these great United States of America in 1986.
 
