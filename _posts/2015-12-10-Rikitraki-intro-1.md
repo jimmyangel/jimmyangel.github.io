@@ -33,7 +33,7 @@ Now let's take a deeper look at the left side of the menu bar. Clicking on the R
 
 ![RikiTraki]({{site.baseurl}}/images/posts/2015-12-10/rikitraki_main_4.png)
 
-Click on the little globe icon to see the trail markes over a 3D globe representation. You can zoom, pan and click on the yellow dots, each one of which represents a track. If they overlap, instead of a single track, you will see a list. On the top left corner, below the +/- zoom buttons, there is a reload button and an "N" button that reorients the globe with the north on top.
+Click on the little globe icon to see the trail markers over a 3D globe representation. You can zoom, pan and click on the yellow dots, each one of which represents a track. If they overlap, instead of a single track, you will see a list. On the top left corner, below the +/- zoom buttons, there is a reload button and an "N" button that reorients the globe with the north on top.
 
 ![RikiTraki]({{site.baseurl}}/images/posts/2015-12-10/rikitraki_main_5.png)
 
@@ -41,7 +41,7 @@ Just click on the small chart icon ![RikiTraki]({{site.baseurl}}/images/posts/20
 
 On my next post, I will continue describing the functions shown in the menu bar. In the meantime please go ahead and explore the site, and send me your feedback.
 
-Ah, and when you find a bug, I would really appreciate if you let me know. The site is deisnged to work on modern browser both on PCs and mobile but I have limited ability to test a bunch of combinations. So if you see something weird, please send me a message.
+Ah, and when you find a bug, I would really appreciate if you let me know. The site is designed to work on modern browser both on PCs and mobile but I have limited ability to test a bunch of combinations. So if you see something weird, please send me a message.
 
 Until my next post...
 
