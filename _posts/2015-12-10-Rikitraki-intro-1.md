@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Welcome to RikiTraki!
+title: Welcome to RikiTraki! (Part 1)
 ---
 
 ### I built [RikiTraki](https://www.rikitraki.com) to collect and share GPS tracks 
@@ -43,5 +43,5 @@ On my next post, I will continue describing the functions shown in the menu bar.
 
 Ah, and when you find a bug, I would really appreciate if you let me know. The site is designed to work on modern browser both on PCs and mobile but I have limited ability to test a bunch of combinations. So if you see something weird, please send me a message.
 
-Until my next post...
+Until my next post ([Part 2]({{site.baseurl}}/Rikitraki-intro-2)) ...
 
