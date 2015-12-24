@@ -15,7 +15,7 @@ Here is the filter dialog:
 
 ![RikiTraki]({{site.baseurl}}/images/posts/2015-12-23/rikitraki_main_9.png)
 
-You can filter tracks by username, only favorites, by difficulty, by activity and by region tags (country and region). If more than one item is user to filter, it is applied in a way to further narrows the filter (i.e., AND fashion). For example, selecting favorite and "United States" will select only favorite tracks in the US. If you select multiple "By difficulty" and/or multiple "By activity" items, they actually expand the filter (i.e., OR fashion). For example, selecting "Easy" and "Moderate" will include both types of tracks in the selection.
+You can filter tracks by username, only favorites, by difficulty, by activity and by region tags (country and region). If more than one item is used to filter, it is applied in a way to further narrows the filter (i.e., AND fashion). For example, selecting favorite and "United States" will select only favorite tracks in the US. If you select multiple "By difficulty" and/or multiple "By activity" items, they actually expand the filter (i.e., OR fashion). For example, selecting "Easy" and "Moderate" will include both types of tracks in the selection.
 
 If you are a registered user (more on that in future posts), selecting "Me" on the username will pre-fill the username field with your own username. It is not necessary to fully spell a username, just entering a few characters that the username begins with will do.
 
