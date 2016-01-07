@@ -55,7 +55,7 @@ Finally, the information button ![RikiTraki]({{site.baseurl}}/images/posts/2015-
 
 ---
 
-Ok, that's it for now. In my next post I will be delving into the track view.
+Ok, that's it for now. In my [next post]({{site.baseurl}}/Rikitraki-intro-3) I will be delving into the track view.
 
 Happy Holidays!
 
