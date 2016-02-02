@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<link rel="stylesheet" href="mailing/css/main.css" />
+	<link rel="stylesheet" href="mailing/css/animate.min.css" />
+</head>
+<body>
+	<h1>This is a test</h1>
+
+	Hi there!<br>
+	Here is my link: <a id="register-link" href="#">click me</a><br>
+
+	<div id="join-dialog" class="dialog">	
+		<div class="dialogContent animated bounceInUp">
+			<form id="join-dialog-form" action="javascript:postJoinFormData()" class="dialogForm">
+				<div>
+					<label class="dialogLabel">Please enter your email address to join my mailing list</label>
+				</div>
+				<div>
+					<input id="join-email" name="email" autocomplete="off" class="dialogInput" type="text" placeholder="Enter email address">
+				</div>
+				<div>
+					<button type="submit" class="dialogButton" disabled id="join-button">Join</button>
+					<button class="dialogButton" id="cancel-join-button">Cancel</button>
+				</div>
+				<div id='thank-you-msg' style="display:none;"><label><b>Thank you for joining!</b></label></div>
+			</form>
+		</div>
+	</div>
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+	<script src="mailing/js/mailinglist.js"></script>
+</body>
+</html>
