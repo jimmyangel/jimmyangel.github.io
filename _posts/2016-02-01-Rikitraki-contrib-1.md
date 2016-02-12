@@ -43,6 +43,6 @@ After registration, you are ready to add content!
 
 ---
 
-In my next post I will explain in detail how upload tracks and pictures.
+In my [next post]({{site.baseurl}}/Rikitraki-contrib-2) I will explain in detail how upload tracks and pictures.
 
 
