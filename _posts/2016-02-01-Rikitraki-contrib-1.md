@@ -5,7 +5,7 @@ title: Adding content to RikiTraki (Part 1)
 ---
 ### Ready to save content to RikiTraki to share with your friends?
 
-In [previous posts]({{site.baseurl}}/Rikitraki-intro-1) I described how to find and view tracks stored in the RikiTraki database. Now, I will walk through how to post your own tracks to visualize and share with others.
+In [previous posts]({{site.baseurl}}/Rikitraki-intro-1) I described how to find and view tracks stored in the [RikiTraki](https://www.rikitraki.com) database. Now, I will walk through how to post your own tracks to visualize and share with others.
 
 ### First, register
 

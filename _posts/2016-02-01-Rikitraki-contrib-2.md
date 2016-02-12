@@ -5,7 +5,7 @@ title: Adding content to RikiTraki (Part 2)
 ---
 ### Uploading a new track
 
-In my [previous post]({{site.baseurl}}/Rikitraki-contrib-1), I showed how to register to RikiTraki in order to enable track editing functionality. Now you are ready to upload and edit tracks.
+In my [previous post]({{site.baseurl}}/Rikitraki-contrib-1), I showed how to register to [RikiTraki](https://www.rikitraki.com) in order to enable track editing functionality. Now you are ready to upload and edit tracks.
 
 To post a new track, click on the "Upload track" icon ![RikiTraki]({{site.baseurl}}/images/posts/2016-02-11/rikitraki_contrib_7.png) on the left side of the menu bar to trigger the "Track upload" dialog:
 
