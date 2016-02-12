@@ -87,6 +87,6 @@ To go back to the 2D view, just click on the 2D button or on the title track on 
 
 This is the end of the Welcome to RikiTraki Series. Please go ahead and explore the tracks and let me know if you have any questions, feedback or suggestions to improve this application.
 
-Coming up, RikiTraki for contributors.
+Coming up, [RikiTraki for contributors]({{site.baseurl}}/Rikitraki-contrib-1).
 
 
