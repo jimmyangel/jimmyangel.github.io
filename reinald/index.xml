@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Reinald Arte Funcional</title>
+    <link>http://reinaldvandewalle.com/</link>
+    <description>Recent content on Reinald Arte Funcional</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>es</language>
+    <lastBuildDate>Wed, 02 Mar 2016 14:57:01 -0800</lastBuildDate>
+    <atom:link href="http://reinaldvandewalle.com/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Cajas de madera</title>
+      <link>http://reinaldvandewalle.com/galleries/madera/</link>
+      <pubDate>Wed, 02 Mar 2016 14:57:01 -0800</pubDate>
+      
+      <guid>http://reinaldvandewalle.com/galleries/madera/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Perritos</title>
+      <link>http://reinaldvandewalle.com/galleries/muebles/</link>
+      <pubDate>Wed, 02 Mar 2016 14:57:01 -0800</pubDate>
+      
+      <guid>http://reinaldvandewalle.com/galleries/muebles/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Repisas</title>
+      <link>http://reinaldvandewalle.com/galleries/repisas/</link>
+      <pubDate>Wed, 02 Mar 2016 14:57:01 -0800</pubDate>
+      
+      <guid>http://reinaldvandewalle.com/galleries/repisas/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>
