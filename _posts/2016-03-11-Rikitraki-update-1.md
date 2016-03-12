@@ -51,7 +51,7 @@ The Australian outback hat is a great symbol of the outdoors, and I always wear 
 
 ---
 
-Ok, that's it for now. Ah! and I have an exciting announcement to make... stay tuned.
+Ok, that's it for now. Ah! and I have an exciting announcement to make soon... stay tuned.
  
 
 
