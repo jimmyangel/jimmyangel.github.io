@@ -27,7 +27,7 @@ This is a feature I always wanted to have in [RikiTraki](https://www.rikitraki.c
 
 To use it, all you have to do is go to the 3D view of a specific track and click on the "Play" control ![RikiTraki]({{site.baseurl}}/images/posts/2016-03-11/vDronePlay.png) on the top left part of the visualization area. This action will trigger the animation, which can be paused ![RikiTraki]({{site.baseurl}}/images/posts/2016-03-11/vDronePause.png) at any time .
 
-You can control the position of of the view camera by just dragging the cursor. Zoom in/out with using the zoom control, or the mouse wheel, or the two-finger gesture on a trackpad.
+You can control the position of the view camera by just dragging the cursor. Zoom in/out with using the zoom control, or the mouse wheel, or the two-finger gesture on a trackpad.
 
 To speed up the animation, click on the "Faster" ![RikiTraki]({{site.baseurl}}/images/posts/2016-03-11/vDroneFaster.png) control and to slow it down, use the "Slower" ![RikiTraki]({{site.baseurl}}/images/posts/2016-03-11/vDroneSlower.png) control. Use the "Reset view" ![RikiTraki]({{site.baseurl}}/images/posts/2016-03-11/vDroneReset.png) control to start over.
 
