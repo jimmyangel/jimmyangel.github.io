@@ -1,6 +1,6 @@
 # jimmyangel.github.io
 
-This is the Github web site where I host my personal blog, tests and experiments. Besides my blog, here are some other things ...
+This is the Github web site where I host my personal blog, tests and experiments. Besides my blog, here are some other things...
 
 * [RikiTraki alpha](http://jimmyangel.github.io/rikitraki/) - My original personal hiking log. Alpha version of [RikiTraki](https://www.rikitraki.com).
 
