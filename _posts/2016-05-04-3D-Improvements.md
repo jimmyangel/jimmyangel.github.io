@@ -18,6 +18,6 @@ This is just a brief post summarizing a few improvements I implemented recently 
 
 * Browser Back and Forward without reload
 
-Next post, a summary of my [FOSS4G-NA](https://2016.foss4g-na.org/) experience.
+On my [next entry]({{site.baseurl}}/FOSS4GNA-update) I will post my [FOSS4G-NA](https://2016.foss4g-na.org/) presentation materials.
 
 
