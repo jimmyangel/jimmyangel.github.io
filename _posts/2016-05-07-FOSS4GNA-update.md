@@ -20,7 +20,7 @@ I think the presentation went well. Even though it was a pretty short endeavor, 
 
 There wasn't much time for questions/answers but some folks approached me afterwards, and I was happy to address their queries. I also received some valuable feedback that will lead to some improvements in [RikiTraki](https://www.rikitraki.com).
 
-I am super grateful to the [FOSS4G-NA](https://2016.foss4g-na.org/) organizers for selecting my presentation to be part of the program. It was an honor to be able to speak at such a cool event. I am especially grateful to Patrick Cozzi [@pjcozzi](https://twitter.com/pjcozzi) of [Cesium](http://cesiumjs.org/) for suggesting me to submit an entry in the first place. Thank you all!
+I am super grateful to the [FOSS4G-NA](https://2016.foss4g-na.org/) organizers for selecting my presentation to be part of the program. It was an honor to be able to speak at such a cool event. I am especially grateful to [Sarah Chow](https://www.linkedin.com/in/s1chow) and Patrick Cozzi [@pjcozzi](https://twitter.com/pjcozzi) of [Cesium](http://cesiumjs.org/) for suggesting me to submit an entry in the first place. Thank you all!
 
 In my next post, I will give a summary of my overall [FOSS4G-NA](https://2016.foss4g-na.org/) experience.
 
