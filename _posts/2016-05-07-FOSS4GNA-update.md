@@ -6,7 +6,7 @@ title: RikiTraki Presentation at FOSS4G NA
 ### The final presentation materials of [RikiTraki](https://www.rikitraki.com) at [FOSS4G NA](https://2016.foss4g-na.org/session/visualizing-gps-tracks-rikitraki) are available here
 
 ---
-Before I report of my FOSS4G NA experiences including a quick summary of my favorite talks, I am posting here my final presentation slides:
+Before I report of my FOSS4G NA experiences including a quick summary of my favorite talks, here I am posting my final presentation slides:
 
 [![Presentation]({{site.baseurl}}/images/posts/2016-05-07/FOSS4GNA2016Morin.jpg)]({{site.baseurl}}/docs/FOSS4GNA2016Morin.pdf)
 
