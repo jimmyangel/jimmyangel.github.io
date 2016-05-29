@@ -20,6 +20,4 @@ Note that by specifying the width in percentage instead of pixels, [RikiTraki](h
 
 I hope this trick is helpful. Feel free to comment below or send me a tweet if you have any questions.
 
-Ah and as promised, in my next post, I will give summary of my overall [FOSS4G-NA](https://2016.foss4g-na.org/) experience.
-
-
+Ah and as promised, in my next post, I will give a summary of my overall [FOSS4G-NA](https://2016.foss4g-na.org/) experience.
