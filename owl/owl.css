@@ -16,6 +16,11 @@ html, body, #cesiumContainer {
   font-family: sans-serif;
   padding: 4px;
   border-radius: 5px;
+  max-width: 50%;
+}
+
+.credit {
+  font-size: 70%;
 }
 
 .loadingIndicator {
@@ -40,9 +45,9 @@ html, body, #cesiumContainer {
 }
 
 .blue {
-  background: #0E4194;
+  background: #0070ff;
 }
 
 .green {
-  background: #3AAB0E;
+  background: #55ff00;
 }
