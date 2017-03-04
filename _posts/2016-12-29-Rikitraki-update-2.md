@@ -3,7 +3,7 @@ layout: post
 title: Rikitraki Update
 
 ---
-### It has been a long time since my last post. Here is an update.
+### It has been a long time since my last post. Here is an update...
 
 Wow, I can't believe that my last post was back in July. I have been pretty busy with some consulting work I am doing in the Internet of Things (IoT) field. Pretty exciting! But I am committed to continuing supporting and improving [RikiTraki](https://www.rikitraki.com)...
 
