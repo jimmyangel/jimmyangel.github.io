@@ -11,5 +11,3 @@ This is just the beginning of a project I will be developing incrementally. I wi
 
 I am really excited about this project. Stay tuned!
 
----
-Ok, that's it for now. Happy New Year!
