@@ -25,8 +25,8 @@
     Cesium.BingMapsApi.defaultKey = 'AmN4YMNTJKsD0E-WG0AG935u5Cb1g92Z8SyCa1F-sJFAUppvyEMUJUrO2F-boadU';
 
     var dataSources = new Cesium.DataSourceCollection();
-    // Cesium.KmlDataSource.load('data/HoodNF_OG.kmz', {clampToGround: true}).then(function(dataSource) {
-    Cesium.GeoJsonDataSource.load('data/HoodNF_OG.geojson', {clampToGround: true}).then(function(dataSource) {
+    Cesium.GeoJsonDataSource.load('data/HoodNF_OG_simplified2.geojson', {clampToGround: true}).then(function(dataSource) {
+    //Cesium.GeoJsonDataSource.load('data/HoodNF_OG.geojson', {clampToGround: true}).then(function(dataSource) {
         dataSources.add(dataSource).then(function() {
           var viewer = new Cesium.Viewer('cesiumContainer', {
             animation: false,
