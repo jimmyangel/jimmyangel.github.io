@@ -33,7 +33,8 @@
             timeline: false,
             //homeButton: false,
             scene3DOnly: true,
-            dataSources: dataSources
+            dataSources: dataSources,
+            terrainExaggeration: 2
           });
           viewer.scene.postRender.addEventListener(function()  {
             loadingIndicator.style.display = 'none';
