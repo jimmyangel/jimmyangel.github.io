@@ -1,9 +1,9 @@
 ---
 layout: post
-title: Owl Prototype
+title: howl Prototype
 
 ---
-### So what is [this](http://blog.rikitraki.com/owl/)?
+### So what is [this](http://blog.rikitraki.com/howl-proto/og.html)?
 
 It is a small prototype for visualizing one of the old growth forest data sets published by the [Oregon Wild site](http://www.oregonwild.org/oregon_forests/map-gallery-1/interactive-old-growth-maps) using the web-based [Cesium.js](https://cesiumjs.org/) virtual globe and map engine. The prototype shows old growth areas in the Mount Hood National Forest in Oregon.
 
