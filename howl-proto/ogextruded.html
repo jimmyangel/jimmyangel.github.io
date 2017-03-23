@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Use correct character set. -->
+  <meta charset="utf-8">
+  <!-- Tell IE to use the latest, best version. -->
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <!-- Make the application on mobile take up the full browser screen and disable user scaling. -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
+  <link rel="stylesheet" href="owl.css" media="screen">
+  <title>howl</title>
+  <script src="Cesium/Cesium.js"></script>
+
+</head>
+<body>
+  <div id="cesiumContainer"></div>
+  <div id="label">
+    <b>Old Growth at Mount Hood National Forest</b><hr>
+    <div class="lbox blue"></div>Mature forests 80-120 years of age<br><div class="lbox green"></div>Old-Growth Forests 120+ years of age<br>
+    <div class="credit"><br>March 2017 - <a href="http://blog.rikitraki.com/owl-prototype/">OWL Prototype</a> - Data Source: <a href="http://www.oregonwild.org/oregon_forests/map-gallery-1/interactive-old-growth-maps">Oregon Wild</a></div>
+  </div>
+  <div id="loadingIndicator" class="loadingIndicator"></div>
+  <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+  <script>
+    var loadingIndicator = document.getElementById('loadingIndicator');
+    Cesium.BingMapsApi.defaultKey = 'AmN4YMNTJKsD0E-WG0AG935u5Cb1g92Z8SyCa1F-sJFAUppvyEMUJUrO2F-boadU';
+    var dataSources = new Cesium.DataSourceCollection();
+
+    $.getJSON( "data/HoodNF_OG_simplified2_h.geojson", function(data) {
+
+
+      Cesium.GeoJsonDataSource.load(data).then(function(dataSource) {
+        dataSources.add(dataSource).then(function() {
+          var ex = 2;
+
+          var viewer = new Cesium.Viewer('cesiumContainer', {
+            animation: false,
+            timeline: false,
+            //homeButton: false,
+            scene3DOnly: true,
+            dataSources: dataSources,
+            terrainExaggeration: ex
+          });
+          viewer.scene.postRender.addEventListener(function()  {
+            loadingIndicator.style.display = 'none';
+          });
+          viewer.scene.globe.depthTestAgainstTerrain = true;
+          viewer.terrainProvider = new Cesium.CesiumTerrainProvider({url : 'https://assets.agi.com/stk-terrain/world'});
+
+          dataSource.entities.values.forEach(function(value) {
+            //console.log(value.name);
+            var o = (value.name === '3') ? 600 : 200;
+            if (value.polygon) {
+              var cart;
+              value.polygon.hierarchy.getValue().positions.forEach(function(p, i) {
+                cart = Cesium.Cartographic.fromCartesian(p);
+                value.polygon.hierarchy.getValue().positions[i] = Cesium.Cartesian3.fromRadians(cart.longitude, cart.latitude, ex*(cart.height + o));
+                //console.log(i);
+              });
+              value.polygon.hierarchy.getValue().holes.forEach(function(p, i) {
+                cart = Cesium.Cartographic.fromCartesian(p);
+                value.polygon.hierarchy.getValue().holes[i] = Cesium.Cartesian3.fromRadians(cart.longitude, cart.latitude, ex*(cart.height + o));
+              });
+              value.polygon.perPositionHeight = true;
+              value.polygon.extrudedHeight = ex*200;
+              var color = value.polygon.material.color.getValue();
+              color.alpha = 1;
+              value.polygon.material.color.setValue(color);
+              value.polygon.outline = true;
+              value.polygon.outlineColor = Cesium.Color.DARKGREEN;
+            }
+
+          });
+
+          viewer.flyTo(dataSource);
+          viewer.homeButton.viewModel.command.beforeExecute.addEventListener(function(commandInfo){
+            viewer.flyTo(dataSource);
+            commandInfo.cancel = true;
+          });
+        });
+      });
+
+    });
+
+  </script>
+</body>
+</html>

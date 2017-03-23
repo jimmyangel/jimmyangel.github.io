@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Use correct character set. -->
+  <meta charset="utf-8">
+  <!-- Tell IE to use the latest, best version. -->
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <!-- Make the application on mobile take up the full browser screen and disable user scaling. -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
+  <link rel="stylesheet" href="owl.css" media="screen">
+  <title>owl</title>
+  <script src="Cesium/Cesium.js"></script>
+
+</head>
+<body>
+  <div id="cesiumContainer"></div>
+  <div id="label">
+    <b>Old Growth at Mount Hood National Forest</b><hr>
+    <div class="lbox blue"></div>Mature forests 80-120 years of age<br><div class="lbox green"></div>Old-Growth Forests 120+ years of age<br>
+    <div class="credit"><br>March 2017 - <a href="http://blog.rikitraki.com/owl-prototype/">OWL Prototype</a> - Data Source: <a href="http://www.oregonwild.org/oregon_forests/map-gallery-1/interactive-old-growth-maps">Oregon Wild</a></div>
+  </div>
+  <div id="loadingIndicator" class="loadingIndicator"></div>
+  <script>
+    var loadingIndicator = document.getElementById('loadingIndicator');
+    Cesium.BingMapsApi.defaultKey = 'AmN4YMNTJKsD0E-WG0AG935u5Cb1g92Z8SyCa1F-sJFAUppvyEMUJUrO2F-boadU';
+
+    var dataSources = new Cesium.DataSourceCollection();
+    Cesium.GeoJsonDataSource.load('data/x.json').then(function(dataSource) {
+    //Cesium.GeoJsonDataSource.load('data/HoodNF_OG.geojson', {clampToGround: true}).then(function(dataSource) {
+        dataSources.add(dataSource).then(function() {
+          var viewer = new Cesium.Viewer('cesiumContainer', {
+            animation: false,
+            timeline: false,
+            //homeButton: false,
+            scene3DOnly: true,
+            dataSources: dataSources
+          });
+          viewer.scene.postRender.addEventListener(function()  {
+            loadingIndicator.style.display = 'none';
+          });
+          viewer.scene.globe.depthTestAgainstTerrain = true;
+          viewer.terrainProvider = new Cesium.CesiumTerrainProvider({url : 'https://assets.agi.com/stk-terrain/world'});
+          // console.log(dataSource.entities.values[0]);
+          //console.log(dataSource.entities);
+          dataSource.entities.values.forEach(function(value) {
+
+              var positions = value.polygon.hierarchy.getValue().positions;
+
+              var terrainSamplePositions = [];
+              positions.forEach(function(p) {
+                  terrainSamplePositions.push(Cesium.Cartographic.fromCartesian(p));
+              });
+              console.log(value.polygon.material.getValue().color);
+              value.polygon.material.color = new Cesium.Color.fromAlpha(value.polygon.material.getValue().color, 1.0);
+
+              Cesium.when(Cesium.sampleTerrain(viewer.terrainProvider, 11, terrainSamplePositions), function() {
+
+                if (value.name === '3') {
+                  terrainSamplePositions.forEach(function(element) {
+                    element.height = element.height + 100;
+                  });
+                  value.polygon.extrudedHeight=0;
+                  value.polygon.closeTop=true;
+                }
+                var cartesians = viewer.scene.globe.ellipsoid.cartographicArrayToCartesianArray(terrainSamplePositions);
+                //console.log(cartesians);
+
+                //console.log(value.polygon.hierarchy);
+                //value.polygon.extrudedHeight=0;
+                value.polygon.hierarchy = new Cesium.PolygonHierarchy(cartesians);
+                value.polygon.perPositionHeight=true;
+                //value.polygon.hierarchy.setValue().cartesians;
+                //console.log(cartesians);
+              });
+          });
+          viewer.flyTo(dataSource);
+          viewer.homeButton.viewModel.command.beforeExecute.addEventListener(function(commandInfo){
+            viewer.flyTo(dataSource);
+            commandInfo.cancel = true;
+          });
+      });
+    });
+  </script>
+</body>
+</html>
