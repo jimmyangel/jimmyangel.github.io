@@ -49,5 +49,13 @@ html, body, #cesiumContainer {
 }
 
 .green {
-  background: #55ff00;
+  background: #0D6101;
+}
+
+.yellow {
+  background: #FFFF0B;
+}
+
+.lgreen {
+  background: #8CC58A;
 }

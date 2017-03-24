@@ -16,82 +16,55 @@
   <div id="cesiumContainer"></div>
   <div id="label">
     <b>Old Growth at Mount Hood National Forest</b><hr>
-    <div class="lbox lgreen"></div>Mature forests 80-120 years of age<br><div class="lbox green"></div>Old-Growth Forests 120+ years of age<br><div class="lbox yellow"></div>Clearcuts<br>
+    <div class="lbox blue"></div>Mature forests 80-120 years of age<br><div class="lbox green"></div>Old-Growth Forests 120+ years of age<br>
     <div class="credit"><br>March 2017 - <a href="http://blog.rikitraki.com/owl-prototype/">HOWL Prototype</a> - Data Source: <a href="http://www.oregonwild.org/oregon_forests/map-gallery-1/interactive-old-growth-maps">Oregon Wild</a></div>
   </div>
   <div id="loadingIndicator" class="loadingIndicator"></div>
-  <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
   <script>
     var loadingIndicator = document.getElementById('loadingIndicator');
     Cesium.BingMapsApi.defaultKey = 'AmN4YMNTJKsD0E-WG0AG935u5Cb1g92Z8SyCa1F-sJFAUppvyEMUJUrO2F-boadU';
     var dataSources = new Cesium.DataSourceCollection();
-
-    $.getJSON( "data/HoodNF_OG_simplified2_h.geojson", function(data) {
-
-
-      Cesium.GeoJsonDataSource.load(data).then(function(dataSource) {
+    Cesium.GeoJsonDataSource.load('data/MTBS/ID4571311651320140714ST.json').then(function(dataSource) {
         dataSources.add(dataSource).then(function() {
-          var ex = 2;
-
+          console.log(dataSource);
           var viewer = new Cesium.Viewer('cesiumContainer', {
             animation: false,
             timeline: false,
             //homeButton: false,
-            scene3DOnly: true,
+            //scene3DOnly: true,
             dataSources: dataSources,
-            terrainExaggeration: ex
+            terrainExaggeration: 2
           });
           viewer.scene.postRender.addEventListener(function()  {
             loadingIndicator.style.display = 'none';
           });
           viewer.scene.globe.depthTestAgainstTerrain = true;
           viewer.terrainProvider = new Cesium.CesiumTerrainProvider({url : 'https://assets.agi.com/stk-terrain/world'});
-
           dataSource.entities.values.forEach(function(value) {
-            //console.log(value.name);
-            var o = (value.name === '3') ? 600 : 200;
+            var o = 2000;
             if (value.polygon) {
               var cart;
               value.polygon.hierarchy.getValue().positions.forEach(function(p, i) {
                 cart = Cesium.Cartographic.fromCartesian(p);
-                value.polygon.hierarchy.getValue().positions[i] = Cesium.Cartesian3.fromRadians(cart.longitude, cart.latitude, ex*(cart.height + o));
-                //console.log(i);
-              });
-              value.polygon.hierarchy.getValue().holes.forEach(function(p, i) {
-                cart = Cesium.Cartographic.fromCartesian(p);
-                value.polygon.hierarchy.getValue().holes[i] = Cesium.Cartesian3.fromRadians(cart.longitude, cart.latitude, ex*(cart.height + o));
+                value.polygon.hierarchy.getValue().positions[i] = Cesium.Cartesian3.fromRadians(cart.longitude, cart.latitude, cart.height + o);
+                console.log(i);
               });
               value.polygon.perPositionHeight = true;
-              value.polygon.extrudedHeight = ex*200;
-              if (value.name === '3') {
-                value.polygon.material.color = Cesium.Color.DARKGREEN;
-              } else {
-              value.polygon.material.color = Cesium.Color.DARKSEAGREEN;
-              }
-              var color = value.polygon.material.color.getValue();
-              color.alpha = 1;
-              value.polygon.material.color.setValue(color);
+              value.polygon.extrudedHeight = 200;
               value.polygon.outline = true;
+              value.polygon.material = 'data/MTBS/ID4571311651320140714_burn_sev_cropped.png';
               value.polygon.outlineColor = Cesium.Color.DARKGREEN;
+              value.polygon.outlineWidth = 10;
+              console.log('polygon');
             }
-
           });
-
           viewer.flyTo(dataSource);
           viewer.homeButton.viewModel.command.beforeExecute.addEventListener(function(commandInfo){
             viewer.flyTo(dataSource);
-            commandInfo.cancel = true;
+          commandInfo.cancel = true;
           });
-        });
-        Cesium.GeoJsonDataSource.load('data/clear-cut-mt-hood-s.geojson', {clampToGround: true, fill: Cesium.Color.YELLOW,}).then(function(dataSource) {
-          dataSources.add(dataSource).then(function() {
-          });
-        });
-
       });
-
     });
-
   </script>
 </body>
 </html>
