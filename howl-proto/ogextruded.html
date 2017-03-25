@@ -49,7 +49,7 @@
 
           dataSource.entities.values.forEach(function(value) {
             //console.log(value.name);
-            var o = (value.name === '3') ? 600 : 200;
+            var o = (value.name === '3') ? 400 : 200;
             if (value.polygon) {
               var cart;
               value.polygon.hierarchy.getValue().positions.forEach(function(p, i) {
@@ -84,7 +84,7 @@
             commandInfo.cancel = true;
           });
         });
-        Cesium.GeoJsonDataSource.load('data/clear-cut-mt-hood.geojson', {clampToGround: true, fill: Cesium.Color.RED,}).then(function(dataSource) {
+        Cesium.GeoJsonDataSource.load('data/clear-cut-mt-hood-s1.geojson', {clampToGround: true, fill: Cesium.Color.RED,}).then(function(dataSource) {
           dataSources.add(dataSource).then(function() {
           });
         });
