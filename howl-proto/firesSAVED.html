@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Use correct character set. -->
+  <meta charset="utf-8">
+  <!-- Tell IE to use the latest, best version. -->
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <!-- Make the application on mobile take up the full browser screen and disable user scaling. -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
+  <link rel="stylesheet" href="owl.css" media="screen">
+  <title>howl</title>
+  <script src="Cesium/Cesium.js"></script>
+
+</head>
+<body>
+  <div id="cesiumContainer"></div>
+  <div id="label">
+    <b>Wildfires 1984-2014</b><hr>
+  </div>
+  <div id="loadingIndicator" class="loadingIndicator"></div>
+  <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+  <script>
+    var loadingIndicator = document.getElementById('loadingIndicator');
+    console.log('verga');
+
+    Cesium.BingMapsApi.defaultKey = 'AmN4YMNTJKsD0E-WG0AG935u5Cb1g92Z8SyCa1F-sJFAUppvyEMUJUrO2F-boadU';
+    var dataSources = new Cesium.DataSourceCollection();
+    $.getJSON( 'data/MTBS/MTBSCZML.json', function(data) {
+
+
+      Cesium.CzmlDataSource.load(data).then(function(dataSource) {
+        dataSources.add(dataSource).then(function() {
+
+          var viewer = new Cesium.Viewer('cesiumContainer', {
+            animation: true,
+            timeline: true,
+            //homeButton: false,
+            scene3DOnly: true,
+            dataSources: dataSources
+          });
+          console.log(dataSource);
+          viewer.clock.currentTime = Cesium.JulianDate.fromIso8601("1984-07-28T07:00:00.000Z");
+          viewer.clock.startTime = Cesium.JulianDate.fromIso8601("1984-07-28T07:00:00.000Z");
+          viewer.clock.stopTime = Cesium.JulianDate.fromIso8601("2014-12-31T23:59:59.999Z");
+          viewer.timeline.zoomTo(viewer.clock.startTime, viewer.clock.stopTime);
+          viewer.clock.multiplier = 1000000;
+          viewer.clock.shouldAnimate = false;
+
+          viewer.scene.postRender.addEventListener(function()  {
+            loadingIndicator.style.display = 'none';
+          });
+          //viewer.scene.globe.depthTestAgainstTerrain = true;
+          viewer.terrainProvider = new Cesium.CesiumTerrainProvider({url : 'https://assets.agi.com/stk-terrain/world'});
+
+          viewer.flyTo(dataSource);
+          viewer.homeButton.viewModel.command.beforeExecute.addEventListener(function(commandInfo){
+            viewer.flyTo(dataSource);
+            commandInfo.cancel = true;
+          });
+        });
+      });
+    });
+
+
+  </script>
+</body>
+</html>

@@ -1,0 +1,36 @@
+[
+  {
+    "id": "document",
+    "name": "MTBS",
+    "version": "1.0",
+    "clock": {
+      "interval": "1984-07-28T07:00:00.000Z/2014-12-31T23:59:59.999Z",
+      "currentTime": "1984-07-28T07:00:00.000Z",
+      "multiplier": 1000000,
+      "range": "LOOP_STOP",
+      "step": "SYSTEM_CLOCK_MULTIPLIER"
+    }
+  },
+  {
+    "id": "OR4229711891819840628",
+    "availability": "1984-07-28T07:00:00.000Z/1984-12-31T23:59:59.999Z",
+    "point": {
+      "pixelSize": 100,
+      "color": {
+        "rgba": [
+          0,
+          0,
+          255,
+          255
+        ]
+      }
+    },
+    "position": {
+      "cartographicDegrees": [
+        -118.918,
+        42.297,
+        1404.11
+      ]
+    }
+  }
+]

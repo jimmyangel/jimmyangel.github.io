@@ -1,0 +1,39 @@
+[
+  {
+    "id" : "document",
+    "name" : "Basic CZML billboard and label",
+    "version" : "1.0"
+  },
+  {
+    "id" : "some-unique-id",
+    "name" : "AGI",
+    "description" : "<p><a href='http://www.agi.com' target='_blank'>Analytical Graphics, Inc.</a> (AGI) founded Cesium.</p>",
+    "point" : {
+      "color" : {
+          "rgba" : [255, 255, 255, 255]
+      }
+    },
+    "label" : {
+        "fillColor" : {
+            "rgba" : [255, 255, 255, 255]
+        },
+        "font" : "12pt Lucida Console",
+        "horizontalOrigin" : "LEFT",
+        "pixelOffset" : {
+            "cartesian2" : [8, 0]
+        },
+        "style" : "FILL",
+        "text" : "AGI",
+        "showBackground" : true,
+        "backgroundColor" : {
+            "rgba" : [112, 89, 57, 200]
+        }
+    },
+    "position": {
+      "cartographicDegrees": [
+        -118.918,
+        42.297,
+        10000
+      ]
+    }
+}]

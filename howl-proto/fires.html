@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Use correct character set. -->
+  <meta charset="utf-8">
+  <!-- Tell IE to use the latest, best version. -->
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <!-- Make the application on mobile take up the full browser screen and disable user scaling. -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
+  <link rel="stylesheet" href="owl.css" media="screen">
+  <title>howl</title>
+  <script src="Cesium/Cesium.js"></script>
+
+</head>
+<body>
+  <div id="cesiumContainer"></div>
+  <div id="label">
+    <b>Wildfires 1984-2014</b><hr>
+  </div>
+  <div id="loadingIndicator" class="loadingIndicator"></div>
+  <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+  <script>
+    var loadingIndicator = document.getElementById('loadingIndicator');
+
+    Cesium.BingMapsApi.defaultKey = 'AmN4YMNTJKsD0E-WG0AG935u5Cb1g92Z8SyCa1F-sJFAUppvyEMUJUrO2F-boadU';
+    var dataSources = new Cesium.DataSourceCollection();
+    $.getJSON( 'data/MTBS/MTBSCZML.json', function(data) {
+
+      var terrainProvider = new Cesium.CesiumTerrainProvider({url : 'https://assets.agi.com/stk-terrain/world'});
+
+      var viewer = new Cesium.Viewer('cesiumContainer', {
+        animation: true,
+        timeline: true,
+        //homeButton: false,
+        scene3DOnly: true,
+        terrainProvider: terrainProvider
+      });
+      viewer.clock.shouldAnimate = false;
+
+      viewer.camera.flyTo({
+        destination: Cesium.Rectangle.fromDegrees(-124.79, 41.9, -116.69, 46.23)
+      });
+
+      Cesium.CzmlDataSource.load(data).then(function(dataSource) {
+        viewer.dataSources.add(dataSource).then(function() {
+          //viewer.flyTo(dataSource);
+
+          viewer.homeButton.viewModel.command.beforeExecute.addEventListener(function(commandInfo){
+            viewer.flyTo(dataSource);
+            console.log('verga');
+
+            commandInfo.cancel = true;
+          });
+        });
+      });
+
+      viewer.scene.postRender.addEventListener(function()  {
+        loadingIndicator.style.display = 'none';
+      });
+
+    });
+  </script>
+</body>
+</html>
