@@ -7532,7 +7532,7 @@ body {
   background: #71FFCA;
 }
 
-/* Playing with legend styling */
+/* Legend styling */
 
 .legend-box {
   border: 1px solid black;
@@ -7557,7 +7557,7 @@ body {
   margin-left: 4px;
   margin-right: 4px;
   font-size: 80%;
-  text-align: left;
+  /*text-align: left;*/
 }
 
 .legend-scale {
@@ -7585,4 +7585,79 @@ ul.legend-items li span {
   height: 15px;
   width: 50px;
   opacity:0.8;
+}
+
+/* Animation widget styling */
+
+.playback-controls {
+  /* margin: 0 auto; */
+}
+
+.playback-controls div {
+  margin: auto;
+  padding: 0;
+  list-style: none;
+}
+
+.playback-controls div div {
+  display: inline-block;
+  margin: auto;
+  padding: 0;
+  list-style: none;
+}
+
+.howl-control {
+	/*box-shadow: 0 1px 5px rgba(0,0,0,0.65);*/
+	border-radius: 10px;
+}
+
+.howl-control a {
+	background-color: #fff;
+	border-bottom: 1px solid #ccc;
+	width: 26px;
+	height: 26px;
+	line-height: 26px;
+	display: block;
+	text-align: center;
+	text-decoration: none;
+	color: black;
+  border-radius: 4px;
+}
+
+.howl-control a:hover {
+	background-color: #f4f4f4;
+}
+
+.howl-control a img {
+  width: 16px;
+}
+
+.blink {
+  animation: blinker 1.5s linear infinite;
+}
+
+@keyframes blinker {
+  50% { opacity: 0.3; }
+}
+
+/* Custom cesium styling */
+.cesium-timeline-bar {
+    background: #F0F0F0;
+}
+
+.cesium-timeline-ticLabel {
+    color: #000;
+}
+
+.cesium-timeline-ticMain {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 1px;
+    height: 50%;
+    background: #000;
+}
+
+.cesium-timeline-ticSub {
+    background: #444;
 }

@@ -13222,22 +13222,34 @@ function setup3dMap() {
   };
 
   Cesium.BingMapsApi.defaultKey = 'AmN4YMNTJKsD0E-WG0AG935u5Cb1g92Z8SyCa1F-sJFAUppvyEMUJUrO2F-boadU';
-  var dataSources = new Cesium.DataSourceCollection();
+
+  var viewer = new Cesium.Viewer('cesiumContainer', {
+    animation: false,
+    timeline: true,
+    //homeButton: false,
+    scene3DOnly: true
+  });
+
+  var clockViewModel = new Cesium.ClockViewModel(viewer.clock);
+  var animationViewModel = new Cesium.AnimationViewModel(clockViewModel);
+  viewer.timeline.makeLabel = function (date) {
+    var gregorianDate = Cesium.JulianDate.toGregorianDate(date);
+    return gregorianDate.year;
+  };
+  setupPlaybackControlActions(animationViewModel, clockViewModel);
+
+  viewer.timeline.addEventListener('settime', function () {
+    setPlaybackPauseMode();
+  }, false);
+
+  viewer.terrainProvider = new Cesium.CesiumTerrainProvider({ url: 'https://assets.agi.com/stk-terrain/world' });
+  //viewer.scene.globe.depthTestAgainstTerrain = true;
+
+  viewer.clock.shouldAnimate = false;
+
+  viewer.camera.flyTo(initialCameraView);
+
   $.getJSON('data/MTBS/MTBSCZML.json', function (data) {
-
-    var viewer = new Cesium.Viewer('cesiumContainer', {
-      animation: true,
-      timeline: true,
-      //homeButton: false,
-      scene3DOnly: true
-    });
-    viewer.terrainProvider = new Cesium.CesiumTerrainProvider({ url: 'https://assets.agi.com/stk-terrain/world' });
-    //viewer.scene.globe.depthTestAgainstTerrain = true;
-
-    viewer.clock.shouldAnimate = false;
-
-    viewer.camera.flyTo(initialCameraView);
-
     Cesium.CzmlDataSource.load(data).then(function (dataSource) {
       viewer.dataSources.add(dataSource).then(function () {
         viewer.homeButton.viewModel.command.beforeExecute.addEventListener(function (commandInfo) {
@@ -13258,8 +13270,55 @@ function setup3dMap() {
 
     viewer.scene.postRender.addEventListener(function () {
       loadingIndicator.style.display = 'none';
+      updateSpeedLabel(clockViewModel);
     });
   });
+}
+
+function setupPlaybackControlActions(animationViewModel, clockViewModel) {
+  $('#pb-play').click(function () {
+    if ($('#pb-play span').hasClass('glyphicon-play')) {
+      animationViewModel.playForwardViewModel.command();
+    } else {
+      animationViewModel.pauseViewModel.command();
+    }
+    $('#pb-play span').toggleClass('glyphicon-pause glyphicon-play');
+    $('#pb-play span').toggleClass('blink');
+    // animationViewModel.playForwardViewModel.command();
+    return false;
+  });
+
+  $('#pb-faster').click(function () {
+    clockViewModel.multiplier = 2 * clockViewModel.multiplier;
+    return false;
+  });
+
+  $('#pb-slower').click(function () {
+    clockViewModel.multiplier = clockViewModel.multiplier / 2;
+    return false;
+  });
+
+  $('#pb-start').click(function () {
+    clockViewModel.currentTime = clockViewModel.startTime;
+    setPlaybackPauseMode();
+    return false;
+  });
+
+  $('#pb-end').click(function () {
+    clockViewModel.currentTime = clockViewModel.stopTime;
+    setPlaybackPauseMode();
+    return false;
+  });
+}
+
+function setPlaybackPauseMode() {
+  if ($('#pb-play span').hasClass('glyphicon-pause')) {
+    $('#pb-play').click();
+  }
+}
+
+function updateSpeedLabel(clockViewModel) {
+  $('#secsperyear').text((31556926 / clockViewModel.multiplier).toFixed(2));
 }
 
 function setUpCollapsibleInfoPanel() {
