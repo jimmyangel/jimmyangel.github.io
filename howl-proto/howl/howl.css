@@ -7661,3 +7661,24 @@ ul.legend-items li span {
 .cesium-timeline-ticSub {
     background: #444;
 }
+
+.cesium-widget-credits {
+  position: relative;
+  color: #000000;
+  text-shadow: none;
+  margin: 0;
+}
+
+.cesium-credit-image img{
+    height: 18px;
+}
+
+.cesium-timeline-icon16 {
+	display: block;
+	position: absolute;
+	width: 16px;
+	height: 16px;
+	background-image: url(./images/TimelineIcons.png);
+	background-repeat: no-repeat;
+  opacity: 0.6;
+}
