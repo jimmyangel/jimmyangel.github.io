@@ -7406,6 +7406,7 @@ body {
   height: 99%;
   background-color: #F0F0F0;
   text-align: center;
+  overflow-y: scroll;
 }
 
 #infoPanelTitle {
@@ -7414,8 +7415,8 @@ body {
 
 #infoPanelCredit {
   font-size: 70%;
-  position: absolute;
-  bottom: 4px;
+  /*position: absolute;
+  bottom: 4px;*/
 }
 
 #infoPanelSliderButton{
@@ -7543,6 +7544,12 @@ body {
   margin-bottom: 4px;
   margin-top: 4px;
   font-weight: bold;
+  font-size: 90%;
+}
+
+.legend-entry {
+  margin-bottom: 4px;
+  margin-top: 4px;
   font-size: 90%;
 }
 
