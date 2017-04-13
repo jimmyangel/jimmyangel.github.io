@@ -13279,7 +13279,9 @@ function setup3dMap() {
     timeline: true,
     //homeButton: false,
     fullscreenButton: false,
-    scene3DOnly: true
+    scene3DOnly: true,
+    navigationHelpButton: false
+    //terrainExaggeration: 2
   });
 
   var clockViewModel = new Cesium.ClockViewModel(viewer.clock);
