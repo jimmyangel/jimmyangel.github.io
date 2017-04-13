@@ -43,6 +43,11 @@
             <a data-toggle="collapse" id="about-btn" role="button" href="#"><span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span></a>
           </li>
         </ul>
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            <a data-toggle="collapse" id="help-btn" role="button" href="#"><span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span></a>
+          </li>
+        </ul>
       </div>
     </div>
   </div>
@@ -68,6 +73,43 @@
             <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');
             </script>
           </div> <!-- feedback -->
+        </div> <!-- modal body -->
+      </div> <!-- modal content -->
+    </div> <!-- modal dialog -->
+  </div> <!-- modal -->
+
+  <div class="modal fade" id="helpModal" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+          <h2><img src="./fonts/howlblack.svg" style="height: 70px">Help</h2>
+        </div>
+        <div class="modal-body">
+          <h4>To pan the view in the map area</h4>
+          <ul>
+            <li>Left-click and drag, or</li>
+            <li>Command-click and drag, or</li>
+            <li>Single finger drag gesture</li>
+          </ul>
+          <h4>To zoom the view in the map area</h4>
+          <ul>
+            <li>Right-click and drag, or</li>
+            <li>Mouse wheel scroll, or</li>
+            <li>Two finger pinch gesture</li>
+          </ul>
+          <h4>To rotate the view in the map area</h4>
+          <ul>
+            <li>Middle-click and drag, or</li>
+            <li>Control-click and drag, or</li>
+            <li>Two finger rotate gesture</li>
+          </ul>
+          <h4>Use the right side HOWL view panel to</h4>
+          <ul>
+            <li>See view legend</li>
+            <li>Set up view filters</li>
+            <li>Control timeline animation playback when available</li>
+          </ul>
         </div> <!-- modal body -->
       </div> <!-- modal content -->
     </div> <!-- modal dialog -->
@@ -105,7 +147,7 @@
                 </select>
               </span> % forest
             </div>
-            <div class="legend-entry"><span><input id="checkBox" type="checkbox"></span> Show all years at once</div>
+            <div class="legend-entry"><span><input id="cumulative-filter" type="checkbox"></span> Show cumulative fire events</div>
           </div>
           <div class="legend-box">
             <div class="legend-title">Timeline playback</div>

@@ -13151,6 +13151,12 @@ $('#about-btn').click(function () {
   return false;
 });
 
+// Set up help button
+$('#help-btn').click(function () {
+  $('#helpModal').modal('show');
+  return false;
+});
+
 mapper.setup3dMap();
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(10)))
 
@@ -13206,7 +13212,8 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 var config = exports.config = {
-  bingAPIKey: 'AmN4YMNTJKsD0E-WG0AG935u5Cb1g92Z8SyCa1F-sJFAUppvyEMUJUrO2F-boadU'
+  bingAPIKey: 'AmN4YMNTJKsD0E-WG0AG935u5Cb1g92Z8SyCa1F-sJFAUppvyEMUJUrO2F-boadU',
+  mapboxAccessToken: 'pk.eyJ1IjoiamltbXlhbmdlbCIsImEiOiJjaW5sMGR0cDkweXN2dHZseXl6OWM4YnloIn0.v2Sv_ODztWuLuk78rUoiqg'
 };
 
 /***/ }),
@@ -13265,6 +13272,7 @@ function setup3dMap() {
   };
 
   Cesium.BingMapsApi.defaultKey = _config.config.bingAPIKey;
+  Cesium.MapboxApi.defaultAccessToken = _config.config.mapboxAccessToken;
 
   var viewer = new Cesium.Viewer('cesiumContainer', {
     animation: false,
@@ -13303,6 +13311,7 @@ function setup3dMap() {
           commandInfo.cancel = true;
         });
         setUpForestFilter(dataSource, data, viewer);
+        setUpCumulativeFilter(dataSource, data, viewer);
         var year = '';
         viewer.clock.onTick.addEventListener(function (event) {
           var clockYear = Cesium.JulianDate.toIso8601(event.currentTime).substr(0, 4);
@@ -13385,6 +13394,29 @@ function setUpForestFilter(dataSource, data, viewer) {
     var fireExclusionList = utils.getFireExclusionList(data, $('#forest-filter').val());
     dataSource.entities.values.forEach(function (entity) {
       entity.show = !fireExclusionList.includes(entity.id);
+    });
+    $('#numfires').text(firesShownCount(dataSource, viewer.clock.currentTime));
+  });
+}
+
+function setUpCumulativeFilter(dataSource, data, viewer) {
+  $('#cumulative-filter').change(function () {
+    var isCumulative = $(this).is(":checked");
+    data.features.forEach(function (f) {
+      var entity = dataSource.entities.getById(f.properties.id);
+      var timeInterval = entity.availability.get(0);
+      if (isCumulative) {
+        entity.availability.addInterval(new Cesium.TimeInterval({
+          start: timeInterval.start,
+          stop: Cesium.JulianDate.fromIso8601('2014-12-31T23:59:59.999Z')
+        }));
+      } else {
+        entity.availability.removeInterval(timeInterval);
+        entity.availability.addInterval(new Cesium.TimeInterval({
+          start: timeInterval.start,
+          stop: Cesium.JulianDate.fromIso8601(new Date(f.properties.ignitionDate).getUTCFullYear() + '-12-31T23:59:59.999Z')
+        }));
+      }
     });
     $('#numfires').text(firesShownCount(dataSource, viewer.clock.currentTime));
   });
