@@ -13485,6 +13485,7 @@ function makeCZMLAndStatsForListOfFires(f) {
     statsAll.numFires++;
     stats[year].numFires++;
 
+    var cylinderLength = 1000 + feature.properties.forestAcres;
     var czmlItem = {
       id: feature.properties.id,
       name: 'Fire Name: ' + feature.properties.name,
@@ -13494,7 +13495,7 @@ function makeCZMLAndStatsForListOfFires(f) {
         topRadius: 500 + Math.sqrt(feature.properties.acres * 4046),
         bottomRadius: 500 + Math.sqrt(feature.properties.acres * 4046),
         //length: 1000+feature.properties.severityHighAcres,
-        length: 1000 + feature.properties.forestAcres,
+        length: cylinderLength,
         outline: false,
         material: {
           solidColor: {
@@ -13505,7 +13506,7 @@ function makeCZMLAndStatsForListOfFires(f) {
         }
       },
       position: {
-        cartographicDegrees: feature.geometry.coordinates
+        cartographicDegrees: [feature.geometry.coordinates[0], feature.geometry.coordinates[1], feature.geometry.coordinates[2] + cylinderLength / 2]
       }
     };
 
