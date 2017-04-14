@@ -126,6 +126,7 @@
             <div id="infoBoxItems"></div>
           </div>
         </div>
+        <div id="loadingIndicator" class="loadingIndicator"></div>
       </div>
       <div id="infoPanel" class="col-xs-3 full-height no-gutter">
         <div id="infoPanelContent">
@@ -142,14 +143,11 @@
               <span>
                 <select disabled id="forest-filter">
                   <option value="0">0</option>
+                  <option selected="selected" value="5">5</option>
                   <option value="10">10</option>
-                  <option value="20">20</option>
                   <option value="30">30</option>
-                  <option value="40">40</option>
                   <option value="50">50</option>
-                  <option value="60">60</option>
                   <option value="70">70</option>
-                  <option value="80">80</option>
                   <option value="90">90</option>
                 </select>
               </span> % forest
@@ -216,7 +214,6 @@
           <div id="infoPanelCredit">Data Source: <a href="http://www.mtbs.gov/" target="_blank">MTBS</a></div>
         </div>
       </div>
-      <div id="loadingIndicator" class="loadingIndicator"></div>
     </div>
   </div>
   <script src="lib/Cesium/Cesium.js"></script>
