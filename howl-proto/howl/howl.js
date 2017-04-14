@@ -13280,6 +13280,7 @@ function setup3dMap() {
     //homeButton: false,
     fullscreenButton: false,
     scene3DOnly: true,
+    infoBox: false,
     navigationHelpButton: false
     //terrainExaggeration: 2
   });
@@ -13314,6 +13315,7 @@ function setup3dMap() {
         });
         setUpForestFilter(dataSource, data, viewer);
         setUpCumulativeFilter(dataSource, data, viewer);
+        setUpInfoBox(data, viewer);
         var year = '';
         viewer.clock.onTick.addEventListener(function (event) {
           var clockYear = Cesium.JulianDate.toIso8601(event.currentTime).substr(0, 4);
@@ -13432,6 +13434,21 @@ function firesShownCount(dataSource, time) {
     }
   });
   return count;
+}
+
+function setUpInfoBox(data, viewer) {
+  viewer.selectedEntityChanged.addEventListener(function (e) {
+    if (e) {
+      $('#infoBox').animate({ 'margin-right': 0, opacity: 0.8 }, 200);
+      var fire = data.features.find(function (f) {
+        return f.properties.id === e.id;
+      });
+      $('#infoBoxTitle').text('Fire Name: ' + fire.properties.name);
+      $('#infoBoxItems').html('<br>' + '<b>Fire Id: </b><a href="' + fire.properties.pdfLink + '" target="_blank">' + fire.properties.id + '</a><br>' + '<b>Ignition Date: </b>' + new Date(fire.properties.ignitionDate).toDateString() + '<br> ' + '<b>Total Fire Acres: </b>' + fire.properties.acres + '<br> ' + '<b>Forest Area: </b>' + fire.properties.forestAcres + '<br> ' + '<b>High Burn Severity Acres: </b>' + fire.properties.severityHighAcres + '<br>' + '<b>Moderate Burn Severity Acres: </b>' + fire.properties.severityModerateAcres + '<br>' + '<b>Low Burn Severity Acres: </b>' + fire.properties.severityLowAcres + '<br>' + '<b>Unburned/Other Acres: </b>' + (fire.properties.severityUnburnedAcres + fire.properties.severityIncreasedGreenesAcres + fire.properties.nonProcessingMaskAcres));
+    } else {
+      $('#infoBox').animate({ 'margin-right': '-30%', opacity: 0 }, 200);
+    }
+  });
 }
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(10)))
 
