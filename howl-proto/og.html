@@ -24,25 +24,27 @@
     var loadingIndicator = document.getElementById('loadingIndicator');
     Cesium.BingMapsApi.defaultKey = 'AmN4YMNTJKsD0E-WG0AG935u5Cb1g92Z8SyCa1F-sJFAUppvyEMUJUrO2F-boadU';
     var dataSources = new Cesium.DataSourceCollection();
+
+    var viewer = new Cesium.Viewer('cesiumContainer', {
+      animation: false,
+      timeline: false,
+      //homeButton: false,
+      scene3DOnly: true,
+      dataSources: dataSources,
+      terrainExaggeration: 2
+    });
+    viewer.scene.postRender.addEventListener(function()  {
+      loadingIndicator.style.display = 'none';
+    });
+    viewer.terrainProvider = new Cesium.CesiumTerrainProvider({url : 'https://assets.agi.com/stk-terrain/world'});
+
     Cesium.GeoJsonDataSource.load('data/HoodNF_OG_simplified2.geojson', {clampToGround: true}).then(function(dataSource) {
     //Cesium.GeoJsonDataSource.load('data/HoodNF_OG.geojson', {clampToGround: true}).then(function(dataSource) {
         dataSources.add(dataSource).then(function() {
-          var viewer = new Cesium.Viewer('cesiumContainer', {
-            animation: false,
-            timeline: false,
-            //homeButton: false,
-            scene3DOnly: true,
-            dataSources: dataSources,
-            terrainExaggeration: 2
-          });
-          viewer.scene.postRender.addEventListener(function()  {
-            loadingIndicator.style.display = 'none';
-          });
-          viewer.terrainProvider = new Cesium.CesiumTerrainProvider({url : 'https://assets.agi.com/stk-terrain/world'});
           viewer.flyTo(dataSource);
           viewer.homeButton.viewModel.command.beforeExecute.addEventListener(function(commandInfo){
             viewer.flyTo(dataSource);
-          commandInfo.cancel = true;
+            commandInfo.cancel = true;
           });
       });
     });

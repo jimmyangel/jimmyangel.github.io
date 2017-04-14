@@ -26,26 +26,26 @@
     Cesium.BingMapsApi.defaultKey = 'AmN4YMNTJKsD0E-WG0AG935u5Cb1g92Z8SyCa1F-sJFAUppvyEMUJUrO2F-boadU';
     var dataSources = new Cesium.DataSourceCollection();
 
-    $.getJSON( "data/HoodNF_OG_simplified2_h.geojson", function(data) {
+    var ex = 2;
 
+    var viewer = new Cesium.Viewer('cesiumContainer', {
+      animation: false,
+      timeline: false,
+      //homeButton: false,
+      scene3DOnly: true,
+      dataSources: dataSources,
+      terrainExaggeration: ex
+    });
+    viewer.scene.postRender.addEventListener(function()  {
+      loadingIndicator.style.display = 'none';
+    });
+    viewer.scene.globe.depthTestAgainstTerrain = true;
+    viewer.terrainProvider = new Cesium.CesiumTerrainProvider({url : 'https://assets.agi.com/stk-terrain/world'});
+
+    $.getJSON( "data/HoodNF_OG_simplified2_h.geojson", function(data) {
 
       Cesium.GeoJsonDataSource.load(data).then(function(dataSource) {
         dataSources.add(dataSource).then(function() {
-          var ex = 2;
-
-          var viewer = new Cesium.Viewer('cesiumContainer', {
-            animation: false,
-            timeline: false,
-            //homeButton: false,
-            scene3DOnly: true,
-            dataSources: dataSources,
-            terrainExaggeration: ex
-          });
-          viewer.scene.postRender.addEventListener(function()  {
-            loadingIndicator.style.display = 'none';
-          });
-          viewer.scene.globe.depthTestAgainstTerrain = true;
-          viewer.terrainProvider = new Cesium.CesiumTerrainProvider({url : 'https://assets.agi.com/stk-terrain/world'});
 
           dataSource.entities.values.forEach(function(value) {
             //console.log(value.name);
@@ -84,13 +84,13 @@
             commandInfo.cancel = true;
           });
         });
-        Cesium.GeoJsonDataSource.load('data/clear-cut-mt-hood-s1.geojson', {clampToGround: true, fill: Cesium.Color.RED,}).then(function(dataSource) {
-          dataSources.add(dataSource).then(function() {
-          });
-        });
-
       });
 
+    });
+
+    Cesium.GeoJsonDataSource.load('data/clear-cut-mt-hood-s1.geojson', {clampToGround: true, fill: Cesium.Color.RED,}).then(function(dataSource) {
+      dataSources.add(dataSource).then(function() {
+      });
     });
 
   </script>
