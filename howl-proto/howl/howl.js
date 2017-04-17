@@ -13313,8 +13313,8 @@ function setup3dMap() {
           viewer.camera.flyTo(initialCameraView);
           commandInfo.cancel = true;
         });
-        setUpForestFilter(dataSource, data, viewer);
-        setUpCumulativeFilter(dataSource, data, viewer);
+        setUpNonForestOption(dataSource, data, viewer);
+        setUpCumulativeOption(dataSource, data, viewer);
         setUpInfoBox(data, viewer);
         var year = '';
         viewer.clock.onTick.addEventListener(function (event) {
@@ -13392,19 +13392,20 @@ function setUpCollapsibleInfoPanel() {
   });
 }
 
-function setUpForestFilter(dataSource, data, viewer) {
-  $('#forest-filter').removeAttr('disabled');
-  $('#forest-filter').change(function () {
-    var fireExclusionList = utils.getFireExclusionList(data, $('#forest-filter').val());
+function setUpNonForestOption(dataSource, data, viewer) {
+  $('#non-forest-option').change(function () {
+    var isNonForest = $(this).is(":checked");
+    var fireExclusionList = utils.getFireExclusionList(data, isNonForest ? 0 : 5);
     dataSource.entities.values.forEach(function (entity) {
       entity.show = !fireExclusionList.includes(entity.id);
     });
     $('#numfires').text(firesShownCount(dataSource, viewer.clock.currentTime));
   });
+  $('#non-forest-option').change(); // To make sure the default kicks in
 }
 
-function setUpCumulativeFilter(dataSource, data, viewer) {
-  $('#cumulative-filter').change(function () {
+function setUpCumulativeOption(dataSource, data, viewer) {
+  $('#cumulative-option').change(function () {
     var isCumulative = $(this).is(":checked");
     data.features.forEach(function (f) {
       var entity = dataSource.entities.getById(f.properties.id);
