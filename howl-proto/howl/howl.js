@@ -13502,7 +13502,8 @@ function makeCZMLAndStatsForListOfFires(f) {
     statsAll.numFires++;
     stats[year].numFires++;
 
-    var cylinderLength = 1000 + feature.properties.forestAcres;
+    //var cylinderLength = 1000+feature.properties.forestAcres;
+    var cylinderLength = 1000 + feature.properties.severityHighAcres;
     var czmlItem = {
       id: feature.properties.id,
       name: 'Fire Name: ' + feature.properties.name,
