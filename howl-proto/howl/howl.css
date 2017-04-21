@@ -7389,11 +7389,27 @@ body {
   transition: width .2s ease;
 }
 
+#viewLabel {
+  text-align: center;
+  position: absolute;
+  top: 1%;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  border: 1px solid white;
+  background-color: #F0F0F0;
+  opacity: 0.8;
+  padding: 2px;
+  border-radius: 4px;
+  max-width: 30%;
+  z-index: 1000;
+}
+
 #infoPanel {
   /*float: right;*/
   /*width: 25%;*/
   /*min-height: 100%;*/
-  background-color: #000000;
+  background-color: #F0F0F0;
   transition: margin .2s ease;
   z-index: 1000;
 }
@@ -7446,7 +7462,7 @@ body {
     right: 0;
     margin-right: -30%;
     width: 30%;
-    max-height: 50%;
+    max-height: 60%;
     opacity: 0;
     background-color: #F0F0F0;
     border: 1px solid white;
@@ -7466,6 +7482,7 @@ body {
   padding: 5px;
   margin-top: 4px;
   margin-bottom: 4px;
+  font-size: 90%;
 }
 
 #logo img {
@@ -7511,12 +7528,31 @@ body {
     background-position: center;
     background-repeat: no-repeat;
     background-image: url(./images/ajax-loader.gif);
+    z-index: 800;
 }
 
 .lbox {
   display: inline-block;;
   border: 1px solid black;
   margin: 1px;
+}
+
+.scyl {
+  display: inline-block;
+  background-image: url(./fonts/scylinder.svg);
+  background-repeat: no-repeat;
+}
+
+.mcyl {
+  display: inline-block;
+  background-image: url(./fonts/mcylinder.svg);
+  background-repeat: no-repeat;
+}
+
+.lcyl {
+  display: inline-block;
+  background-image: url(./fonts/lcylinder.svg);
+  background-repeat: no-repeat;
 }
 
 .llbox {
@@ -7621,6 +7657,24 @@ ul.legend-items li span {
   height: 15px;
   width: 50px;
   opacity:0.8;
+}
+
+.hidden-legend-item {
+  height: 12px;
+  width: 20px;
+  display: none;
+}
+
+.v-legend-items {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.v-legend-items li {
+  margin: auto;
+  padding: 0;
+  list-style: none;
 }
 
 /* Animation widget styling */

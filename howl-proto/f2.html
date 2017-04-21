@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Use correct character set. -->
+  <meta charset="utf-8">
+  <!-- Tell IE to use the latest, best version. -->
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <!-- Make the application on mobile take up the full browser screen and disable user scaling. -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
+  <link rel="stylesheet" href="owl.css" media="screen">
+  <title>howl</title>
+  <script src="Cesium/Cesium.js"></script>
+
+</head>
+<body>
+  <div id="cesiumContainer"></div>
+  <div id="label">
+    <b><a href="http://mtbs.gov/MTBS_Uploads/data/2014/maps/id4571311651320140714_map.pdf">PITTSBURG Fire</a> - Ignited July 14, 2014</b><hr>
+    <div class="lbox redred"></div>High severity<br><div class="lbox yellowyellow"></div>Moderate severity<br><div class="lbox aquamarine"></div>Low severity<br>
+    <div class="credit"><br>March 2017 - <a href="http://blog.rikitraki.com/owl-prototype/">HOWL Prototype</a> - Data Source: <a href="http://www.mtbs.gov/">MTBS</a></div>
+  </div>
+  <div id="loadingIndicator" class="loadingIndicator"></div>
+  <script>
+    var loadingIndicator = document.getElementById('loadingIndicator');
+    Cesium.BingMapsApi.defaultKey = 'AmN4YMNTJKsD0E-WG0AG935u5Cb1g92Z8SyCa1F-sJFAUppvyEMUJUrO2F-boadU';
+    var dataSources = new Cesium.DataSourceCollection();
+    var viewer = new Cesium.Viewer('cesiumContainer', {
+      animation: false,
+      timeline: false,
+      //homeButton: false,
+      //scene3DOnly: true,
+      dataSources: dataSources
+    });
+    viewer.scene.postRender.addEventListener(function()  {
+      loadingIndicator.style.display = 'none';
+    });
+    //viewer.scene.globe.depthTestAgainstTerrain = true;
+    //viewer.terrainProvider = new Cesium.CesiumTerrainProvider({url : 'https://assets.agi.com/stk-terrain/world'});
+
+    Cesium.KmlDataSource.load('data/MTBS/id4571311651320140714_20140710_20140726.kmz').then(function(dataSource) {
+      dataSource.entities.values.forEach(function(value) {
+        console.log(value.name);
+        if (value.name === 'Legend and Logos' ||
+            value.name === 'Pre-Fire Landsat Image' ||
+            value.name === 'Post-Fire Landsat Image') {
+          value.show = false;
+        }
+      });
+      dataSources.add(dataSource).then(function() {
+
+        viewer.zoomTo(dataSource);
+        viewer.homeButton.viewModel.command.beforeExecute.addEventListener(function(commandInfo){
+          viewer.zoomTo(dataSource);
+          commandInfo.cancel = true;
+        });
+      });
+    });
+  </script>
+</body>
+</html>

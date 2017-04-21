@@ -27,7 +27,7 @@
 
 
           <li class='dropdown'>
-            <a class="dropdown-toggle" data-toggle="dropdown" title="Select View" href="#">Select View
+            <a class="dropdown-toggle" data-toggle="dropdown" title="Select View" href="#">Wildfires View
             <span class="caret"></span></a>
             <ul class="dropdown-menu">
               <li><a href="#">Wildfires</a></li>
@@ -35,17 +35,19 @@
               <li><a href="#">Others coming soon...</a></li>
             </ul>
           </li>
-
+          <li>
+            <a id="summary-btn" role="button" href="#">Summary</a>
+          </li>
 
         </ul>
         <ul class="nav navbar-nav navbar-right">
           <li>
-            <a data-toggle="collapse" id="about-btn" role="button" href="#"><span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span></a>
+            <a id="about-btn" role="button" href="#"><span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span></a>
           </li>
         </ul>
         <ul class="nav navbar-nav navbar-right">
           <li>
-            <a data-toggle="collapse" id="help-btn" role="button" href="#"><span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span></a>
+            <a id="help-btn" role="button" href="#"><span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span></a>
           </li>
         </ul>
       </div>
@@ -107,9 +109,23 @@
           <h4>Use the right side HOWL view panel to</h4>
           <ul>
             <li>See view legend</li>
-            <li>Set up view filters</li>
+            <li>Select display options</li>
             <li>Control timeline animation playback when available</li>
           </ul>
+        </div> <!-- modal body -->
+      </div> <!-- modal content -->
+    </div> <!-- modal dialog -->
+  </div> <!-- modal -->
+
+  <div class="modal fade" id="summaryModal" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+          <h2>Summary Chart</h2>
+        </div>
+        <div class="modal-body">
+          There will be a summary chart here...
         </div> <!-- modal body -->
       </div> <!-- modal content -->
     </div> <!-- modal dialog -->
@@ -118,89 +134,12 @@
   <div class="container-fluid full-height">
     <div id=contentPanel class="row full-height">
       <div id="cesiumContainer" class="col-xs-9 full-height no-gutter">
-        <div id="infoPanelSliderButton"><span class="glyphicon glyphicon-triangle-right" aria-hidden="true"></div>
-        <div id="infoBox">
-          <div id="infoBoxContent">
-            <div id="infoBoxTitle"></div>
-            <div class="hline"></div>
-            <div id="infoBoxItems"></div>
-          </div>
-        </div>
+        <div id="infoPanelSliderButton"><span class="glyphicon glyphicon-triangle-right" aria-hidden="true"></span></div>
+        <div id="infoBox"></div>
+        <div id="viewLabel" style="display: none"></div>
         <div id="loadingIndicator" class="loadingIndicator"></div>
       </div>
       <div id="infoPanel" class="col-xs-3 full-height no-gutter">
-        <div id="infoPanelContent">
-          <div id="infoPanelTitle"><b>Oregon Wildfires View</b></div>
-          <div class="hline"></div>
-          <div class="legend-box">
-            <div class="legend-title">Wildfires from 1984 to 2014</div>
-            <div class="legend-entry">Now showing year
-              <b><span id='year'></span></b> (<b><span id='numfires'></span></b> fires)</div>
-          </div>
-          <div class="legend-box">
-            <div class="legend-title">Display Options</div>
-            <div class="legend-entry"><span><input id="non-forest-option" type="checkbox"></span> Show non-forest (e.g., shrubland) fires</div>
-            <div class="legend-entry"><span><input id="cumulative-option" type="checkbox"></span> Show cumulative fire events</div>
-          </div>
-          <div class="legend-box">
-            <div class="legend-title">Timeline playback</div>
-            <div class="legend-subtitle">[Running @ <b><span id='secsperyear'>3</span></b> seconds per year]</div>
-            <div class="playback-controls">
-              <div>
-                <div class="howl-control">
-                  <a id="pb-slower" href="#" title="Faster"><img src="./images/turtle.png"></a>
-                </div>
-                <div class="howl-control">
-                  <a id="pb-start" href="#" title="Start"><span class="glyphicon glyphicon-step-backward" aria-hidden="true"></span></a>
-                </div>
-                <div class="howl-control">
-                  <a id="pb-play" href="#" title="Play/Pause"><span class="glyphicon glyphicon-play" aria-hidden="true"></span></a>
-                </div>
-                <div class="howl-control">
-                  <a id="pb-end" href="#" title="End"><span class="glyphicon glyphicon-step-forward" aria-hidden="true"></span></a>
-                </div>
-                <div class="howl-control">
-                  <a id="pb-faster" href="#" title="Faster"><img src="./images/rabbit.png"></a>
-                </div>
-              </div>
-            </div>
-            <div class="legend-explanation">Use buttons for playback control</div>
-          </div>
-          <div class="legend-box">
-            <div class="legend-title">High Burn Severity Ratio</div>
-            <div class="legend-scale">
-              <ul class="legend-items">
-                <li><span style='background:#FFFF00;'></span>0%</li>
-                <li><span style='background:#FF8900;'></span>25%</li>
-                <li><span style='background:#FF3C00;'></span>50%</li>
-                <li><span style='background:#FF1800;'></span>75%</li>
-              </ul>
-            </div>
-            <div class="legend-explanation">Proportion of fire area rated as high severity
-            </div>
-          </div>
-          <div class="legend-box">
-            <div class="legend-title">Area of Fire Boundary</div>
-            <div class="legend-scale">
-              <ul>
-                <li><span class='lbox' style='width: 10px; height: 10px; border-radius: 5px'></span><br>Small</li>
-                <li><span class='lbox' style='width: 20px; height: 20px; border-radius: 10px'></span><br>Med</li>
-                <li><span class='lbox' style='width: 30px; height: 30px; border-radius: 15px'></span><br>Large</li>
-              </ul>
-            </div>
-          </div>
-          <div class="legend-box">
-            <div class="legend-title">High Severity Area</div>
-            <div class="legend-scale">
-              <ul>
-                <li><span class='lbox' style='width: 30px; height: 10px;'></span><br>Small</li>
-                <li><span class='lbox' style='width: 30px; height: 20px;'></span><br>Med</li>
-                <li><span class='lbox' style='width: 30px; height: 30px;'></span><br>Large</li>
-              </ul>
-            </div>
-          </div>
-          <div id="infoPanelCredit">Data Source: <a href="http://www.mtbs.gov/" target="_blank">MTBS</a></div>
-        </div>
       </div>
     </div>
   </div>
