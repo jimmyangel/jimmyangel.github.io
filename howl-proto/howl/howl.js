@@ -14003,6 +14003,8 @@ function hideInfoBox() {
 function gotoFire(id, fileName, fireListDataSource, viewer, material, fireItems) {
   $('#viewLabel').hide();
   viewer.selectedEntity = undefined;
+  $('.cesium-viewer-bottom').css('bottom', '0');
+  $('.cesium-viewer-timelineContainer').css('z-index', '-1');
   var savedTp = viewer.terrainProvider;
   var savedTime = viewer.clock.currentTime;
   var savedIsNonForest = $('#non-forest-option').is(":checked");
@@ -14091,6 +14093,9 @@ function gotoFire(id, fileName, fireListDataSource, viewer, material, fireItems)
         });
         // This is a bit of hack because flyTo is not workimg from here
         $('.cesium-home-button').click();
+        $('.cesium-viewer-bottom').css('bottom', '30px');
+        $('.cesium-viewer-timelineContainer').css('z-index', 'auto');
+        viewer.timeline.resize();
         $('#viewLabel').show();
         return false;
       });
