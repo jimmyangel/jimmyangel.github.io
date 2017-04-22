@@ -14022,37 +14022,49 @@ function gotoFire(id, fileName, fireListDataSource, viewer, material, fireItems)
     fireListDataSource.show = false;
 
     var idsToRemove = [];
+    var severityLayer;
     dataSource.entities.values.forEach(function (value) {
       if (value.name === 'Post-Fire Landsat Image' || value.name === 'Pre-Fire Landsat Image' || value.name === 'Legend and Logos') {
         idsToRemove.push(value.id);
       }
       if (value.name === 'Fire Severity') {
         value.show = false;
-        $('#assessmentOption').change(function () {
+
+        severityLayer = viewer.imageryLayers.addImageryProvider(new Cesium.SingleTileImageryProvider({
+          url: value.rectangle.material.image,
+          rectangle: new Cesium.Rectangle(value.rectangle.coordinates.getValue().west, value.rectangle.coordinates.getValue().south, value.rectangle.coordinates.getValue().east, value.rectangle.coordinates.getValue().north)
+        }));
+        $('.hidden-legend-item').css('display', 'inline-block');
+        $('#infoPanelTransparency').change(function () {
+          var t = $(this).val() / 100;
+          severityLayer.alpha = t;
+        });
+        $('#infoPanelTransparency').change();
+        /*$('#assessmentOption').change(function() {
           var tp = new Cesium.EllipsoidTerrainProvider();
           value.show = $(this).is(":checked");
           // This is temporary until Cesium adds support for image clamping
           viewer.terrainProvider = value.show ? tp : savedTp;
-
-          if (value.show) {
+           if (value.show) {
             $('#severityLegend, #transparencyLegend').hide();
             $('.hidden-legend-item').css('display', 'inline-block');
           } else {
             $('#severityLegend, #transparencyLegend').show();
             $('.hidden-legend-item').css('display', 'none');
           }
-        });
+        }) */
       }
       if (value.name === 'Fire Perimeter') {
+        value.show = false;
         if (value.polygon) {
           value.polygon.fill = true;
           //var t = ($('#infoPanelTransparency').val())/100;
           //value.polygon.material = material.color.getValue().withAlpha(t);
-          $('#infoPanelTransparency').change(function () {
-            var t = $(this).val() / 100;
+          /*$('#infoPanelTransparency').change(function() {
+            var t=($(this).val())/100;
             value.polygon.material = material.color.getValue().withAlpha(t);
           });
-          $('#infoPanelTransparency').change();
+          $('#infoPanelTransparency').change(); */
         }
       }
     });
@@ -14071,6 +14083,7 @@ function gotoFire(id, fileName, fireListDataSource, viewer, material, fireItems)
 
       $('#l-gotoall').click(function () {
         viewer.dataSources.remove(dataSource, true);
+        viewer.imageryLayers.remove(severityLayer, true);
         viewer.clock.currentTime = savedTime;
         viewer.terrainProvider = savedTp;
         $('#infoPanel').html((0, _fireListInfoPanel2.default)());
@@ -20691,7 +20704,7 @@ module.exports = (Handlebars["default"] || Handlebars).template({"compiler":[7,"
     + container.escapeExpression(container.lambda((depth0 != null ? depth0.fireName : depth0), depth0))
     + "</div>\n    <div class=\"legend-entry\" style=\"text-align: left; margin-left: 4px;\">"
     + ((stack1 = container.invokePartial(__webpack_require__(119),depth0,{"name":"fireItems","data":data,"helpers":helpers,"partials":partials,"decorators":container.decorators})) != null ? stack1 : "")
-    + "</div>\n  </div>\n  <div id=\"severityLegend\" class=\"legend-box\">\n    <div class=\"legend-title\">High Burn Severity Ratio</div>\n    <div class=\"legend-scale\">\n      <ul class=\"legend-items\">\n        <li><span style='background:#FFFF00;'></span>0%</li>\n        <li><span style='background:#FF8900;'></span>25%</li>\n        <li><span style='background:#FF3C00;'></span>50%</li>\n        <li><span style='background:#FF1800;'></span>75%</li>\n      </ul>\n    </div>\n    <div class=\"legend-explanation\">Proportion of fire area rated as high severity</div>\n  </div>\n  <div id=\"transparencyLegend\" class=\"legend-box\">\n    <div class=\"legend-title\">Transparency</div>\n    <div style=\"margin: 4px;\"><input id=\"infoPanelTransparency\" type=\"range\" min=\"0\" max=\"100\" value=\"80\" /></div>\n    <div class=\"legend-explanation\">Move the slider to adjust transparency</div>\n  </div>\n  <div class=\"legend-box\">\n    <div class=\"legend-title\">Severity Assessment</div>\n    <div class=\"legend-entry\"><span><input id=\"assessmentOption\" type=\"checkbox\"></span> Show MTBS severity assessment</div>\n  </div>\n  <div id=\"infoPanelCredit\">Data Source: <a href=\"http://www.mtbs.gov/\" target=\"_blank\">MTBS</a></div>\n</div>\n";
+    + "</div>\n  </div>\n  <div id=\"transparencyLegend\" class=\"legend-box\">\n    <div class=\"legend-title\">Transparency</div>\n    <div style=\"margin: 4px;\"><input id=\"infoPanelTransparency\" type=\"range\" min=\"0\" max=\"100\" value=\"80\" /></div>\n    <div class=\"legend-explanation\">Move the slider to adjust transparency</div>\n  </div>\n  <div id=\"infoPanelCredit\">Data Source: <a href=\"http://www.mtbs.gov/\" target=\"_blank\">MTBS</a></div>\n</div>\n";
 },"usePartial":true,"useData":true});
 
 /***/ }),
