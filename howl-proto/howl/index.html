@@ -138,6 +138,21 @@
             <a class="leaflet-control-zoom-in" href="#" title="Zoom in">+</a>
             <a class="leaflet-control-zoom-out" href="#" title="Zoom out">-</a>
           </div>
+          <div id="layer-control" class="leaflet-control leaflet-control-layers" aria-haspopup="true">
+            <a class="leaflet-control-layers-toggle" href="#" title="Layers"></a>
+            <form class="leaflet-control-layers-list">
+              <div id="basemap-layer-control" class="leaflet-control-layers-base">
+              </div>
+              <div id="overlay-layer-control" style="display: none;">
+                <div class="leaflet-control-layers-separator"></div>
+                <div class="leaflet-control-layers-overlays">
+                  <label><input type="checkbox" class="leaflet-control-layers-selector" checked=""><span> Wilderness</span></label>
+                  <label><input type="checkbox" class="leaflet-control-layers-selector" checked=""><span> Old Growth</span></label>
+                  <label><input type="checkbox" class="leaflet-control-layers-selector" checked=""><span> Clearcuts</span></label>
+                </div>
+              </div>
+            </form>
+          </div>
         </div>
         <div id="infoPanelSliderButton"><span class="glyphicon glyphicon-triangle-right" aria-hidden="true"></span></div>
         <div id="infoBox"></div>

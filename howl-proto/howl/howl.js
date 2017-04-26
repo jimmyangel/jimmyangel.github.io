@@ -17080,7 +17080,29 @@ var config = exports.config = {
       pitch: -0.85,
       roll: 6.28
     }
-  }
+  },
+  imageryProviders: [{
+    provider: new Cesium.UrlTemplateImageryProvider({
+      url: 'https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}',
+      maximumLevel: 19,
+      credit: 'Tiles © Esri — Source: Esri, i-cubed, USDA, USGS, AEX, GeoEye, Getmapping, Aerogrid, IGN, IGP, UPR-EGP, and the GIS User Community'
+    }),
+    name: 'World Imagery'
+  }, {
+    provider: new Cesium.UrlTemplateImageryProvider({
+      url: 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
+      maximumLevel: 19,
+      credit: '©OpenStreetMap'
+    }),
+    name: 'OpenStreetMap'
+  }, {
+    provider: new Cesium.UrlTemplateImageryProvider({
+      url: 'https://services.arcgisonline.com/arcgis/rest/services/USA_Topo_Maps/MapServer/tile/{z}/{y}/{x}',
+      maximumLevel: 15,
+      credit: 'Esri, DeLorme, FAO, USGS, NOAA, EPA | © 2013 National Geographic Society, i-cubed'
+    }),
+    name: 'USA Topo Maps'
+  }]
 };
 
 /***/ }),
@@ -29172,16 +29194,21 @@ function setup3dMap() {
   Cesium.MapboxApi.defaultAccessToken = _config.config.mapboxAccessToken;
 
   viewer = new Cesium.Viewer('cesiumContainer', {
+    baseLayerPicker: false,
+    imageryProvider: _config.config.imageryProviders[0].provider,
     animation: false,
     timeline: true,
     //homeButton: false,
     fullscreenButton: false,
     scene3DOnly: true,
+    //creditContainer: 'creditContainer',
     infoBox: false,
     navigationHelpButton: false,
     geocoder: false,
     terrainExaggeration: 2
   });
+
+  populateBaseMapLayerControl();
 
   setUp3DZoomControls(200);
 
@@ -29234,6 +29261,39 @@ function setUp3DZoomControls(minHeight) {
     zoomInOut3D(false, minHeight);
     return false;
   });
+}
+
+function populateBaseMapLayerControl() {
+
+  for (var k = 0; k < _config.config.imageryProviders.length; k++) {
+    $('#basemap-layer-control').append('<label><input id="basemap-layer" value="' + k + '" type="radio" class="leaflet-control-layers-selector" name="leaflet-base-layers"' + (k === 0 ? 'checked="checked"' : '') + '><span> ' + _config.config.imageryProviders[k].name + '</span></label>');
+  }
+
+  $('#basemap-layer-control').change(function () {
+    var selectedLayer = $('#basemap-layer:checked').val();
+    viewer.imageryLayers.remove(viewer.imageryLayers.get(0));
+    var layer = viewer.imageryLayers.addImageryProvider(_config.config.imageryProviders[selectedLayer].provider);
+    viewer.imageryLayers.lowerToBottom(layer); // Base layer always at bottom
+  });
+
+  $('#layer-control').on('mouseenter touchstart', function () {
+    if (!$('#layer-control').hasClass('leaflet-control-layers-expanded')) {
+      $('#layer-control').addClass('leaflet-control-layers-expanded');
+      return false;
+    }
+  });
+
+  $('#layer-control').on('mouseleave', function () {
+    $('#layer-control').removeClass('leaflet-control-layers-expanded');
+  });
+
+  $('#cesiumContainer').on('touchstart', function () {
+    if (!$(event.target).closest('#layer-control').length && $('#layer-control').hasClass('leaflet-control-layers-expanded')) {
+      $('#layer-control').removeClass('leaflet-control-layers-expanded');
+    }
+  });
+
+  return;
 }
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(11)))
 
@@ -51004,8 +51064,8 @@ module.exports = function(module) {
 
 __webpack_require__(238);
 __webpack_require__(237);
-__webpack_require__(239);
-module.exports = __webpack_require__(240);
+__webpack_require__(240);
+module.exports = __webpack_require__(239);
 
 
 /***/ })
