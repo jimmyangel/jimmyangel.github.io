@@ -29198,7 +29198,7 @@ function setup3dMap() {
     imageryProvider: _config.config.imageryProviders[0].provider,
     animation: false,
     timeline: true,
-    //homeButton: false,
+    homeButton: false,
     fullscreenButton: false,
     scene3DOnly: true,
     //creditContainer: 'creditContainer',
@@ -29480,10 +29480,14 @@ function setupView(viewer) {
     Cesium.CzmlDataSource.load(statsAndCZML.czml).then(function (dataSource) {
       $('#loadingIndicator').hide();
       viewer.dataSources.add(dataSource).then(function () {
-        viewer.homeButton.viewModel.command.beforeExecute.addEventListener(function (commandInfo) {
+        $('#resetView').click(function () {
           viewer.camera.flyTo(_config.config.initialCameraView);
-          commandInfo.cancel = true;
+          return false;
         });
+        /*viewer.homeButton.viewModel.command.beforeExecute.addEventListener(function(commandInfo){
+          viewer.camera.flyTo(config.initialCameraView);
+          commandInfo.cancel = true;
+        });*/
         setUpNonForestOption(dataSource, viewer);
         setUpCumulativeOption(dataSource, viewer);
         setUpInfoBox(dataSource, viewer);
@@ -29742,10 +29746,14 @@ function gotoFire(id, fileName, fireListDataSource, viewer, material, fireItems)
     viewer.dataSources.add(dataSource).then(function () {
       $('#loadingIndicator').hide();
       viewer.flyTo(dataSource);
-      viewer.homeButton.viewModel.command.beforeExecute.addEventListener(function (commandInfo) {
+      $('#resetView').click(function () {
+        viewer.flyTo(dataSource);
+        return false;
+      });
+      /*viewer.homeButton.viewModel.command.beforeExecute.addEventListener(function(commandInfo){
         viewer.flyTo(dataSource);
         commandInfo.cancel = true;
-      });
+      }); */
 
       $('#l-gotoall').click(function () {
         viewer.dataSources.remove(dataSource, true);
@@ -29766,12 +29774,17 @@ function gotoFire(id, fileName, fireListDataSource, viewer, material, fireItems)
           $('#cumulative-option').prop('checked', true);
           $('#cumulative-option').change();
         }
-        viewer.homeButton.viewModel.command.beforeExecute.addEventListener(function (commandInfo) {
+        $('#resetView').click(function () {
           viewer.flyTo(_config.config.initialCameraView);
-          commandInfo.cancel = true;
+          return false;
         });
+        /*viewer.homeButton.viewModel.command.beforeExecute.addEventListener(function(commandInfo){
+          viewer.flyTo(config.initialCameraView);
+          commandInfo.cancel = true;
+        });*/
         // This is a bit of hack because flyTo is not workimg from here
-        $('.cesium-home-button').click();
+        //$('.cesium-home-button').click();
+        $('#resetView').click();
         $('.cesium-viewer-bottom').css('bottom', '30px');
         $('.cesium-viewer-timelineContainer').css('z-index', 'auto');
         viewer.timeline.resize();
