@@ -29237,21 +29237,6 @@ function setup3dMap() {
     terrainExaggeration: 2
   });
 
-  /*viewer.imageryLayers.addImageryProvider(new Cesium.UrlTemplateImageryProvider(
-    {
-      url: 'data/tiles/oldgrowth/{z}/{x}/{y}.png',
-      maximumLevel: 12,
-      rectangle : Cesium.Rectangle.fromDegrees(-124.5685,41.9595,-120.8112,45.9053)
-    }
-  ));
-   viewer.imageryLayers.addImageryProvider(new Cesium.UrlTemplateImageryProvider(
-    {
-      url: 'data/tiles/clearcuts/{z}/{x}/{y}.png',
-      maximumLevel: 12,
-      rectangle : Cesium.Rectangle.fromDegrees(-124.5026,41.9513,-116.7792,46.0275)
-    }
-  )); */
-
   populateLayerControl();
 
   setUp3DZoomControls(200);
@@ -29266,8 +29251,6 @@ function setUpCollapsibleInfoPanel() {
     $('#cesiumContainer').toggleClass('col-xs-12 col-xs-9');
     $('#infoPanelSliderButton span').toggleClass('glyphicon-triangle-left glyphicon-triangle-right');
   });
-
-  //$('#infoPanelSliderButton').click();
 }
 
 function zoomInOut3D(isZoomIn, minHeight) {
@@ -29308,7 +29291,6 @@ function setUp3DZoomControls(minHeight) {
 }
 
 function populateLayerControl() {
-  //console.log(layerControl({imageryProviders: config.imageryProviders}));
 
   $('#layerControl').html((0, _layerControl2.default)({
     imageryProviders: _config.config.imageryProviders,
@@ -29360,19 +29342,6 @@ function populateLayerControl() {
 
   return;
 }
-
-/*function populateOverlayLayerControl() {
-  $('#overlay-layer-control').append(
-    '<div class="leaflet-control-layers-separator"></div>' +
-    '<div class="leaflet-control-layers-overlays">'
-  );
-  for (var k=0; k<config.overlayImageryProviders.length; k++) {
-    $('#overlay-layer-control').append(
-      '<label><input id="overlay-layer" value="' + k + '" type="checkbox" class="leaflet-control-layers-selector" name="leaflet-base-layers">' +
-      '<span> ' + config.overlayImageryProviders[k].name + '</span></label>');
-  }
-  $('#overlay-layer-control').append('</div>');
-}*/
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(11)))
 
 /***/ }),
