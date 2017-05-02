@@ -17110,21 +17110,24 @@ var config = exports.config = {
       rectangle: Cesium.Rectangle.fromDegrees(-124.5685, 41.9595, -120.8112, 45.9053)
     }),
     name: 'Old Growth Forests',
-    alpha: 0.8
+    alpha: 0.8,
+    legendSpan: '<span class="overlay-legend-item" style="background:#788000;"></span>'
   }, {
     provider: new Cesium.UrlTemplateImageryProvider({
       url: 'data/tiles/clearcuts/{z}/{x}/{y}.png',
       maximumLevel: 12,
       rectangle: Cesium.Rectangle.fromDegrees(-124.5026, 41.9513, -116.7792, 46.0275)
     }),
-    name: 'Clearcuts in Federal Lands'
+    name: 'Clearcuts in Federal Lands',
+    legendSpan: '<span class="overlay-legend-item-stripes"></span>'
   }, {
     provider: new Cesium.ArcGisMapServerImageryProvider({
       url: 'http://services.cfc.umt.edu/arcgis/rest/services/ProctectedAreas/Wilderness/MapServer',
       layers: '2'
     }),
     name: 'Wilderness Areas',
-    alpha: 0.8
+    alpha: 0.7,
+    legendSpan: '<span class="overlay-legend-item" style="background:#FFFF02;"></span><span style="font-size: 80%; font-weight: 100;"> BLM </span>' + '<span class="overlay-legend-item" style="background:#FFA900;"></span><span style="font-size: 80%; font-weight: 100;"> FWS </span>' + '<span class="overlay-legend-item" style="background:#38A801;"></span><span style="font-size: 80%; font-weight: 100;"> FS </span>' + '<span class="overlay-legend-item" style="background:#A80085;"></span><span style="font-size: 80%; font-weight: 100;"> NPS </span>'
   }]
 };
 
@@ -49017,13 +49020,15 @@ module.exports = (Handlebars["default"] || Handlebars).template({"1":function(co
 },"2":function(container,depth0,helpers,partials,data) {
     return "checked=\"checked\">";
 },"4":function(container,depth0,helpers,partials,data) {
-    var helper, alias1=container.escapeExpression;
+    var stack1, helper, alias1=container.escapeExpression, alias2=container.lambda;
 
   return "        <label><input id=\"overlay-layer\" value=\""
     + alias1(((helper = (helper = helpers.index || (data && data.index)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0 != null ? depth0 : {},{"name":"index","hash":{},"data":data}) : helper)))
     + "\" type=\"checkbox\" class=\"leaflet-control-layers-selector\" name=\"leaflet-base-layers\">\n        <span> "
-    + alias1(container.lambda((depth0 != null ? depth0.name : depth0), depth0))
-    + "</span>\n        </label>\n";
+    + alias1(alias2((depth0 != null ? depth0.name : depth0), depth0))
+    + " </span>"
+    + ((stack1 = alias2((depth0 != null ? depth0.legendSpan : depth0), depth0)) != null ? stack1 : "")
+    + "\n        </label>\n";
 },"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
     var stack1, alias1=depth0 != null ? depth0 : {};
 
