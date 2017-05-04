@@ -18012,17 +18012,29 @@ module.exports = (Handlebars["default"] || Handlebars).template({"compiler":[7,"
     + alias4(((helper = (helper = helpers.forestAcres || (depth0 != null ? depth0.forestAcres : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"forestAcres","hash":{},"data":data}) : helper)))
     + "<br>\n<div class=\"hline\"></div>\n<div style=\"text-align: center;\"><b>Acreage of Burn Severity</b></div>\n<div class=\"v-legend-scale\">\n  <ul class=\"v-legend-items\">\n    <li><span class=\"hidden-legend-item\" style=\"background:#FF0000;\"></span><b> High: </b>"
     + alias4(((helper = (helper = helpers.severityHighAcres || (depth0 != null ? depth0.severityHighAcres : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"severityHighAcres","hash":{},"data":data}) : helper)))
-    + "</li>\n    <li><span class=\"hidden-legend-item\" style=\"background:#FFFF00;\"></span><b> Moderate: </b>"
+    + " ("
+    + alias4(((helper = (helper = helpers.severityHighPercent || (depth0 != null ? depth0.severityHighPercent : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"severityHighPercent","hash":{},"data":data}) : helper)))
+    + ")</li>\n    <li><span class=\"hidden-legend-item\" style=\"background:#FFFF00;\"></span><b> Moderate: </b>"
     + alias4(((helper = (helper = helpers.severityModerateAcres || (depth0 != null ? depth0.severityModerateAcres : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"severityModerateAcres","hash":{},"data":data}) : helper)))
-    + "</li>\n    <li><span class=\"hidden-legend-item\" style=\"background:#79FFD3;\"></span><b> Low: </b>"
+    + " ("
+    + alias4(((helper = (helper = helpers.severityModeratePercent || (depth0 != null ? depth0.severityModeratePercent : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"severityModeratePercent","hash":{},"data":data}) : helper)))
+    + ")</li>\n    <li><span class=\"hidden-legend-item\" style=\"background:#79FFD3;\"></span><b> Low: </b>"
     + alias4(((helper = (helper = helpers.severityLowAcres || (depth0 != null ? depth0.severityLowAcres : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"severityLowAcres","hash":{},"data":data}) : helper)))
-    + "</li>\n    <li><span class=\"hidden-legend-item\" style=\"background:#006500;\"></span><b> Unburned: </b>"
+    + " ("
+    + alias4(((helper = (helper = helpers.severityLowPercent || (depth0 != null ? depth0.severityLowPercent : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"severityLowPercent","hash":{},"data":data}) : helper)))
+    + ")</li>\n    <li><span class=\"hidden-legend-item\" style=\"background:#006500;\"></span><b> Unburned: </b>"
     + alias4(((helper = (helper = helpers.severityUnburnedAcres || (depth0 != null ? depth0.severityUnburnedAcres : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"severityUnburnedAcres","hash":{},"data":data}) : helper)))
-    + "</li>\n    <li><span class=\"hidden-legend-item\" style=\"background:#7AFF00;\"></span><b> Increased Greeness: </b>"
+    + " ("
+    + alias4(((helper = (helper = helpers.severityUnburnedPercent || (depth0 != null ? depth0.severityUnburnedPercent : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"severityUnburnedPercent","hash":{},"data":data}) : helper)))
+    + ")</li>\n    <li><span class=\"hidden-legend-item\" style=\"background:#7AFF00;\"></span><b> Increased Greeness: </b>"
     + alias4(((helper = (helper = helpers.severityIncreasedGreenesAcres || (depth0 != null ? depth0.severityIncreasedGreenesAcres : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"severityIncreasedGreenesAcres","hash":{},"data":data}) : helper)))
-    + "</li>\n    <li><span class=\"hidden-legend-item\" style=\"background:#FFFFFF;\"></span><b> Not Assessed: </b>"
+    + " ("
+    + alias4(((helper = (helper = helpers.severityIncreasedGreenesPercent || (depth0 != null ? depth0.severityIncreasedGreenesPercent : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"severityIncreasedGreenesPercent","hash":{},"data":data}) : helper)))
+    + ")</li>\n    <li><span class=\"hidden-legend-item\" style=\"background:#FFFFFF;\"></span><b> Not Assessed: </b>"
     + alias4(((helper = (helper = helpers.nonProcessingMaskAcres || (depth0 != null ? depth0.nonProcessingMaskAcres : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"nonProcessingMaskAcres","hash":{},"data":data}) : helper)))
-    + "</li>\n  </ul>\n</div>\n";
+    + " ("
+    + alias4(((helper = (helper = helpers.nonProcessingMaskPercent || (depth0 != null ? depth0.nonProcessingMaskPercent : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"nonProcessingMaskPercent","hash":{},"data":data}) : helper)))
+    + ")</li>\n  </ul>\n</div>\n";
 },"useData":true});
 
 /***/ }),
@@ -29769,6 +29781,9 @@ function setUpInfoBox() {
 }
 
 function getFireItems(fireId) {
+  var l = window.navigator.language;
+  var o = { maximumFractionDigits: 0 };
+  var p = { style: 'percent', maximumFractionDigits: 0 };
   var fire = fireListData.features.find(function (f) {
     return f.properties.id === fireId;
   });
@@ -29779,14 +29794,20 @@ function getFireItems(fireId) {
       pdfLink: fire.properties.pdfLink,
       kmzLink: fire.properties.kmzLink,
       ignitionDate: new Date(fire.properties.ignitionDate).toDateString(),
-      acres: fire.properties.acres.toFixed(),
-      forestAcres: fire.properties.forestAcres.toFixed(),
-      severityHighAcres: fire.properties.severityHighAcres.toFixed(),
-      severityModerateAcres: fire.properties.severityModerateAcres.toFixed(),
-      severityLowAcres: fire.properties.severityLowAcres.toFixed(),
-      severityUnburnedAcres: fire.properties.severityUnburnedAcres.toFixed(),
-      severityIncreasedGreenesAcres: fire.properties.severityIncreasedGreenesAcres.toFixed(),
-      nonProcessingMaskAcres: fire.properties.nonProcessingMaskAcres.toFixed()
+      acres: fire.properties.acres.toLocaleString(l, o),
+      forestAcres: fire.properties.forestAcres.toLocaleString(l, o),
+      severityHighAcres: fire.properties.severityHighAcres.toLocaleString(l, o),
+      severityHighPercent: (fire.properties.severityHighAcres / fire.properties.acres).toLocaleString(l, p),
+      severityModerateAcres: fire.properties.severityModerateAcres.toLocaleString(l, o),
+      severityModeratePercent: (fire.properties.severityModerateAcres / fire.properties.acres).toLocaleString(l, p),
+      severityLowAcres: fire.properties.severityLowAcres.toLocaleString(l, o),
+      severityLowPercent: (fire.properties.severityLowAcres / fire.properties.acres).toLocaleString(l, p),
+      severityUnburnedAcres: fire.properties.severityUnburnedAcres.toLocaleString(l, o),
+      severityUnburnedPercent: (fire.properties.severityUnburnedAcres / fire.properties.acres).toLocaleString(l, p),
+      severityIncreasedGreenesAcres: fire.properties.severityIncreasedGreenesAcres.toLocaleString(l, o),
+      severityIncreasedGreenesPercent: (fire.properties.severityIncreasedGreenesAcres / fire.properties.acres).toLocaleString(l, p),
+      nonProcessingMaskAcres: fire.properties.nonProcessingMaskAcres.toLocaleString(l, o),
+      nonProcessingMaskPercent: (fire.properties.nonProcessingMaskAcres / fire.properties.acres).toLocaleString(l, p)
     };
   }
 }
