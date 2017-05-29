@@ -63,7 +63,7 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 536);
+/******/ 	return __webpack_require__(__webpack_require__.s = 537);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -1947,7 +1947,7 @@ function loadLocale(name) {
             module && module.exports) {
         try {
             oldLocale = globalLocale._abbr;
-            __webpack_require__(530)("./" + name);
+            __webpack_require__(531)("./" + name);
             // because defineLocale currently also sets the global locale, we
             // want to undo that for lazy loaded locales
             getSetGlobalLocale(oldLocale);
@@ -4582,7 +4582,7 @@ return hooks;
 
 })));
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(535)(module)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(536)(module)))
 
 /***/ }),
 /* 2 */
@@ -14506,7 +14506,7 @@ module.exports = function(it){
 /***/ (function(module, exports, __webpack_require__) {
 
 // 7.1.13 ToObject(argument)
-var defined = __webpack_require__(21);
+var defined = __webpack_require__(22);
 module.exports = function(it){
   return Object(defined(it));
 };
@@ -14585,7 +14585,7 @@ __webpack_require__(27).inspectSource = function(it){
 
 var $export = __webpack_require__(0)
   , fails   = __webpack_require__(4)
-  , defined = __webpack_require__(21)
+  , defined = __webpack_require__(22)
   , quot    = /"/g;
 // B.2.3.2.1 CreateHTML(string, tag, attribute, value)
 var createHTML = function(string, tag, attribute, value) {
@@ -14609,7 +14609,7 @@ module.exports = function(NAME, exec){
 
 // to indexed object, toObject with fallback for non-array-like ES3 strings
 var IObject = __webpack_require__(53)
-  , defined = __webpack_require__(21);
+  , defined = __webpack_require__(22);
 module.exports = function(it){
   return IObject(defined(it));
 };
@@ -14655,6 +14655,15 @@ module.exports = Object.getPrototypeOf || function(O){
 
 /***/ }),
 /* 20 */
+/***/ (function(module, exports, __webpack_require__) {
+
+// Create a simple path alias to allow browserify to resolve
+// the runtime on a supported path.
+module.exports = __webpack_require__(514)['default'];
+
+
+/***/ }),
+/* 21 */
 /***/ (function(module, exports) {
 
 var toString = {}.toString;
@@ -14664,7 +14673,7 @@ module.exports = function(it){
 };
 
 /***/ }),
-/* 21 */
+/* 22 */
 /***/ (function(module, exports) {
 
 // 7.2.1 RequireObjectCoercible(argument)
@@ -14674,7 +14683,7 @@ module.exports = function(it){
 };
 
 /***/ }),
-/* 22 */
+/* 23 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var fails = __webpack_require__(4);
@@ -14684,15 +14693,6 @@ module.exports = function(method, arg){
     arg ? method.call(null, function(){}, 1) : method.call(null);
   });
 };
-
-/***/ }),
-/* 23 */
-/***/ (function(module, exports, __webpack_require__) {
-
-// Create a simple path alias to allow browserify to resolve
-// the runtime on a supported path.
-module.exports = __webpack_require__(513)['default'];
-
 
 /***/ }),
 /* 24 */
@@ -15749,7 +15749,7 @@ var config = exports.config = {
       maximumLevel: 12,
       rectangle: Cesium.Rectangle.fromDegrees(-124.5685, 41.9595, -120.8112, 45.9053)
     }),
-    name: 'Old Growth Forests',
+    name: 'Old Growth Forests on BLM Lands',
     alpha: 0.9,
     legendSpan: '<span class="overlay-legend-item" style="background:#788000;"></span>'
   }, {
@@ -15758,7 +15758,7 @@ var config = exports.config = {
       maximumLevel: 12,
       rectangle: Cesium.Rectangle.fromDegrees(-124.5026, 41.9513, -116.7792, 46.0275)
     }),
-    name: 'Clearcuts in Federal Lands',
+    name: 'Clearcuts on Federal Lands',
     legendSpan: '<span class="overlay-legend-item-stripes"></span>'
   },
   /*    {
@@ -15881,7 +15881,7 @@ module.exports = function(it, tag, stat){
 /***/ (function(module, exports, __webpack_require__) {
 
 var $export = __webpack_require__(0)
-  , defined = __webpack_require__(21)
+  , defined = __webpack_require__(22)
   , fails   = __webpack_require__(4)
   , spaces  = __webpack_require__(89)
   , space   = '[' + spaces + ']'
@@ -16164,7 +16164,7 @@ var viewdispatcher = exports.viewdispatcher = {
 /***/ (function(module, exports, __webpack_require__) {
 
 // getting tag from 19.1.3.6 Object.prototype.toString()
-var cof = __webpack_require__(20)
+var cof = __webpack_require__(21)
   , TAG = __webpack_require__(6)('toStringTag')
   // ES3 wrong here
   , ARG = cof(function(){ return arguments; }()) == 'Arguments';
@@ -16192,7 +16192,7 @@ module.exports = function(it){
 /***/ (function(module, exports, __webpack_require__) {
 
 // fallback for non-array-like ES3 and non-enumerable old V8 strings
-var cof = __webpack_require__(20);
+var cof = __webpack_require__(21);
 module.exports = Object('z').propertyIsEnumerable(0) ? Object : function(it){
   return cof(it) == 'String' ? it.split('') : Object(it);
 };
@@ -16387,7 +16387,7 @@ module.exports = function(NAME, wrapper, methods, common, IS_MAP, IS_WEAK){
 var hide     = __webpack_require__(14)
   , redefine = __webpack_require__(15)
   , fails    = __webpack_require__(4)
-  , defined  = __webpack_require__(21)
+  , defined  = __webpack_require__(22)
   , wks      = __webpack_require__(6);
 
 module.exports = function(KEY, length, exec){
@@ -16458,7 +16458,7 @@ module.exports = function(fn, args, that){
 
 // 7.2.8 IsRegExp(argument)
 var isObject = __webpack_require__(5)
-  , cof      = __webpack_require__(20)
+  , cof      = __webpack_require__(21)
   , MATCH    = __webpack_require__(6)('match');
 module.exports = function(it){
   var isRegExp;
@@ -16735,7 +16735,7 @@ module.exports = function(it){
 /***/ (function(module, exports, __webpack_require__) {
 
 // 7.2.2 IsArray(argument)
-var cof = __webpack_require__(20);
+var cof = __webpack_require__(21);
 module.exports = Array.isArray || function isArray(arg){
   return cof(arg) == 'Array';
 };
@@ -16868,7 +16868,7 @@ var global    = __webpack_require__(3)
   , Observer  = global.MutationObserver || global.WebKitMutationObserver
   , process   = global.process
   , Promise   = global.Promise
-  , isNode    = __webpack_require__(20)(process) == 'process';
+  , isNode    = __webpack_require__(21)(process) == 'process';
 
 module.exports = function(){
   var head, last, notify;
@@ -16990,7 +16990,7 @@ module.exports = function(O, D){
 /***/ (function(module, exports, __webpack_require__) {
 
 var toInteger = __webpack_require__(34)
-  , defined   = __webpack_require__(21);
+  , defined   = __webpack_require__(22);
 // true  -> String#at
 // false -> String#codePointAt
 module.exports = function(TO_STRING){
@@ -17013,7 +17013,7 @@ module.exports = function(TO_STRING){
 
 // helper for String#{startsWith, endsWith, includes}
 var isRegExp = __webpack_require__(61)
-  , defined  = __webpack_require__(21);
+  , defined  = __webpack_require__(22);
 
 module.exports = function(that, searchString, NAME){
   if(isRegExp(searchString))throw TypeError('String#' + NAME + " doesn't accept regex!");
@@ -17027,7 +17027,7 @@ module.exports = function(that, searchString, NAME){
 "use strict";
 
 var toInteger = __webpack_require__(34)
-  , defined   = __webpack_require__(21);
+  , defined   = __webpack_require__(22);
 
 module.exports = function repeat(count){
   var str = String(defined(this))
@@ -17088,7 +17088,7 @@ if(!setTask || !clearTask){
     delete queue[id];
   };
   // Node.js 0.8-
-  if(__webpack_require__(20)(process) == 'process'){
+  if(__webpack_require__(21)(process) == 'process'){
     defer = function(id){
       process.nextTick(ctx(run, id, 1));
     };
@@ -17837,7 +17837,7 @@ module.exports = g;
 /* 98 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var cof = __webpack_require__(20);
+var cof = __webpack_require__(21);
 module.exports = function(it, msg){
   if(typeof it != 'number' && cof(it) != 'Number')throw TypeError(msg);
   return +it;
@@ -17962,7 +17962,7 @@ var dP          = __webpack_require__(8).f
   , redefineAll = __webpack_require__(40)
   , ctx         = __webpack_require__(28)
   , anInstance  = __webpack_require__(35)
-  , defined     = __webpack_require__(21)
+  , defined     = __webpack_require__(22)
   , forOf       = __webpack_require__(46)
   , $iterDefine = __webpack_require__(79)
   , step        = __webpack_require__(109)
@@ -18438,7 +18438,7 @@ module.exports = Object.is || function is(x, y){
 // https://github.com/tc39/proposal-string-pad-start-end
 var toLength = __webpack_require__(10)
   , repeat   = __webpack_require__(88)
-  , defined  = __webpack_require__(21);
+  , defined  = __webpack_require__(22);
 
 module.exports = function(that, maxLength, fillString, left){
   var S            = String(defined(that))
@@ -18576,7 +18576,7 @@ if(new $WeakMap().set((Object.freeze || Object)(tmp), 7).get(tmp) != 7){
 /* 126 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var Handlebars = __webpack_require__(23);
+var Handlebars = __webpack_require__(20);
 function __default(obj) { return obj && (obj.__esModule ? obj["default"] : obj); }
 module.exports = (Handlebars["default"] || Handlebars).template({"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
     var helper, alias1=depth0 != null ? depth0 : {}, alias2=helpers.helperMissing, alias3="function", alias4=container.escapeExpression;
@@ -18633,11 +18633,11 @@ var _exception = __webpack_require__(55);
 
 var _exception2 = _interopRequireDefault(_exception);
 
-var _helpers = __webpack_require__(516);
+var _helpers = __webpack_require__(517);
 
-var _decorators = __webpack_require__(514);
+var _decorators = __webpack_require__(515);
 
-var _logger = __webpack_require__(524);
+var _logger = __webpack_require__(525);
 
 var _logger2 = _interopRequireDefault(_logger);
 
@@ -29882,7 +29882,7 @@ mapper.setup3dMap(viewName);
 
 __webpack_require__(493);
 
-__webpack_require__(534);
+__webpack_require__(535);
 
 __webpack_require__(313);
 
@@ -30325,9 +30325,13 @@ var _utils = __webpack_require__(50);
 
 var utils = _interopRequireWildcard(_utils);
 
-var _ecopwildernessListInfoPanel = __webpack_require__(506);
+var _ecopwildernessListInfoPanel = __webpack_require__(507);
 
 var _ecopwildernessListInfoPanel2 = _interopRequireDefault(_ecopwildernessListInfoPanel);
+
+var _ecopwildernessInfoPanel = __webpack_require__(506);
+
+var _ecopwildernessInfoPanel2 = _interopRequireDefault(_ecopwildernessInfoPanel);
 
 function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
 
@@ -30367,9 +30371,6 @@ function setupView(viewer) {
       _config.config.ecoRegionColors[feature.properties.US_L3NAME].acres = acres.toLocaleString(l, o);
       _config.config.ecoRegionColors[feature.properties.US_L3NAME].percent = (acres / statsAll.totalAcres).toLocaleString(l, p);
     });
-    $('#infoPanel').html((0, _ecopwildernessListInfoPanel2.default)({
-      labels: _config.config.ecoRegionColors
-    }));
 
     Cesium.GeoJsonDataSource.load(data).then(function (dataSource) {
       ecoregionsDataSource = dataSource;
@@ -30381,18 +30382,11 @@ function setupView(viewer) {
           entity.position = new Cesium.ConstantPositionProperty(center);
         }
 
-        colorizeEcoregions(1);
         if (entity.properties.acres) {
           entity.polygon.closeBottom = true;
           entity.polygon.closeTop = true;
           entity.polygon.extrudedHeight = entity.properties.acres.getValue() / 40;
         }
-
-        $('#infoPanelTransparency').change(function () {
-          var t = $(this).val() / 100;
-          colorizeEcoregions(t);
-        });
-        $('#infoPanelTransparency').change();
       });
 
       $('#loadingIndicator').hide();
@@ -30413,8 +30407,8 @@ function setupView(viewer) {
         if (eId && isValideId(eId)) {
           gotoArea(eId);
         } else {
-          ecoregionsDataSource.show = true;
           history.replaceState('', '', '?view=ecopwilderness');
+          gotoAll();
         }
       });
     });
@@ -30428,6 +30422,16 @@ function colorizeEcoregions(alpha) {
 
     entity.polygon.outlineWidth = 0;
     entity.polygon.outlineColor = Cesium.Color.fromCssColorString(_config.config.ecoRegionColors[entity.name].color).withAlpha(alpha);
+  });
+}
+
+function colorizeDataSourceEntities(dataSource, alpha, id) {
+  dataSource.entities.values.forEach(function (entity) {
+
+    entity.polygon.material = Cesium.Color.fromCssColorString(_config.config.ecoRegionColors[id ? getEcoregionNameForId(id) : entity.name].color).withAlpha(alpha);
+
+    entity.polygon.outlineWidth = 0;
+    entity.polygon.outlineColor = Cesium.Color.fromCssColorString(_config.config.ecoRegionColors[id ? getEcoregionNameForId(id) : entity.name].color).withAlpha(alpha);
   });
 }
 
@@ -30469,6 +30473,14 @@ function getEcoregionNameForId(id) {
 }
 
 function gotoAll() {
+  $('#infoPanel').html((0, _ecopwildernessListInfoPanel2.default)({
+    labels: _config.config.ecoRegionColors
+  }));
+  $('#infoPanelTransparency').change(function () {
+    var t = $(this).val() / 100;
+    colorizeDataSourceEntities(ecoregionsDataSource, t);
+  });
+  $('#infoPanelTransparency').change();
   if (savedState) {
     _viewer.dataSources.remove(savedState.dataSource, true);
   }
@@ -30488,7 +30500,11 @@ function gotoArea(id) {
   }
   savedState = {};
   $('.leaflet-popup-close-button').click();
-  console.log('******* hey ******', getEcoregionNameForId(id));
+  $('#infoPanel').html((0, _ecopwildernessInfoPanel2.default)({
+    singleLabel: _config.config.ecoRegionColors[getEcoregionNameForId(id)],
+    labels: _config.config.ecoRegionColors
+  }));
+
   _viewer.dataSources.add(Cesium.GeoJsonDataSource.load('data/pwildbyeco/' + id + '.json', {
     clampToGround: true,
     fill: Cesium.Color.fromCssColorString(_config.config.ecoRegionColors[getEcoregionNameForId(id)].color).withAlpha(1)
@@ -30502,10 +30518,13 @@ function gotoArea(id) {
         entity.position = new Cesium.ConstantPositionProperty(center);
       }
 
-      entity.polygon.extrudedHeight = 4000;
-      entity.polygon.outlineWidth = 0;
-      entity.polygon.outlineColor = Cesium.Color.fromCssColorString(_config.config.ecoRegionColors[getEcoregionNameForId(id)].color).withAlpha(1);
+      //entity.polygon.extrudedHeight = 4000;
     });
+    $('#infoPanelTransparency').change(function () {
+      var t = $(this).val() / 100;
+      colorizeDataSourceEntities(dataSource, t, id);
+    });
+    $('#infoPanelTransparency').change();
 
     $('#loadingIndicator').hide();
     _viewer.flyTo(dataSource);
@@ -30539,11 +30558,11 @@ var _homeContent = __webpack_require__(504);
 
 var _homeContent2 = _interopRequireDefault(_homeContent);
 
-var _masonryLayout = __webpack_require__(529);
+var _masonryLayout = __webpack_require__(530);
 
 var _masonryLayout2 = _interopRequireDefault(_masonryLayout);
 
-var _imagesloaded = __webpack_require__(528);
+var _imagesloaded = __webpack_require__(529);
 
 var _imagesloaded2 = _interopRequireDefault(_imagesloaded);
 
@@ -30621,7 +30640,7 @@ var _utils = __webpack_require__(50);
 
 var utils = _interopRequireWildcard(_utils);
 
-var _pwildernessListInfoPanel = __webpack_require__(507);
+var _pwildernessListInfoPanel = __webpack_require__(508);
 
 var _pwildernessListInfoPanel2 = _interopRequireDefault(_pwildernessListInfoPanel);
 
@@ -30808,23 +30827,23 @@ var _utils = __webpack_require__(50);
 
 var utils = _interopRequireWildcard(_utils);
 
-var _fireListInfoPanel = __webpack_require__(510);
+var _fireListInfoPanel = __webpack_require__(511);
 
 var _fireListInfoPanel2 = _interopRequireDefault(_fireListInfoPanel);
 
-var _fireInfoBox = __webpack_require__(508);
+var _fireInfoBox = __webpack_require__(509);
 
 var _fireInfoBox2 = _interopRequireDefault(_fireInfoBox);
 
-var _fireInfoPanel = __webpack_require__(509);
+var _fireInfoPanel = __webpack_require__(510);
 
 var _fireInfoPanel2 = _interopRequireDefault(_fireInfoPanel);
 
-var _wildfiresViewLabel = __webpack_require__(512);
+var _wildfiresViewLabel = __webpack_require__(513);
 
 var _wildfiresViewLabel2 = _interopRequireDefault(_wildfiresViewLabel);
 
-var _wildfiresHistoryChart = __webpack_require__(511);
+var _wildfiresHistoryChart = __webpack_require__(512);
 
 var _wildfiresHistoryChart2 = _interopRequireDefault(_wildfiresHistoryChart);
 
@@ -46352,7 +46371,7 @@ __webpack_require__(45)('copyWithin');
 var $export = __webpack_require__(0)
   , $every  = __webpack_require__(24)(4);
 
-$export($export.P + $export.F * !__webpack_require__(22)([].every, true), 'Array', {
+$export($export.P + $export.F * !__webpack_require__(23)([].every, true), 'Array', {
   // 22.1.3.5 / 15.4.4.16 Array.prototype.every(callbackfn [, thisArg])
   every: function every(callbackfn /* , thisArg */){
     return $every(this, callbackfn, arguments[1]);
@@ -46379,7 +46398,7 @@ __webpack_require__(45)('fill');
 var $export = __webpack_require__(0)
   , $filter = __webpack_require__(24)(2);
 
-$export($export.P + $export.F * !__webpack_require__(22)([].filter, true), 'Array', {
+$export($export.P + $export.F * !__webpack_require__(23)([].filter, true), 'Array', {
   // 22.1.3.7 / 15.4.4.20 Array.prototype.filter(callbackfn [, thisArg])
   filter: function filter(callbackfn /* , thisArg */){
     return $filter(this, callbackfn, arguments[1]);
@@ -46434,7 +46453,7 @@ __webpack_require__(45)(KEY);
 
 var $export  = __webpack_require__(0)
   , $forEach = __webpack_require__(24)(0)
-  , STRICT   = __webpack_require__(22)([].forEach, true);
+  , STRICT   = __webpack_require__(23)([].forEach, true);
 
 $export($export.P + $export.F * !STRICT, 'Array', {
   // 22.1.3.10 / 15.4.4.18 Array.prototype.forEach(callbackfn [, thisArg])
@@ -46498,7 +46517,7 @@ var $export       = __webpack_require__(0)
   , $native       = [].indexOf
   , NEGATIVE_ZERO = !!$native && 1 / [1].indexOf(1, -0) < 0;
 
-$export($export.P + $export.F * (NEGATIVE_ZERO || !__webpack_require__(22)($native)), 'Array', {
+$export($export.P + $export.F * (NEGATIVE_ZERO || !__webpack_require__(23)($native)), 'Array', {
   // 22.1.3.11 / 15.4.4.14 Array.prototype.indexOf(searchElement [, fromIndex])
   indexOf: function indexOf(searchElement /*, fromIndex = 0 */){
     return NEGATIVE_ZERO
@@ -46529,7 +46548,7 @@ var $export   = __webpack_require__(0)
   , arrayJoin = [].join;
 
 // fallback for not array-like strings
-$export($export.P + $export.F * (__webpack_require__(53) != Object || !__webpack_require__(22)(arrayJoin)), 'Array', {
+$export($export.P + $export.F * (__webpack_require__(53) != Object || !__webpack_require__(23)(arrayJoin)), 'Array', {
   join: function join(separator){
     return arrayJoin.call(toIObject(this), separator === undefined ? ',' : separator);
   }
@@ -46548,7 +46567,7 @@ var $export       = __webpack_require__(0)
   , $native       = [].lastIndexOf
   , NEGATIVE_ZERO = !!$native && 1 / [1].lastIndexOf(1, -0) < 0;
 
-$export($export.P + $export.F * (NEGATIVE_ZERO || !__webpack_require__(22)($native)), 'Array', {
+$export($export.P + $export.F * (NEGATIVE_ZERO || !__webpack_require__(23)($native)), 'Array', {
   // 22.1.3.14 / 15.4.4.15 Array.prototype.lastIndexOf(searchElement [, fromIndex])
   lastIndexOf: function lastIndexOf(searchElement /*, fromIndex = @[*-1] */){
     // convert -0 to +0
@@ -46572,7 +46591,7 @@ $export($export.P + $export.F * (NEGATIVE_ZERO || !__webpack_require__(22)($nati
 var $export = __webpack_require__(0)
   , $map    = __webpack_require__(24)(1);
 
-$export($export.P + $export.F * !__webpack_require__(22)([].map, true), 'Array', {
+$export($export.P + $export.F * !__webpack_require__(23)([].map, true), 'Array', {
   // 22.1.3.15 / 15.4.4.19 Array.prototype.map(callbackfn [, thisArg])
   map: function map(callbackfn /* , thisArg */){
     return $map(this, callbackfn, arguments[1]);
@@ -46613,7 +46632,7 @@ $export($export.S + $export.F * __webpack_require__(4)(function(){
 var $export = __webpack_require__(0)
   , $reduce = __webpack_require__(101);
 
-$export($export.P + $export.F * !__webpack_require__(22)([].reduceRight, true), 'Array', {
+$export($export.P + $export.F * !__webpack_require__(23)([].reduceRight, true), 'Array', {
   // 22.1.3.19 / 15.4.4.22 Array.prototype.reduceRight(callbackfn [, initialValue])
   reduceRight: function reduceRight(callbackfn /* , initialValue */){
     return $reduce(this, callbackfn, arguments.length, arguments[1], true);
@@ -46629,7 +46648,7 @@ $export($export.P + $export.F * !__webpack_require__(22)([].reduceRight, true), 
 var $export = __webpack_require__(0)
   , $reduce = __webpack_require__(101);
 
-$export($export.P + $export.F * !__webpack_require__(22)([].reduce, true), 'Array', {
+$export($export.P + $export.F * !__webpack_require__(23)([].reduce, true), 'Array', {
   // 22.1.3.18 / 15.4.4.21 Array.prototype.reduce(callbackfn [, initialValue])
   reduce: function reduce(callbackfn /* , initialValue */){
     return $reduce(this, callbackfn, arguments.length, arguments[1], false);
@@ -46644,7 +46663,7 @@ $export($export.P + $export.F * !__webpack_require__(22)([].reduce, true), 'Arra
 
 var $export    = __webpack_require__(0)
   , html       = __webpack_require__(74)
-  , cof        = __webpack_require__(20)
+  , cof        = __webpack_require__(21)
   , toIndex    = __webpack_require__(42)
   , toLength   = __webpack_require__(10)
   , arraySlice = [].slice;
@@ -46679,7 +46698,7 @@ $export($export.P + $export.F * __webpack_require__(4)(function(){
 var $export = __webpack_require__(0)
   , $some   = __webpack_require__(24)(3);
 
-$export($export.P + $export.F * !__webpack_require__(22)([].some, true), 'Array', {
+$export($export.P + $export.F * !__webpack_require__(23)([].some, true), 'Array', {
   // 22.1.3.23 / 15.4.4.17 Array.prototype.some(callbackfn [, thisArg])
   some: function some(callbackfn /* , thisArg */){
     return $some(this, callbackfn, arguments[1]);
@@ -46706,7 +46725,7 @@ $export($export.P + $export.F * (fails(function(){
   // V8 bug
   test.sort(null);
   // Old WebKit
-}) || !__webpack_require__(22)($sort)), 'Array', {
+}) || !__webpack_require__(23)($sort)), 'Array', {
   // 22.1.3.25 Array.prototype.sort(comparefn)
   sort: function sort(comparefn){
     return comparefn === undefined
@@ -47156,7 +47175,7 @@ $export($export.S, 'Math', {
 
 var global            = __webpack_require__(3)
   , has               = __webpack_require__(12)
-  , cof               = __webpack_require__(20)
+  , cof               = __webpack_require__(21)
   , inheritIfRequired = __webpack_require__(75)
   , toPrimitive       = __webpack_require__(26)
   , fails             = __webpack_require__(4)
@@ -49288,7 +49307,7 @@ __webpack_require__(45)('includes');
 var $export   = __webpack_require__(0)
   , microtask = __webpack_require__(82)()
   , process   = __webpack_require__(3).process
-  , isNode    = __webpack_require__(20)(process) == 'process';
+  , isNode    = __webpack_require__(21)(process) == 'process';
 
 $export($export.G, {
   asap: function asap(fn){
@@ -49303,7 +49322,7 @@ $export($export.G, {
 
 // https://github.com/ljharb/proposal-is-error
 var $export = __webpack_require__(0)
-  , cof     = __webpack_require__(20);
+  , cof     = __webpack_require__(21);
 
 $export($export.S, 'Error', {
   isError: function isError(it){
@@ -49929,7 +49948,7 @@ $export($export.P, 'String', {
 
 // https://tc39.github.io/String.prototype.matchAll/
 var $export     = __webpack_require__(0)
-  , defined     = __webpack_require__(21)
+  , defined     = __webpack_require__(22)
   , toLength    = __webpack_require__(10)
   , isRegExp    = __webpack_require__(61)
   , getFlags    = __webpack_require__(59)
@@ -50634,7 +50653,7 @@ return utils;
 /* 503 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var Handlebars = __webpack_require__(23);
+var Handlebars = __webpack_require__(20);
 function __default(obj) { return obj && (obj.__esModule ? obj["default"] : obj); }
 module.exports = (Handlebars["default"] || Handlebars).template({"1":function(container,depth0,helpers,partials,data) {
     var stack1;
@@ -50662,7 +50681,7 @@ module.exports = (Handlebars["default"] || Handlebars).template({"1":function(co
 /* 504 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var Handlebars = __webpack_require__(23);
+var Handlebars = __webpack_require__(20);
 function __default(obj) { return obj && (obj.__esModule ? obj["default"] : obj); }
 module.exports = (Handlebars["default"] || Handlebars).template({"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
     return "<div class=\"container-fluid\">\n  <div class=\"row navbar-inverse\">\n    <div id=\"homeLogo\"><img id=\"homeLogoImage\" src=\"" + __webpack_require__(495) + "\"></img></div>\n  </div>\n  <div class=\"row\" style=\"background-color: #F0F0F0;\">\n    <div style=\"margin: 10px;\">\n      <h3>Highlighting Oregon's WildLands</h3>\n      <p style=\"font-size: 130%; font-weight: 300\">Oregon is a wonderful state. It is beautiful and it is wild. Mountains, ancient forests, clear waters and wildlife. But most of Oregon's incredible wildlands are not protected, and therefore are in serious danger of irreparable destruction. The purpose of this site is to raise awareness of Oregon's wildlands through selected 3D map-based 'spotlights.' This site will be updated and new 'spotlights' will be added over time, so be sure to check back every now and then to see what's going on.</p>\n    </div>\n  </div>\n  <div class=\"row spacer\"></div>\n  <div class=\"row\">\n    <h4>SPOTLIGHTS</h4>\n  </div>\n</div>\n<div class=\"container-fluid\" style=\"height: 90%; y-overflow: scroll;\">\n  <div class=\"row\">\n    <div class=\"grid\">\n      <div class=\"grid-sizer\"></div>\n      <div class=\"grid-item\">\n        <div class=\"panel panel-default\">\n          <a class=\"homeViewLinkItem\" view=\"wildfires\" href=\"#\">\n            <img class=\"img-responsive img-hover-effect\" style=\"padding: 5px;\" src=\"" + __webpack_require__(501) + "\" alt=\"\">\n          </a>\n          <div class=\"panel-footer text-center\">\n            History of Wildfire Severity\n          </div>\n          <div class=\"panel-caption text-center\">\n            In the Pacific Northwest, fire is a natural part of healthy forests. Since 2004 the Federal Government has been conducting detailed wildfire severity assessments by analyzing before and after LANDSAT satellite images of fire boundaries. This 'spotlight' shows the history of wildfires in Oregon and their severity since 1984.\n          </div>\n        </div>\n      </div>\n      <div class=\"grid-item\">\n        <div class=\"panel panel-default\">\n          <a class=\"homeViewLinkItem\" view=\"ecopwilderness\" href=\"#\">\n            <img class=\"img-responsive img-hover-effect\" style=\"padding: 5px;\" src=\"" + __webpack_require__(500) + "\" alt=\"\">\n          </a>\n          <div class=\"panel-footer text-center\">\n            Potential Wilderness Areas\n          </div>\n          <div class=\"panel-caption text-center\">\n            Did you know that Oregon has the least amount of proportional protected wilderness area as compared to California and Washington? 4% versus 15% and 10% respectively! Using this 'spotlight' you can explore potential wilderness areas that would raise Oregon to be on par with its neighbors.\n          </div>\n        </div>\n      </div>\n      <div class=\"grid-item\">\n        <div class=\"panel panel-default\">\n          <a>\n            <img class=\"img-responsive img-hover-effect\" style=\"padding: 5px;\" src=\"" + __webpack_require__(499) + "\" alt=\"\">\n          </a>\n          <div class=\"panel-footer text-center\">\n            The Journey of OR-7<br>(Coming soon)\n          </div>\n          <div class=\"panel-caption text-center\">\n            In 2011 a wolf by the name of OR-7, Journey, decided to break away from its pack in Northeast Oregon and march over 1,000 miles all the way to California through wilderness and roadless areas looking for a mate to establish his own pack. OR-7 had a GPS collar, so his route has been thoroughly recorded. This 'spotlight' shows the incredible journey of OR-7.\n          </div>\n        </div>\n      </div>\n    </div>\n  </div>\n  <div class=\"row spacer\"></div>\n  <div class=\"row navbar-inverse\" style=\"margin: 0 auto;\">\n    <div class=\"row spacer\"></div>\n    <h4 style=\"color: white;\">Over here some share icons and info links...</h4>\n  </div>\n</div>\n";
@@ -50672,7 +50691,7 @@ module.exports = (Handlebars["default"] || Handlebars).template({"compiler":[7,"
 /* 505 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var Handlebars = __webpack_require__(23);
+var Handlebars = __webpack_require__(20);
 function __default(obj) { return obj && (obj.__esModule ? obj["default"] : obj); }
 module.exports = (Handlebars["default"] || Handlebars).template({"1":function(container,depth0,helpers,partials,data) {
     var stack1, helper, alias1=depth0 != null ? depth0 : {}, alias2=container.escapeExpression;
@@ -50710,7 +50729,27 @@ module.exports = (Handlebars["default"] || Handlebars).template({"1":function(co
 /* 506 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var Handlebars = __webpack_require__(23);
+var Handlebars = __webpack_require__(20);
+function __default(obj) { return obj && (obj.__esModule ? obj["default"] : obj); }
+module.exports = (Handlebars["default"] || Handlebars).template({"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
+    var stack1, alias1=container.lambda, alias2=container.escapeExpression;
+
+  return "<div id=\"infoPanelContent\">\n  <div id=\"infoPanelTitle\"><a id=\"l-gotoall\" href=\"#\"><b>Potential Wilderness Areas</b></a></div>\n  <div><small>(Click on link above to view ecoregions)</small></div>\n  <div><small>(Click on a map shape to view unit info)</small></div>\n  <div class=\"hline\"></div>\n  <div class=\"legend-box\">\n    <div class=\"legend-title\">Ecoregion</div>\n    <div class=\"legend-entry\" style=\"text-align: left; margin-left: 4px;\">\n      <div class=\"v-legend-scale\">\n        <ul class=\"v-legend-items\">\n          <li><span class=\"legend-item\" style=\"background:"
+    + alias2(alias1(((stack1 = (depth0 != null ? depth0.singleLabel : depth0)) != null ? stack1.color : stack1), depth0))
+    + ";\"></span><b> "
+    + alias2(alias1(((stack1 = (depth0 != null ? depth0.singleLabel : depth0)) != null ? stack1.label : stack1), depth0))
+    + "</b></li>\n          <li><span class=\"legend-item\"></span> ("
+    + alias2(alias1(((stack1 = (depth0 != null ? depth0.singleLabel : depth0)) != null ? stack1.acres : stack1), depth0))
+    + " Acres, "
+    + alias2(alias1(((stack1 = (depth0 != null ? depth0.singleLabel : depth0)) != null ? stack1.percent : stack1), depth0))
+    + ")</li>\n        </ul>\n      </div>\n    </div>\n  </div>\n  <div id=\"transparencyLegend\" class=\"legend-box\">\n    <div class=\"legend-title\">Transparency</div>\n    <div style=\"margin: 4px;\"><input id=\"infoPanelTransparency\" type=\"range\" min=\"0\" max=\"100\" value=\"100\" /></div>\n    <div class=\"legend-explanation\">Move the slider to adjust transparency</div>\n  </div>\n  <div id=\"infoPanelCredit\">Data Source: <a href=\"http://www.oregonwild.org/\" target=\"_blank\">Oregon Wild</a></div>\n</div>\n";
+},"useData":true});
+
+/***/ }),
+/* 507 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var Handlebars = __webpack_require__(20);
 function __default(obj) { return obj && (obj.__esModule ? obj["default"] : obj); }
 module.exports = (Handlebars["default"] || Handlebars).template({"1":function(container,depth0,helpers,partials,data) {
     var helper, alias1=container.lambda, alias2=container.escapeExpression, alias3=depth0 != null ? depth0 : {}, alias4=helpers.helperMissing, alias5="function";
@@ -50733,10 +50772,10 @@ module.exports = (Handlebars["default"] || Handlebars).template({"1":function(co
 },"useData":true});
 
 /***/ }),
-/* 507 */
+/* 508 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var Handlebars = __webpack_require__(23);
+var Handlebars = __webpack_require__(20);
 function __default(obj) { return obj && (obj.__esModule ? obj["default"] : obj); }
 module.exports = (Handlebars["default"] || Handlebars).template({"1":function(container,depth0,helpers,partials,data) {
     var helper, alias1=depth0 != null ? depth0 : {}, alias2=helpers.helperMissing, alias3="function", alias4=container.escapeExpression;
@@ -50763,10 +50802,10 @@ module.exports = (Handlebars["default"] || Handlebars).template({"1":function(co
 },"useData":true});
 
 /***/ }),
-/* 508 */
+/* 509 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var Handlebars = __webpack_require__(23);
+var Handlebars = __webpack_require__(20);
 function __default(obj) { return obj && (obj.__esModule ? obj["default"] : obj); }
 module.exports = (Handlebars["default"] || Handlebars).template({"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
     var stack1;
@@ -50779,10 +50818,10 @@ module.exports = (Handlebars["default"] || Handlebars).template({"compiler":[7,"
 },"usePartial":true,"useData":true});
 
 /***/ }),
-/* 509 */
+/* 510 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var Handlebars = __webpack_require__(23);
+var Handlebars = __webpack_require__(20);
 function __default(obj) { return obj && (obj.__esModule ? obj["default"] : obj); }
 module.exports = (Handlebars["default"] || Handlebars).template({"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
     var stack1;
@@ -50795,37 +50834,37 @@ module.exports = (Handlebars["default"] || Handlebars).template({"compiler":[7,"
 },"usePartial":true,"useData":true});
 
 /***/ }),
-/* 510 */
+/* 511 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var Handlebars = __webpack_require__(23);
+var Handlebars = __webpack_require__(20);
 function __default(obj) { return obj && (obj.__esModule ? obj["default"] : obj); }
 module.exports = (Handlebars["default"] || Handlebars).template({"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
     return "<div id=\"infoPanelContent\">\n  <div id=\"infoPanelTitle\"><b>History of Wildfire Severity</b></div>\n  <div><small>(Click on a cylinder to view details)</small></div>\n  <div class=\"hline\"></div>\n  <div class=\"legend-box\">\n    <div class=\"legend-title\">Wildfires from 1984 to 2014</div>\n  </div>\n  <div class=\"legend-box\">\n    <div class=\"legend-title\">Display Options</div>\n    <div class=\"legend-entry\"><span><input id=\"non-forest-option\" type=\"checkbox\"></span> Show non-forest (e.g., shrubland) fires</div>\n    <div class=\"legend-entry\"><span><input id=\"cumulative-option\" type=\"checkbox\"></span> Show cumulative fire events</div>\n  </div>\n  <div class=\"legend-box\">\n    <div class=\"legend-title\">Timeline playback</div>\n    <div class=\"legend-subtitle\">[Running @ <b><span id='secsperyear'>3</span></b> seconds per year]</div>\n    <div class=\"playback-controls\">\n      <div>\n        <div class=\"howl-control\">\n          <a id=\"pb-slower\" href=\"#\" title=\"Faster\"><img src=\"" + __webpack_require__(498) + "\"></a>\n        </div>\n        <div class=\"howl-control\">\n          <a id=\"pb-start\" href=\"#\" title=\"Start\"><span class=\"glyphicon glyphicon-step-backward\" aria-hidden=\"true\"></span></a>\n        </div>\n        <div class=\"howl-control\">\n          <a id=\"pb-play\" href=\"#\" title=\"Play/Pause\"><span class=\"glyphicon glyphicon-play\" aria-hidden=\"true\"></span></a>\n        </div>\n        <div class=\"howl-control\">\n          <a id=\"pb-end\" href=\"#\" title=\"End\"><span class=\"glyphicon glyphicon-step-forward\" aria-hidden=\"true\"></span></a>\n        </div>\n        <div class=\"howl-control\">\n          <a id=\"pb-faster\" href=\"#\" title=\"Faster\"><img src=\"" + __webpack_require__(497) + "\"></a>\n        </div>\n      </div>\n    </div>\n    <div class=\"legend-explanation\">Use buttons for playback control</div>\n  </div>\n  <div class=\"legend-box\">\n    <div class=\"legend-title\">Predominant Burn Severity</div>\n    <div class=\"legend-scale\">\n      <ul class=\"legend-items\">\n        <li><span style='background:#FF0000;'></span>High</li>\n        <li><span style='background:#FFFF00;'></span>Moderate</li>\n        <li><span style='background:#79FFD3;'></span>Low</li>\n      </ul>\n    </div>\n  </div>\n  <div class=\"legend-box\">\n    <div class=\"legend-title\">Area of Fire Boundary</div>\n    <div class=\"legend-scale\">\n      <ul>\n        <li><span class='lbox' style='width: 10px; height: 10px; border-radius: 5px'></span><br>Small</li>\n        <li><span class='lbox' style='width: 20px; height: 20px; border-radius: 10px'></span><br>Med</li>\n        <li><span class='lbox' style='width: 30px; height: 30px; border-radius: 15px'></span><br>Large</li>\n      </ul>\n    </div>\n  </div>\n  <div class=\"legend-box\">\n    <div class=\"legend-title\">High Severity Area</div>\n    <div class=\"legend-scale\">\n      <ul>\n        <li><span class='scyl' style='width: 30px; height: 20px;'></span><br>Small</li>\n        <li><span class='mcyl' style='width: 30px; height: 30px;'></span><br>Med</li>\n        <li><span class='lcyl' style='width: 30px; height: 50px;'></span><br>Large</li>\n      </ul>\n    </div>\n  </div>\n  <div id=\"infoPanelCredit\">Data Source: <a href=\"http://www.mtbs.gov/\" target=\"_blank\">MTBS</a></div>\n</div>\n";
 },"useData":true});
 
 /***/ }),
-/* 511 */
+/* 512 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var Handlebars = __webpack_require__(23);
+var Handlebars = __webpack_require__(20);
 function __default(obj) { return obj && (obj.__esModule ? obj["default"] : obj); }
 module.exports = (Handlebars["default"] || Handlebars).template({"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
     return "<canvas id='summaryChart'></canvas>\n<div style=\"font-size: 80%\">Data source: <a href=\"http://www.mtbs.gov/\" target=\"_blank\">Monitoring Trends in Burn Severity (MTBS)</a></div>\n";
 },"useData":true});
 
 /***/ }),
-/* 512 */
+/* 513 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var Handlebars = __webpack_require__(23);
+var Handlebars = __webpack_require__(20);
 function __default(obj) { return obj && (obj.__esModule ? obj["default"] : obj); }
 module.exports = (Handlebars["default"] || Handlebars).template({"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
     return "<div><b><span id='cumulativeFromYear'></span><span id='showingYear'></span> Wildfires</b></div>\n<div style=\"font-size: 90%;\"><span id='numberOfFires'></span></div>\n";
 },"useData":true});
 
 /***/ }),
-/* 513 */
+/* 514 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -50847,7 +50886,7 @@ var base = _interopRequireWildcard(_handlebarsBase);
 // Each of these augment the Handlebars object. No need to setup here.
 // (This is done to easily share code between commonjs and browse envs)
 
-var _handlebarsSafeString = __webpack_require__(527);
+var _handlebarsSafeString = __webpack_require__(528);
 
 var _handlebarsSafeString2 = _interopRequireDefault(_handlebarsSafeString);
 
@@ -50859,11 +50898,11 @@ var _handlebarsUtils = __webpack_require__(31);
 
 var Utils = _interopRequireWildcard(_handlebarsUtils);
 
-var _handlebarsRuntime = __webpack_require__(526);
+var _handlebarsRuntime = __webpack_require__(527);
 
 var runtime = _interopRequireWildcard(_handlebarsRuntime);
 
-var _handlebarsNoConflict = __webpack_require__(525);
+var _handlebarsNoConflict = __webpack_require__(526);
 
 var _handlebarsNoConflict2 = _interopRequireDefault(_handlebarsNoConflict);
 
@@ -50898,7 +50937,7 @@ module.exports = exports['default'];
 
 
 /***/ }),
-/* 514 */
+/* 515 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -50910,7 +50949,7 @@ exports.registerDefaultDecorators = registerDefaultDecorators;
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
 
-var _decoratorsInline = __webpack_require__(515);
+var _decoratorsInline = __webpack_require__(516);
 
 var _decoratorsInline2 = _interopRequireDefault(_decoratorsInline);
 
@@ -50921,7 +50960,7 @@ function registerDefaultDecorators(instance) {
 
 
 /***/ }),
-/* 515 */
+/* 516 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -50957,7 +50996,7 @@ module.exports = exports['default'];
 
 
 /***/ }),
-/* 516 */
+/* 517 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -50969,31 +51008,31 @@ exports.registerDefaultHelpers = registerDefaultHelpers;
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
 
-var _helpersBlockHelperMissing = __webpack_require__(517);
+var _helpersBlockHelperMissing = __webpack_require__(518);
 
 var _helpersBlockHelperMissing2 = _interopRequireDefault(_helpersBlockHelperMissing);
 
-var _helpersEach = __webpack_require__(518);
+var _helpersEach = __webpack_require__(519);
 
 var _helpersEach2 = _interopRequireDefault(_helpersEach);
 
-var _helpersHelperMissing = __webpack_require__(519);
+var _helpersHelperMissing = __webpack_require__(520);
 
 var _helpersHelperMissing2 = _interopRequireDefault(_helpersHelperMissing);
 
-var _helpersIf = __webpack_require__(520);
+var _helpersIf = __webpack_require__(521);
 
 var _helpersIf2 = _interopRequireDefault(_helpersIf);
 
-var _helpersLog = __webpack_require__(521);
+var _helpersLog = __webpack_require__(522);
 
 var _helpersLog2 = _interopRequireDefault(_helpersLog);
 
-var _helpersLookup = __webpack_require__(522);
+var _helpersLookup = __webpack_require__(523);
 
 var _helpersLookup2 = _interopRequireDefault(_helpersLookup);
 
-var _helpersWith = __webpack_require__(523);
+var _helpersWith = __webpack_require__(524);
 
 var _helpersWith2 = _interopRequireDefault(_helpersWith);
 
@@ -51010,7 +51049,7 @@ function registerDefaultHelpers(instance) {
 
 
 /***/ }),
-/* 517 */
+/* 518 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -51056,7 +51095,7 @@ module.exports = exports['default'];
 
 
 /***/ }),
-/* 518 */
+/* 519 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -51157,7 +51196,7 @@ module.exports = exports['default'];
 
 
 /***/ }),
-/* 519 */
+/* 520 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -51189,7 +51228,7 @@ module.exports = exports['default'];
 
 
 /***/ }),
-/* 520 */
+/* 521 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -51225,7 +51264,7 @@ module.exports = exports['default'];
 
 
 /***/ }),
-/* 521 */
+/* 522 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -51258,7 +51297,7 @@ module.exports = exports['default'];
 
 
 /***/ }),
-/* 522 */
+/* 523 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -51277,7 +51316,7 @@ module.exports = exports['default'];
 
 
 /***/ }),
-/* 523 */
+/* 524 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -51317,7 +51356,7 @@ module.exports = exports['default'];
 
 
 /***/ }),
-/* 524 */
+/* 525 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -51371,7 +51410,7 @@ module.exports = exports['default'];
 
 
 /***/ }),
-/* 525 */
+/* 526 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -51399,7 +51438,7 @@ module.exports = exports['default'];
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(97)))
 
 /***/ }),
-/* 526 */
+/* 527 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -51703,7 +51742,7 @@ function executeDecorators(fn, prog, container, depths, data, blockParams) {
 
 
 /***/ }),
-/* 527 */
+/* 528 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -51725,7 +51764,7 @@ module.exports = exports['default'];
 
 
 /***/ }),
-/* 528 */
+/* 529 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
@@ -52102,7 +52141,7 @@ return ImagesLoaded;
 
 
 /***/ }),
-/* 529 */
+/* 530 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
@@ -52119,7 +52158,7 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_
   if ( true ) {
     // AMD
     !(__WEBPACK_AMD_DEFINE_ARRAY__ = [
-        __webpack_require__(532),
+        __webpack_require__(533),
         __webpack_require__(96)
       ], __WEBPACK_AMD_DEFINE_FACTORY__ = (factory),
 				__WEBPACK_AMD_DEFINE_RESULT__ = (typeof __WEBPACK_AMD_DEFINE_FACTORY__ === 'function' ?
@@ -52349,7 +52388,7 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_
 
 
 /***/ }),
-/* 530 */
+/* 531 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var map = {
@@ -52598,10 +52637,10 @@ webpackContext.keys = function webpackContextKeys() {
 };
 webpackContext.resolve = webpackContextResolve;
 module.exports = webpackContext;
-webpackContext.id = 530;
+webpackContext.id = 531;
 
 /***/ }),
-/* 531 */
+/* 532 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/**
@@ -53161,7 +53200,7 @@ return Item;
 
 
 /***/ }),
-/* 532 */
+/* 533 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
@@ -53180,7 +53219,7 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
         __webpack_require__(95),
         __webpack_require__(96),
         __webpack_require__(502),
-        __webpack_require__(531)
+        __webpack_require__(532)
       ], __WEBPACK_AMD_DEFINE_RESULT__ = function( EvEmitter, getSize, utils, Item ) {
         return factory( window, EvEmitter, getSize, utils, Item);
       }.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__),
@@ -54105,7 +54144,7 @@ return Outlayer;
 
 
 /***/ }),
-/* 533 */
+/* 534 */
 /***/ (function(module, exports) {
 
 // shim for using process in browser
@@ -54291,7 +54330,7 @@ process.umask = function() { return 0; };
 
 
 /***/ }),
-/* 534 */
+/* 535 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(global, process) {/**
@@ -55018,10 +55057,10 @@ process.umask = function() { return 0; };
   typeof self === "object" ? self : this
 );
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(97), __webpack_require__(533)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(97), __webpack_require__(534)))
 
 /***/ }),
-/* 535 */
+/* 536 */
 /***/ (function(module, exports) {
 
 module.exports = function(module) {
@@ -55049,7 +55088,7 @@ module.exports = function(module) {
 
 
 /***/ }),
-/* 536 */
+/* 537 */
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(245);
