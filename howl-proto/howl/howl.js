@@ -30259,19 +30259,18 @@ function handleFeaturePopUpClickEvents() {
       if (entity instanceof Cesium.Entity) {
         if (entity.properties && entity.properties.howlHasFeaturePopUp && entity.properties.howlHasFeaturePopUp.getValue()) {
           $('#featurePopUp').html((0, _featurePopUpContent2.default)(entity));
-          console.log(entity.properties.Acres);
           //$('.popUpLink').off();
           $('.popUpLink').click(function () {
             if (_viewdispatcher.viewdispatcher.popUpLinkClickHandler) {
-              _viewdispatcher.viewdispatcher.popUpLinkClickHandler($(this).attr('popUpEntityId'));
+              _viewdispatcher.viewdispatcher.popUpLinkClickHandler(entity.id);
             }
             return false;
           });
           $('#featurePopUp').show();
-          positionPopUp(c); // Initial position at the place item picked
+          positionPopUp(getEntityWindowCoordinates(entity));
           var removeHandler = viewer.scene.postRender.addEventListener(function () {
             //TODO: Get the height of the entity position via sampleTerrain (or populate height in data)
-            var changedC = Cesium.SceneTransforms.wgs84ToWindowCoordinates(viewer.scene, entity.position.getValue(Cesium.JulianDate.now()));
+            var changedC = getEntityWindowCoordinates(entity);
             if (changedC) {
               // If things moved, move the popUp too
               if (c.x !== changedC.x || c.y !== changedC.y) {
@@ -30291,6 +30290,10 @@ function handleFeaturePopUpClickEvents() {
       }
     }
   });
+}
+
+function getEntityWindowCoordinates(e) {
+  return Cesium.SceneTransforms.wgs84ToWindowCoordinates(viewer.scene, e.position.getValue(Cesium.JulianDate.now()));
 }
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(9)))
 
@@ -30473,6 +30476,7 @@ function getEcoregionNameForId(id) {
 }
 
 function gotoAll() {
+  $('.leaflet-popup-close-button').click();
   $('#infoPanel').html((0, _ecopwildernessListInfoPanel2.default)({
     labels: _config.config.ecoRegionColors
   }));
@@ -30500,26 +30504,32 @@ function gotoArea(id) {
   }
   savedState = {};
   $('.leaflet-popup-close-button').click();
-  $('#infoPanel').html((0, _ecopwildernessInfoPanel2.default)({
-    singleLabel: _config.config.ecoRegionColors[getEcoregionNameForId(id)],
-    labels: _config.config.ecoRegionColors
-  }));
 
   _viewer.dataSources.add(Cesium.GeoJsonDataSource.load('data/pwildbyeco/' + id + '.json', {
-    clampToGround: true,
-    fill: Cesium.Color.fromCssColorString(_config.config.ecoRegionColors[getEcoregionNameForId(id)].color).withAlpha(1)
+    clampToGround: true
   })).then(function (dataSource) {
     savedState.dataSource = dataSource;
     ecoregionsDataSource.show = false;
+    var units = [];
     dataSource.entities.values.forEach(function (entity) {
 
       if (!entity.position && entity.polygon) {
         var center = Cesium.BoundingSphere.fromPoints(entity.polygon.hierarchy.getValue().positions).center;
         entity.position = new Cesium.ConstantPositionProperty(center);
       }
-
+      var entry = entity.properties.AREA_NAMES.getValue() + ' (' + entity.properties.Acres.getValue().toLocaleString(window.navigator.language, { maximumFractionDigits: 0 }) + ' Acres)';
+      if (!units.includes(entry)) {
+        units.push(entry);
+      }
       //entity.polygon.extrudedHeight = 4000;
     });
+    console.log(units);
+    $('#infoPanel').html((0, _ecopwildernessInfoPanel2.default)({
+      singleLabel: _config.config.ecoRegionColors[getEcoregionNameForId(id)],
+      labels: _config.config.ecoRegionColors,
+      units: units.sort()
+    }));
+
     $('#infoPanelTransparency').change(function () {
       var t = $(this).val() / 100;
       colorizeDataSourceEntities(dataSource, t, id);
@@ -50731,7 +50741,11 @@ module.exports = (Handlebars["default"] || Handlebars).template({"1":function(co
 
 var Handlebars = __webpack_require__(20);
 function __default(obj) { return obj && (obj.__esModule ? obj["default"] : obj); }
-module.exports = (Handlebars["default"] || Handlebars).template({"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
+module.exports = (Handlebars["default"] || Handlebars).template({"1":function(container,depth0,helpers,partials,data) {
+    return "        <li>"
+    + container.escapeExpression(container.lambda(depth0, depth0))
+    + "</li>\n";
+},"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
     var stack1, alias1=container.lambda, alias2=container.escapeExpression;
 
   return "<div id=\"infoPanelContent\">\n  <div id=\"infoPanelTitle\"><a id=\"l-gotoall\" href=\"#\"><b>Potential Wilderness Areas</b></a></div>\n  <div><small>(Click on link above to view ecoregions)</small></div>\n  <div><small>(Click on a map shape to view unit info)</small></div>\n  <div class=\"hline\"></div>\n  <div class=\"legend-box\">\n    <div class=\"legend-title\">Ecoregion</div>\n    <div class=\"legend-entry\" style=\"text-align: left; margin-left: 4px;\">\n      <div class=\"v-legend-scale\">\n        <ul class=\"v-legend-items\">\n          <li><span class=\"legend-item\" style=\"background:"
@@ -50742,7 +50756,9 @@ module.exports = (Handlebars["default"] || Handlebars).template({"compiler":[7,"
     + alias2(alias1(((stack1 = (depth0 != null ? depth0.singleLabel : depth0)) != null ? stack1.acres : stack1), depth0))
     + " Acres, "
     + alias2(alias1(((stack1 = (depth0 != null ? depth0.singleLabel : depth0)) != null ? stack1.percent : stack1), depth0))
-    + ")</li>\n        </ul>\n      </div>\n    </div>\n  </div>\n  <div id=\"transparencyLegend\" class=\"legend-box\">\n    <div class=\"legend-title\">Transparency</div>\n    <div style=\"margin: 4px;\"><input id=\"infoPanelTransparency\" type=\"range\" min=\"0\" max=\"100\" value=\"100\" /></div>\n    <div class=\"legend-explanation\">Move the slider to adjust transparency</div>\n  </div>\n  <div id=\"infoPanelCredit\">Data Source: <a href=\"http://www.oregonwild.org/\" target=\"_blank\">Oregon Wild</a></div>\n</div>\n";
+    + ")</li>\n        </ul>\n      </div>\n    </div>\n  </div>\n  <div id=\"transparencyLegend\" class=\"legend-box\">\n    <div class=\"legend-title\">Transparency</div>\n    <div style=\"margin: 4px;\"><input id=\"infoPanelTransparency\" type=\"range\" min=\"0\" max=\"100\" value=\"100\" /></div>\n    <div class=\"legend-explanation\">Move the slider to adjust transparency</div>\n  </div>\n  <div class=\"legend-box\">\n    <div class=\"legend-title\">Units</div>\n    <div class=\"legend-entry\" style=\"text-align: left; margin-left: 4px;\">\n      <ul class=\"v-legend-items\">\n"
+    + ((stack1 = helpers.each.call(depth0 != null ? depth0 : {},(depth0 != null ? depth0.units : depth0),{"name":"each","hash":{},"fn":container.program(1, data, 0),"inverse":container.noop,"data":data})) != null ? stack1 : "")
+    + "      </ul>\n    </div>\n  </div>\n  <div id=\"infoPanelCredit\">Data Source: <a href=\"http://www.oregonwild.org/\" target=\"_blank\">Oregon Wild</a></div>\n</div>\n";
 },"useData":true});
 
 /***/ }),
