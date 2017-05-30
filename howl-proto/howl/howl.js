@@ -63,7 +63,7 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 537);
+/******/ 	return __webpack_require__(__webpack_require__.s = 538);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -1947,7 +1947,7 @@ function loadLocale(name) {
             module && module.exports) {
         try {
             oldLocale = globalLocale._abbr;
-            __webpack_require__(531)("./" + name);
+            __webpack_require__(532)("./" + name);
             // because defineLocale currently also sets the global locale, we
             // want to undo that for lazy loaded locales
             getSetGlobalLocale(oldLocale);
@@ -4582,7 +4582,7 @@ return hooks;
 
 })));
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(536)(module)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(537)(module)))
 
 /***/ }),
 /* 2 */
@@ -14618,6 +14618,15 @@ module.exports = function(it){
 /* 18 */
 /***/ (function(module, exports, __webpack_require__) {
 
+// Create a simple path alias to allow browserify to resolve
+// the runtime on a supported path.
+module.exports = __webpack_require__(515)['default'];
+
+
+/***/ }),
+/* 19 */
+/***/ (function(module, exports, __webpack_require__) {
+
 var pIE            = __webpack_require__(54)
   , createDesc     = __webpack_require__(33)
   , toIObject      = __webpack_require__(17)
@@ -14636,7 +14645,7 @@ exports.f = __webpack_require__(7) ? gOPD : function getOwnPropertyDescriptor(O,
 };
 
 /***/ }),
-/* 19 */
+/* 20 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // 19.1.2.9 / 15.2.3.2 Object.getPrototypeOf(O)
@@ -14652,15 +14661,6 @@ module.exports = Object.getPrototypeOf || function(O){
     return O.constructor.prototype;
   } return O instanceof Object ? ObjectProto : null;
 };
-
-/***/ }),
-/* 20 */
-/***/ (function(module, exports, __webpack_require__) {
-
-// Create a simple path alias to allow browserify to resolve
-// the runtime on a supported path.
-module.exports = __webpack_require__(514)['default'];
-
 
 /***/ }),
 /* 21 */
@@ -14892,7 +14892,7 @@ if(__webpack_require__(7)){
     , toObject            = __webpack_require__(11)
     , isArrayIter         = __webpack_require__(76)
     , create              = __webpack_require__(37)
-    , getPrototypeOf      = __webpack_require__(19)
+    , getPrototypeOf      = __webpack_require__(20)
     , gOPN                = __webpack_require__(38).f
     , getIterFn           = __webpack_require__(93)
     , uid                 = __webpack_require__(43)
@@ -14907,7 +14907,7 @@ if(__webpack_require__(7)){
     , arrayFill           = __webpack_require__(69)
     , arrayCopyWithin     = __webpack_require__(99)
     , $DP                 = __webpack_require__(8)
-    , $GOPD               = __webpack_require__(18)
+    , $GOPD               = __webpack_require__(19)
     , dP                  = $DP.f
     , gOPD                = $GOPD.f
     , RangeError          = global.RangeError
@@ -16773,7 +16773,7 @@ var LIBRARY        = __webpack_require__(36)
   , Iterators      = __webpack_require__(47)
   , $iterCreate    = __webpack_require__(78)
   , setToStringTag = __webpack_require__(48)
-  , getPrototypeOf = __webpack_require__(19)
+  , getPrototypeOf = __webpack_require__(20)
   , ITERATOR       = __webpack_require__(6)('iterator')
   , BUGGY          = !([].keys && 'next' in [].keys()) // Safari has buggy iterators w/o `next`
   , FF_ITERATOR    = '@@iterator'
@@ -16948,7 +16948,7 @@ module.exports = {
   set: Object.setPrototypeOf || ('__proto__' in {} ? // eslint-disable-line
     function(test, buggy, set){
       try {
-        set = __webpack_require__(28)(Function.call, __webpack_require__(18).f(Object.prototype, '__proto__').set, 2);
+        set = __webpack_require__(28)(Function.call, __webpack_require__(19).f(Object.prototype, '__proto__').set, 2);
         set(test, []);
         buggy = !(test instanceof Array);
       } catch(e){ buggy = true; }
@@ -18576,7 +18576,7 @@ if(new $WeakMap().set((Object.freeze || Object)(tmp), 7).get(tmp) != 7){
 /* 126 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var Handlebars = __webpack_require__(20);
+var Handlebars = __webpack_require__(18);
 function __default(obj) { return obj && (obj.__esModule ? obj["default"] : obj); }
 module.exports = (Handlebars["default"] || Handlebars).template({"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
     var helper, alias1=depth0 != null ? depth0 : {}, alias2=helpers.helperMissing, alias3="function", alias4=container.escapeExpression;
@@ -18633,11 +18633,11 @@ var _exception = __webpack_require__(55);
 
 var _exception2 = _interopRequireDefault(_exception);
 
-var _helpers = __webpack_require__(517);
+var _helpers = __webpack_require__(518);
 
-var _decorators = __webpack_require__(515);
+var _decorators = __webpack_require__(516);
 
-var _logger = __webpack_require__(525);
+var _logger = __webpack_require__(526);
 
 var _logger2 = _interopRequireDefault(_logger);
 
@@ -29882,7 +29882,7 @@ mapper.setup3dMap(viewName);
 
 __webpack_require__(493);
 
-__webpack_require__(535);
+__webpack_require__(536);
 
 __webpack_require__(313);
 
@@ -30328,13 +30328,17 @@ var _utils = __webpack_require__(50);
 
 var utils = _interopRequireWildcard(_utils);
 
-var _ecopwildernessListInfoPanel = __webpack_require__(507);
+var _ecopwildernessListInfoPanel = __webpack_require__(508);
 
 var _ecopwildernessListInfoPanel2 = _interopRequireDefault(_ecopwildernessListInfoPanel);
 
-var _ecopwildernessInfoPanel = __webpack_require__(506);
+var _ecopwildernessInfoPanel = __webpack_require__(507);
 
 var _ecopwildernessInfoPanel2 = _interopRequireDefault(_ecopwildernessInfoPanel);
+
+var _ecopwildernessChart = __webpack_require__(506);
+
+var _ecopwildernessChart2 = _interopRequireDefault(_ecopwildernessChart);
 
 function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
 
@@ -30367,6 +30371,9 @@ function setupView(viewer) {
     statsAll.totalAcres = ecoregionsData.features.reduce(function (acc, feature) {
       return acc + parseInt(feature.properties.acres ? feature.properties.acres : 0);
     }, 0);
+
+    $('#summaryChartContainer').html((0, _ecopwildernessChart2.default)({ acres: (statsAll.totalAcres / 1000).toLocaleString(window.navigator.language, { maximumFractionDigits: 0 }) }));
+    setUpSummaryChart();
 
     ecoregionsData.features.forEach(function (feature) {
       //console.log(config.ecoRegionColors[feature.properties.US_L3NAME], feature.properties.acres);
@@ -30415,16 +30422,6 @@ function setupView(viewer) {
         }
       });
     });
-  });
-}
-
-function colorizeEcoregions(alpha) {
-  ecoregionsDataSource.entities.values.forEach(function (entity) {
-
-    entity.polygon.material = Cesium.Color.fromCssColorString(_config.config.ecoRegionColors[entity.name].color).withAlpha(alpha);
-
-    entity.polygon.outlineWidth = 0;
-    entity.polygon.outlineColor = Cesium.Color.fromCssColorString(_config.config.ecoRegionColors[entity.name].color).withAlpha(alpha);
   });
 }
 
@@ -30523,7 +30520,6 @@ function gotoArea(id) {
       }
       //entity.polygon.extrudedHeight = 4000;
     });
-    console.log(units);
     $('#infoPanel').html((0, _ecopwildernessInfoPanel2.default)({
       singleLabel: _config.config.ecoRegionColors[getEcoregionNameForId(id)],
       labels: _config.config.ecoRegionColors,
@@ -30545,7 +30541,62 @@ function gotoArea(id) {
   });
 }
 
-function setUpSummaryChart() {}
+function setUpSummaryChart() {
+  var labels = [];
+  var colors = [];
+  var data = [];
+  var all = [];
+
+  for (var i = 0; i < ecoregionsData.features.length; i++) {
+    if (ecoregionsData.features[i].properties.acres) {
+      all.push({
+        labels: _config.config.ecoRegionColors[ecoregionsData.features[i].properties.US_L3NAME].label,
+        colors: _config.config.ecoRegionColors[ecoregionsData.features[i].properties.US_L3NAME].color,
+        data: (ecoregionsData.features[i].properties.acres / 1000).toFixed(2)
+      });
+    }
+  }
+
+  all.sort(function (a, b) {
+    return b.data - a.data;
+  });
+
+  all.forEach(function (item) {
+    labels.push(item.labels);
+    colors.push(item.colors);
+    data.push(item.data);
+  });
+
+  var ctx = $('#summaryChart')[0];
+
+  new _chart2.default(ctx, {
+    type: 'bar',
+    data: {
+      labels: labels,
+      datasets: [{
+        backgroundColor: colors,
+        data: data
+      }]
+    },
+    options: {
+      title: {
+        display: false
+      },
+      legend: {
+        display: false
+      },
+      scales: {
+        yAxes: [{
+          ticks: { beginAtZero: true },
+          scaleLabel: {
+            display: true,
+            labelString: 'Area (in thousands of acres)'
+          }
+        }]
+      }
+    }
+  });
+}
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(9)))
 
 /***/ }),
@@ -30568,11 +30619,11 @@ var _homeContent = __webpack_require__(504);
 
 var _homeContent2 = _interopRequireDefault(_homeContent);
 
-var _masonryLayout = __webpack_require__(530);
+var _masonryLayout = __webpack_require__(531);
 
 var _masonryLayout2 = _interopRequireDefault(_masonryLayout);
 
-var _imagesloaded = __webpack_require__(529);
+var _imagesloaded = __webpack_require__(530);
 
 var _imagesloaded2 = _interopRequireDefault(_imagesloaded);
 
@@ -30650,7 +30701,7 @@ var _utils = __webpack_require__(50);
 
 var utils = _interopRequireWildcard(_utils);
 
-var _pwildernessListInfoPanel = __webpack_require__(508);
+var _pwildernessListInfoPanel = __webpack_require__(509);
 
 var _pwildernessListInfoPanel2 = _interopRequireDefault(_pwildernessListInfoPanel);
 
@@ -30837,23 +30888,23 @@ var _utils = __webpack_require__(50);
 
 var utils = _interopRequireWildcard(_utils);
 
-var _fireListInfoPanel = __webpack_require__(511);
+var _fireListInfoPanel = __webpack_require__(512);
 
 var _fireListInfoPanel2 = _interopRequireDefault(_fireListInfoPanel);
 
-var _fireInfoBox = __webpack_require__(509);
+var _fireInfoBox = __webpack_require__(510);
 
 var _fireInfoBox2 = _interopRequireDefault(_fireInfoBox);
 
-var _fireInfoPanel = __webpack_require__(510);
+var _fireInfoPanel = __webpack_require__(511);
 
 var _fireInfoPanel2 = _interopRequireDefault(_fireInfoPanel);
 
-var _wildfiresViewLabel = __webpack_require__(513);
+var _wildfiresViewLabel = __webpack_require__(514);
 
 var _wildfiresViewLabel2 = _interopRequireDefault(_wildfiresViewLabel);
 
-var _wildfiresHistoryChart = __webpack_require__(512);
+var _wildfiresHistoryChart = __webpack_require__(513);
 
 var _wildfiresHistoryChart2 = _interopRequireDefault(_wildfiresHistoryChart);
 
@@ -46854,7 +46905,7 @@ $export($export.P, 'Function', {bind: __webpack_require__(102)});
 "use strict";
 
 var isObject       = __webpack_require__(5)
-  , getPrototypeOf = __webpack_require__(19)
+  , getPrototypeOf = __webpack_require__(20)
   , HAS_INSTANCE   = __webpack_require__(6)('hasInstance')
   , FunctionProto  = Function.prototype;
 // 19.2.3.6 Function.prototype[@@hasInstance](V)
@@ -47190,7 +47241,7 @@ var global            = __webpack_require__(3)
   , toPrimitive       = __webpack_require__(26)
   , fails             = __webpack_require__(4)
   , gOPN              = __webpack_require__(38).f
-  , gOPD              = __webpack_require__(18).f
+  , gOPD              = __webpack_require__(19).f
   , dP                = __webpack_require__(8).f
   , $trim             = __webpack_require__(49).trim
   , NUMBER            = 'Number'
@@ -47544,7 +47595,7 @@ __webpack_require__(25)('freeze', function($freeze){
 
 // 19.1.2.6 Object.getOwnPropertyDescriptor(O, P)
 var toIObject                 = __webpack_require__(17)
-  , $getOwnPropertyDescriptor = __webpack_require__(18).f;
+  , $getOwnPropertyDescriptor = __webpack_require__(19).f;
 
 __webpack_require__(25)('getOwnPropertyDescriptor', function(){
   return function getOwnPropertyDescriptor(it, key){
@@ -47567,7 +47618,7 @@ __webpack_require__(25)('getOwnPropertyNames', function(){
 
 // 19.1.2.9 Object.getPrototypeOf(O)
 var toObject        = __webpack_require__(11)
-  , $getPrototypeOf = __webpack_require__(19);
+  , $getPrototypeOf = __webpack_require__(20);
 
 __webpack_require__(25)('getPrototypeOf', function(){
   return function getPrototypeOf(it){
@@ -48117,7 +48168,7 @@ $export($export.S + $export.F * __webpack_require__(4)(function(){
 
 // 26.1.4 Reflect.deleteProperty(target, propertyKey)
 var $export  = __webpack_require__(0)
-  , gOPD     = __webpack_require__(18).f
+  , gOPD     = __webpack_require__(19).f
   , anObject = __webpack_require__(2);
 
 $export($export.S, 'Reflect', {
@@ -48164,7 +48215,7 @@ $export($export.S, 'Reflect', {
 /***/ (function(module, exports, __webpack_require__) {
 
 // 26.1.7 Reflect.getOwnPropertyDescriptor(target, propertyKey)
-var gOPD     = __webpack_require__(18)
+var gOPD     = __webpack_require__(19)
   , $export  = __webpack_require__(0)
   , anObject = __webpack_require__(2);
 
@@ -48180,7 +48231,7 @@ $export($export.S, 'Reflect', {
 
 // 26.1.8 Reflect.getPrototypeOf(target)
 var $export  = __webpack_require__(0)
-  , getProto = __webpack_require__(19)
+  , getProto = __webpack_require__(20)
   , anObject = __webpack_require__(2);
 
 $export($export.S, 'Reflect', {
@@ -48194,8 +48245,8 @@ $export($export.S, 'Reflect', {
 /***/ (function(module, exports, __webpack_require__) {
 
 // 26.1.6 Reflect.get(target, propertyKey [, receiver])
-var gOPD           = __webpack_require__(18)
-  , getPrototypeOf = __webpack_require__(19)
+var gOPD           = __webpack_require__(19)
+  , getPrototypeOf = __webpack_require__(20)
   , has            = __webpack_require__(12)
   , $export        = __webpack_require__(0)
   , isObject       = __webpack_require__(5)
@@ -48300,8 +48351,8 @@ if(setProto)$export($export.S, 'Reflect', {
 
 // 26.1.13 Reflect.set(target, propertyKey, V [, receiver])
 var dP             = __webpack_require__(8)
-  , gOPD           = __webpack_require__(18)
-  , getPrototypeOf = __webpack_require__(19)
+  , gOPD           = __webpack_require__(19)
+  , getPrototypeOf = __webpack_require__(20)
   , has            = __webpack_require__(12)
   , $export        = __webpack_require__(0)
   , createDesc     = __webpack_require__(33)
@@ -48910,7 +48961,7 @@ var global         = __webpack_require__(3)
   , createDesc     = __webpack_require__(33)
   , _create        = __webpack_require__(37)
   , gOPNExt        = __webpack_require__(113)
-  , $GOPD          = __webpack_require__(18)
+  , $GOPD          = __webpack_require__(19)
   , $DP            = __webpack_require__(8)
   , $keys          = __webpack_require__(39)
   , gOPD           = $GOPD.f
@@ -49481,7 +49532,7 @@ $export($export.S, 'Object', {
 var $export        = __webpack_require__(0)
   , ownKeys        = __webpack_require__(116)
   , toIObject      = __webpack_require__(17)
-  , gOPD           = __webpack_require__(18)
+  , gOPD           = __webpack_require__(19)
   , createProperty = __webpack_require__(70);
 
 $export($export.S, 'Object', {
@@ -49506,8 +49557,8 @@ $export($export.S, 'Object', {
 var $export                  = __webpack_require__(0)
   , toObject                 = __webpack_require__(11)
   , toPrimitive              = __webpack_require__(26)
-  , getPrototypeOf           = __webpack_require__(19)
-  , getOwnPropertyDescriptor = __webpack_require__(18).f;
+  , getPrototypeOf           = __webpack_require__(20)
+  , getOwnPropertyDescriptor = __webpack_require__(19).f;
 
 // B.2.2.4 Object.prototype.__lookupGetter__(P)
 __webpack_require__(7) && $export($export.P + __webpack_require__(63), 'Object', {
@@ -49530,8 +49581,8 @@ __webpack_require__(7) && $export($export.P + __webpack_require__(63), 'Object',
 var $export                  = __webpack_require__(0)
   , toObject                 = __webpack_require__(11)
   , toPrimitive              = __webpack_require__(26)
-  , getPrototypeOf           = __webpack_require__(19)
-  , getOwnPropertyDescriptor = __webpack_require__(18).f;
+  , getPrototypeOf           = __webpack_require__(20)
+  , getOwnPropertyDescriptor = __webpack_require__(19).f;
 
 // B.2.2.5 Object.prototype.__lookupSetter__(P)
 __webpack_require__(7) && $export($export.P + __webpack_require__(63), 'Object', {
@@ -49805,7 +49856,7 @@ var Set                     = __webpack_require__(124)
   , from                    = __webpack_require__(100)
   , metadata                = __webpack_require__(29)
   , anObject                = __webpack_require__(2)
-  , getPrototypeOf          = __webpack_require__(19)
+  , getPrototypeOf          = __webpack_require__(20)
   , ordinaryOwnMetadataKeys = metadata.keys
   , toMetaKey               = metadata.key;
 
@@ -49827,7 +49878,7 @@ metadata.exp({getMetadataKeys: function getMetadataKeys(target /*, targetKey */)
 
 var metadata               = __webpack_require__(29)
   , anObject               = __webpack_require__(2)
-  , getPrototypeOf         = __webpack_require__(19)
+  , getPrototypeOf         = __webpack_require__(20)
   , ordinaryHasOwnMetadata = metadata.has
   , ordinaryGetOwnMetadata = metadata.get
   , toMetaKey              = metadata.key;
@@ -49876,7 +49927,7 @@ metadata.exp({getOwnMetadata: function getOwnMetadata(metadataKey, target /*, ta
 
 var metadata               = __webpack_require__(29)
   , anObject               = __webpack_require__(2)
-  , getPrototypeOf         = __webpack_require__(19)
+  , getPrototypeOf         = __webpack_require__(20)
   , ordinaryHasOwnMetadata = metadata.has
   , toMetaKey              = metadata.key;
 
@@ -50663,7 +50714,7 @@ return utils;
 /* 503 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var Handlebars = __webpack_require__(20);
+var Handlebars = __webpack_require__(18);
 function __default(obj) { return obj && (obj.__esModule ? obj["default"] : obj); }
 module.exports = (Handlebars["default"] || Handlebars).template({"1":function(container,depth0,helpers,partials,data) {
     var stack1;
@@ -50691,7 +50742,7 @@ module.exports = (Handlebars["default"] || Handlebars).template({"1":function(co
 /* 504 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var Handlebars = __webpack_require__(20);
+var Handlebars = __webpack_require__(18);
 function __default(obj) { return obj && (obj.__esModule ? obj["default"] : obj); }
 module.exports = (Handlebars["default"] || Handlebars).template({"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
     return "<div class=\"container-fluid\">\n  <div class=\"row navbar-inverse\">\n    <div id=\"homeLogo\"><img id=\"homeLogoImage\" src=\"" + __webpack_require__(495) + "\"></img></div>\n  </div>\n  <div class=\"row\" style=\"background-color: #F0F0F0;\">\n    <div style=\"margin: 10px;\">\n      <h3>Highlighting Oregon's WildLands</h3>\n      <p style=\"font-size: 130%; font-weight: 300\">Oregon is a wonderful state. It is beautiful and it is wild. Mountains, ancient forests, clear waters and wildlife. But most of Oregon's incredible wildlands are not protected, and therefore are in serious danger of irreparable destruction. The purpose of this site is to raise awareness of Oregon's wildlands through selected 3D map-based 'spotlights.' This site will be updated and new 'spotlights' will be added over time, so be sure to check back every now and then to see what's going on.</p>\n    </div>\n  </div>\n  <div class=\"row spacer\"></div>\n  <div class=\"row\">\n    <h4>SPOTLIGHTS</h4>\n  </div>\n</div>\n<div class=\"container-fluid\" style=\"height: 90%; y-overflow: scroll;\">\n  <div class=\"row\">\n    <div class=\"grid\">\n      <div class=\"grid-sizer\"></div>\n      <div class=\"grid-item\">\n        <div class=\"panel panel-default\">\n          <a class=\"homeViewLinkItem\" view=\"wildfires\" href=\"#\">\n            <img class=\"img-responsive img-hover-effect\" style=\"padding: 5px;\" src=\"" + __webpack_require__(501) + "\" alt=\"\">\n          </a>\n          <div class=\"panel-footer text-center\">\n            History of Wildfire Severity\n          </div>\n          <div class=\"panel-caption text-center\">\n            In the Pacific Northwest, fire is a natural part of healthy forests. Since 2004 the Federal Government has been conducting detailed wildfire severity assessments by analyzing before and after LANDSAT satellite images of fire boundaries. This 'spotlight' shows the history of wildfires in Oregon and their severity since 1984.\n          </div>\n        </div>\n      </div>\n      <div class=\"grid-item\">\n        <div class=\"panel panel-default\">\n          <a class=\"homeViewLinkItem\" view=\"ecopwilderness\" href=\"#\">\n            <img class=\"img-responsive img-hover-effect\" style=\"padding: 5px;\" src=\"" + __webpack_require__(500) + "\" alt=\"\">\n          </a>\n          <div class=\"panel-footer text-center\">\n            Potential Wilderness Areas\n          </div>\n          <div class=\"panel-caption text-center\">\n            Did you know that Oregon has the least amount of proportional protected wilderness area as compared to California and Washington? 4% versus 15% and 10% respectively! Using this 'spotlight' you can explore potential wilderness areas that would raise Oregon to be on par with its neighbors.\n          </div>\n        </div>\n      </div>\n      <div class=\"grid-item\">\n        <div class=\"panel panel-default\">\n          <a>\n            <img class=\"img-responsive img-hover-effect\" style=\"padding: 5px;\" src=\"" + __webpack_require__(499) + "\" alt=\"\">\n          </a>\n          <div class=\"panel-footer text-center\">\n            The Journey of OR-7<br>(Coming soon)\n          </div>\n          <div class=\"panel-caption text-center\">\n            In 2011 a wolf by the name of OR-7, Journey, decided to break away from its pack in Northeast Oregon and march over 1,000 miles all the way to California through wilderness and roadless areas looking for a mate to establish his own pack. OR-7 had a GPS collar, so his route has been thoroughly recorded. This 'spotlight' shows the incredible journey of OR-7.\n          </div>\n        </div>\n      </div>\n    </div>\n  </div>\n  <div class=\"row spacer\"></div>\n  <div class=\"row navbar-inverse\" style=\"margin: 0 auto;\">\n    <div class=\"row spacer\"></div>\n    <h4 style=\"color: white;\">Over here some share icons and info links...</h4>\n  </div>\n</div>\n";
@@ -50701,7 +50752,7 @@ module.exports = (Handlebars["default"] || Handlebars).template({"compiler":[7,"
 /* 505 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var Handlebars = __webpack_require__(20);
+var Handlebars = __webpack_require__(18);
 function __default(obj) { return obj && (obj.__esModule ? obj["default"] : obj); }
 module.exports = (Handlebars["default"] || Handlebars).template({"1":function(container,depth0,helpers,partials,data) {
     var stack1, helper, alias1=depth0 != null ? depth0 : {}, alias2=container.escapeExpression;
@@ -50739,7 +50790,21 @@ module.exports = (Handlebars["default"] || Handlebars).template({"1":function(co
 /* 506 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var Handlebars = __webpack_require__(20);
+var Handlebars = __webpack_require__(18);
+function __default(obj) { return obj && (obj.__esModule ? obj["default"] : obj); }
+module.exports = (Handlebars["default"] || Handlebars).template({"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
+    var helper;
+
+  return "<div style=\"text-align: center; color: #666; font-size: 18px;\">\n  <b>Oregon's Potential Wilderness Areas by Ecoregion</b><br>("
+    + container.escapeExpression(((helper = (helper = helpers.acres || (depth0 != null ? depth0.acres : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0 != null ? depth0 : {},{"name":"acres","hash":{},"data":data}) : helper)))
+    + " thousand acres as of May, 2017)\n</div>\n<canvas id='summaryChart'></canvas>\n<div style=\"font-size: 80%\">Data source: <a href=\"http://oregonwild.org/\" target=\"_blank\">Oregon Wild</a></div>\n";
+},"useData":true});
+
+/***/ }),
+/* 507 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var Handlebars = __webpack_require__(18);
 function __default(obj) { return obj && (obj.__esModule ? obj["default"] : obj); }
 module.exports = (Handlebars["default"] || Handlebars).template({"1":function(container,depth0,helpers,partials,data) {
     return "        <li>"
@@ -50756,16 +50821,18 @@ module.exports = (Handlebars["default"] || Handlebars).template({"1":function(co
     + alias2(alias1(((stack1 = (depth0 != null ? depth0.singleLabel : depth0)) != null ? stack1.acres : stack1), depth0))
     + " Acres, "
     + alias2(alias1(((stack1 = (depth0 != null ? depth0.singleLabel : depth0)) != null ? stack1.percent : stack1), depth0))
-    + ")</li>\n        </ul>\n      </div>\n    </div>\n  </div>\n  <div id=\"transparencyLegend\" class=\"legend-box\">\n    <div class=\"legend-title\">Transparency</div>\n    <div style=\"margin: 4px;\"><input id=\"infoPanelTransparency\" type=\"range\" min=\"0\" max=\"100\" value=\"100\" /></div>\n    <div class=\"legend-explanation\">Move the slider to adjust transparency</div>\n  </div>\n  <div class=\"legend-box\">\n    <div class=\"legend-title\">Units</div>\n    <div class=\"legend-entry\" style=\"text-align: left; margin-left: 4px;\">\n      <ul class=\"v-legend-items\">\n"
+    + ")</li>\n        </ul>\n      </div>\n    </div>\n  </div>\n  <div id=\"transparencyLegend\" class=\"legend-box\">\n    <div class=\"legend-title\">Transparency</div>\n    <div style=\"margin: 4px;\"><input id=\"infoPanelTransparency\" type=\"range\" min=\"0\" max=\"100\" value=\"100\" /></div>\n    <div class=\"legend-explanation\">Move the slider to adjust transparency</div>\n  </div>\n  <div class=\"legend-box\">\n    <div class=\"legend-title\">"
+    + alias2(alias1(((stack1 = (depth0 != null ? depth0.units : depth0)) != null ? stack1.length : stack1), depth0))
+    + " Units</div>\n    <div class=\"legend-entry\" style=\"text-align: left; margin-left: 4px;\">\n      <ul class=\"v-legend-items\">\n"
     + ((stack1 = helpers.each.call(depth0 != null ? depth0 : {},(depth0 != null ? depth0.units : depth0),{"name":"each","hash":{},"fn":container.program(1, data, 0),"inverse":container.noop,"data":data})) != null ? stack1 : "")
     + "      </ul>\n    </div>\n  </div>\n  <div id=\"infoPanelCredit\">Data Source: <a href=\"http://www.oregonwild.org/\" target=\"_blank\">Oregon Wild</a></div>\n</div>\n";
 },"useData":true});
 
 /***/ }),
-/* 507 */
+/* 508 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var Handlebars = __webpack_require__(20);
+var Handlebars = __webpack_require__(18);
 function __default(obj) { return obj && (obj.__esModule ? obj["default"] : obj); }
 module.exports = (Handlebars["default"] || Handlebars).template({"1":function(container,depth0,helpers,partials,data) {
     var helper, alias1=container.lambda, alias2=container.escapeExpression, alias3=depth0 != null ? depth0 : {}, alias4=helpers.helperMissing, alias5="function";
@@ -50788,10 +50855,10 @@ module.exports = (Handlebars["default"] || Handlebars).template({"1":function(co
 },"useData":true});
 
 /***/ }),
-/* 508 */
+/* 509 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var Handlebars = __webpack_require__(20);
+var Handlebars = __webpack_require__(18);
 function __default(obj) { return obj && (obj.__esModule ? obj["default"] : obj); }
 module.exports = (Handlebars["default"] || Handlebars).template({"1":function(container,depth0,helpers,partials,data) {
     var helper, alias1=depth0 != null ? depth0 : {}, alias2=helpers.helperMissing, alias3="function", alias4=container.escapeExpression;
@@ -50818,10 +50885,10 @@ module.exports = (Handlebars["default"] || Handlebars).template({"1":function(co
 },"useData":true});
 
 /***/ }),
-/* 509 */
+/* 510 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var Handlebars = __webpack_require__(20);
+var Handlebars = __webpack_require__(18);
 function __default(obj) { return obj && (obj.__esModule ? obj["default"] : obj); }
 module.exports = (Handlebars["default"] || Handlebars).template({"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
     var stack1;
@@ -50834,10 +50901,10 @@ module.exports = (Handlebars["default"] || Handlebars).template({"compiler":[7,"
 },"usePartial":true,"useData":true});
 
 /***/ }),
-/* 510 */
+/* 511 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var Handlebars = __webpack_require__(20);
+var Handlebars = __webpack_require__(18);
 function __default(obj) { return obj && (obj.__esModule ? obj["default"] : obj); }
 module.exports = (Handlebars["default"] || Handlebars).template({"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
     var stack1;
@@ -50850,37 +50917,37 @@ module.exports = (Handlebars["default"] || Handlebars).template({"compiler":[7,"
 },"usePartial":true,"useData":true});
 
 /***/ }),
-/* 511 */
+/* 512 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var Handlebars = __webpack_require__(20);
+var Handlebars = __webpack_require__(18);
 function __default(obj) { return obj && (obj.__esModule ? obj["default"] : obj); }
 module.exports = (Handlebars["default"] || Handlebars).template({"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
     return "<div id=\"infoPanelContent\">\n  <div id=\"infoPanelTitle\"><b>History of Wildfire Severity</b></div>\n  <div><small>(Click on a cylinder to view details)</small></div>\n  <div class=\"hline\"></div>\n  <div class=\"legend-box\">\n    <div class=\"legend-title\">Wildfires from 1984 to 2014</div>\n  </div>\n  <div class=\"legend-box\">\n    <div class=\"legend-title\">Display Options</div>\n    <div class=\"legend-entry\"><span><input id=\"non-forest-option\" type=\"checkbox\"></span> Show non-forest (e.g., shrubland) fires</div>\n    <div class=\"legend-entry\"><span><input id=\"cumulative-option\" type=\"checkbox\"></span> Show cumulative fire events</div>\n  </div>\n  <div class=\"legend-box\">\n    <div class=\"legend-title\">Timeline playback</div>\n    <div class=\"legend-subtitle\">[Running @ <b><span id='secsperyear'>3</span></b> seconds per year]</div>\n    <div class=\"playback-controls\">\n      <div>\n        <div class=\"howl-control\">\n          <a id=\"pb-slower\" href=\"#\" title=\"Faster\"><img src=\"" + __webpack_require__(498) + "\"></a>\n        </div>\n        <div class=\"howl-control\">\n          <a id=\"pb-start\" href=\"#\" title=\"Start\"><span class=\"glyphicon glyphicon-step-backward\" aria-hidden=\"true\"></span></a>\n        </div>\n        <div class=\"howl-control\">\n          <a id=\"pb-play\" href=\"#\" title=\"Play/Pause\"><span class=\"glyphicon glyphicon-play\" aria-hidden=\"true\"></span></a>\n        </div>\n        <div class=\"howl-control\">\n          <a id=\"pb-end\" href=\"#\" title=\"End\"><span class=\"glyphicon glyphicon-step-forward\" aria-hidden=\"true\"></span></a>\n        </div>\n        <div class=\"howl-control\">\n          <a id=\"pb-faster\" href=\"#\" title=\"Faster\"><img src=\"" + __webpack_require__(497) + "\"></a>\n        </div>\n      </div>\n    </div>\n    <div class=\"legend-explanation\">Use buttons for playback control</div>\n  </div>\n  <div class=\"legend-box\">\n    <div class=\"legend-title\">Predominant Burn Severity</div>\n    <div class=\"legend-scale\">\n      <ul class=\"legend-items\">\n        <li><span style='background:#FF0000;'></span>High</li>\n        <li><span style='background:#FFFF00;'></span>Moderate</li>\n        <li><span style='background:#79FFD3;'></span>Low</li>\n      </ul>\n    </div>\n  </div>\n  <div class=\"legend-box\">\n    <div class=\"legend-title\">Area of Fire Boundary</div>\n    <div class=\"legend-scale\">\n      <ul>\n        <li><span class='lbox' style='width: 10px; height: 10px; border-radius: 5px'></span><br>Small</li>\n        <li><span class='lbox' style='width: 20px; height: 20px; border-radius: 10px'></span><br>Med</li>\n        <li><span class='lbox' style='width: 30px; height: 30px; border-radius: 15px'></span><br>Large</li>\n      </ul>\n    </div>\n  </div>\n  <div class=\"legend-box\">\n    <div class=\"legend-title\">High Severity Area</div>\n    <div class=\"legend-scale\">\n      <ul>\n        <li><span class='scyl' style='width: 30px; height: 20px;'></span><br>Small</li>\n        <li><span class='mcyl' style='width: 30px; height: 30px;'></span><br>Med</li>\n        <li><span class='lcyl' style='width: 30px; height: 50px;'></span><br>Large</li>\n      </ul>\n    </div>\n  </div>\n  <div id=\"infoPanelCredit\">Data Source: <a href=\"http://www.mtbs.gov/\" target=\"_blank\">MTBS</a></div>\n</div>\n";
 },"useData":true});
 
 /***/ }),
-/* 512 */
+/* 513 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var Handlebars = __webpack_require__(20);
+var Handlebars = __webpack_require__(18);
 function __default(obj) { return obj && (obj.__esModule ? obj["default"] : obj); }
 module.exports = (Handlebars["default"] || Handlebars).template({"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
     return "<canvas id='summaryChart'></canvas>\n<div style=\"font-size: 80%\">Data source: <a href=\"http://www.mtbs.gov/\" target=\"_blank\">Monitoring Trends in Burn Severity (MTBS)</a></div>\n";
 },"useData":true});
 
 /***/ }),
-/* 513 */
+/* 514 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var Handlebars = __webpack_require__(20);
+var Handlebars = __webpack_require__(18);
 function __default(obj) { return obj && (obj.__esModule ? obj["default"] : obj); }
 module.exports = (Handlebars["default"] || Handlebars).template({"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
     return "<div><b><span id='cumulativeFromYear'></span><span id='showingYear'></span> Wildfires</b></div>\n<div style=\"font-size: 90%;\"><span id='numberOfFires'></span></div>\n";
 },"useData":true});
 
 /***/ }),
-/* 514 */
+/* 515 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -50902,7 +50969,7 @@ var base = _interopRequireWildcard(_handlebarsBase);
 // Each of these augment the Handlebars object. No need to setup here.
 // (This is done to easily share code between commonjs and browse envs)
 
-var _handlebarsSafeString = __webpack_require__(528);
+var _handlebarsSafeString = __webpack_require__(529);
 
 var _handlebarsSafeString2 = _interopRequireDefault(_handlebarsSafeString);
 
@@ -50914,11 +50981,11 @@ var _handlebarsUtils = __webpack_require__(31);
 
 var Utils = _interopRequireWildcard(_handlebarsUtils);
 
-var _handlebarsRuntime = __webpack_require__(527);
+var _handlebarsRuntime = __webpack_require__(528);
 
 var runtime = _interopRequireWildcard(_handlebarsRuntime);
 
-var _handlebarsNoConflict = __webpack_require__(526);
+var _handlebarsNoConflict = __webpack_require__(527);
 
 var _handlebarsNoConflict2 = _interopRequireDefault(_handlebarsNoConflict);
 
@@ -50953,7 +51020,7 @@ module.exports = exports['default'];
 
 
 /***/ }),
-/* 515 */
+/* 516 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -50965,7 +51032,7 @@ exports.registerDefaultDecorators = registerDefaultDecorators;
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
 
-var _decoratorsInline = __webpack_require__(516);
+var _decoratorsInline = __webpack_require__(517);
 
 var _decoratorsInline2 = _interopRequireDefault(_decoratorsInline);
 
@@ -50976,7 +51043,7 @@ function registerDefaultDecorators(instance) {
 
 
 /***/ }),
-/* 516 */
+/* 517 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -51012,7 +51079,7 @@ module.exports = exports['default'];
 
 
 /***/ }),
-/* 517 */
+/* 518 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -51024,31 +51091,31 @@ exports.registerDefaultHelpers = registerDefaultHelpers;
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
 
-var _helpersBlockHelperMissing = __webpack_require__(518);
+var _helpersBlockHelperMissing = __webpack_require__(519);
 
 var _helpersBlockHelperMissing2 = _interopRequireDefault(_helpersBlockHelperMissing);
 
-var _helpersEach = __webpack_require__(519);
+var _helpersEach = __webpack_require__(520);
 
 var _helpersEach2 = _interopRequireDefault(_helpersEach);
 
-var _helpersHelperMissing = __webpack_require__(520);
+var _helpersHelperMissing = __webpack_require__(521);
 
 var _helpersHelperMissing2 = _interopRequireDefault(_helpersHelperMissing);
 
-var _helpersIf = __webpack_require__(521);
+var _helpersIf = __webpack_require__(522);
 
 var _helpersIf2 = _interopRequireDefault(_helpersIf);
 
-var _helpersLog = __webpack_require__(522);
+var _helpersLog = __webpack_require__(523);
 
 var _helpersLog2 = _interopRequireDefault(_helpersLog);
 
-var _helpersLookup = __webpack_require__(523);
+var _helpersLookup = __webpack_require__(524);
 
 var _helpersLookup2 = _interopRequireDefault(_helpersLookup);
 
-var _helpersWith = __webpack_require__(524);
+var _helpersWith = __webpack_require__(525);
 
 var _helpersWith2 = _interopRequireDefault(_helpersWith);
 
@@ -51065,7 +51132,7 @@ function registerDefaultHelpers(instance) {
 
 
 /***/ }),
-/* 518 */
+/* 519 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -51111,7 +51178,7 @@ module.exports = exports['default'];
 
 
 /***/ }),
-/* 519 */
+/* 520 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -51212,7 +51279,7 @@ module.exports = exports['default'];
 
 
 /***/ }),
-/* 520 */
+/* 521 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -51244,7 +51311,7 @@ module.exports = exports['default'];
 
 
 /***/ }),
-/* 521 */
+/* 522 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -51280,7 +51347,7 @@ module.exports = exports['default'];
 
 
 /***/ }),
-/* 522 */
+/* 523 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -51313,7 +51380,7 @@ module.exports = exports['default'];
 
 
 /***/ }),
-/* 523 */
+/* 524 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -51332,7 +51399,7 @@ module.exports = exports['default'];
 
 
 /***/ }),
-/* 524 */
+/* 525 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -51372,7 +51439,7 @@ module.exports = exports['default'];
 
 
 /***/ }),
-/* 525 */
+/* 526 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -51426,7 +51493,7 @@ module.exports = exports['default'];
 
 
 /***/ }),
-/* 526 */
+/* 527 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -51454,7 +51521,7 @@ module.exports = exports['default'];
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(97)))
 
 /***/ }),
-/* 527 */
+/* 528 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -51758,7 +51825,7 @@ function executeDecorators(fn, prog, container, depths, data, blockParams) {
 
 
 /***/ }),
-/* 528 */
+/* 529 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -51780,7 +51847,7 @@ module.exports = exports['default'];
 
 
 /***/ }),
-/* 529 */
+/* 530 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
@@ -52157,7 +52224,7 @@ return ImagesLoaded;
 
 
 /***/ }),
-/* 530 */
+/* 531 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
@@ -52174,7 +52241,7 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_
   if ( true ) {
     // AMD
     !(__WEBPACK_AMD_DEFINE_ARRAY__ = [
-        __webpack_require__(533),
+        __webpack_require__(534),
         __webpack_require__(96)
       ], __WEBPACK_AMD_DEFINE_FACTORY__ = (factory),
 				__WEBPACK_AMD_DEFINE_RESULT__ = (typeof __WEBPACK_AMD_DEFINE_FACTORY__ === 'function' ?
@@ -52404,7 +52471,7 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_
 
 
 /***/ }),
-/* 531 */
+/* 532 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var map = {
@@ -52653,10 +52720,10 @@ webpackContext.keys = function webpackContextKeys() {
 };
 webpackContext.resolve = webpackContextResolve;
 module.exports = webpackContext;
-webpackContext.id = 531;
+webpackContext.id = 532;
 
 /***/ }),
-/* 532 */
+/* 533 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/**
@@ -53216,7 +53283,7 @@ return Item;
 
 
 /***/ }),
-/* 533 */
+/* 534 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
@@ -53235,7 +53302,7 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
         __webpack_require__(95),
         __webpack_require__(96),
         __webpack_require__(502),
-        __webpack_require__(532)
+        __webpack_require__(533)
       ], __WEBPACK_AMD_DEFINE_RESULT__ = function( EvEmitter, getSize, utils, Item ) {
         return factory( window, EvEmitter, getSize, utils, Item);
       }.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__),
@@ -54160,7 +54227,7 @@ return Outlayer;
 
 
 /***/ }),
-/* 534 */
+/* 535 */
 /***/ (function(module, exports) {
 
 // shim for using process in browser
@@ -54346,7 +54413,7 @@ process.umask = function() { return 0; };
 
 
 /***/ }),
-/* 535 */
+/* 536 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(global, process) {/**
@@ -55073,10 +55140,10 @@ process.umask = function() { return 0; };
   typeof self === "object" ? self : this
 );
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(97), __webpack_require__(534)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(97), __webpack_require__(535)))
 
 /***/ }),
-/* 536 */
+/* 537 */
 /***/ (function(module, exports) {
 
 module.exports = function(module) {
@@ -55104,7 +55171,7 @@ module.exports = function(module) {
 
 
 /***/ }),
-/* 537 */
+/* 538 */
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(245);
