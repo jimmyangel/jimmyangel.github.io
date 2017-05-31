@@ -16038,7 +16038,7 @@ function makeCZMLAndStatsForListOfFires(f) {
     name: 'MTBS',
     version: "1.0",
     clock: {
-      interval: '1984-07-28T07:00:00.000Z/2014-12-31T23:59:59.999Z',
+      interval: '1984-07-28T07:00:00.000Z/2015-12-31T23:59:59.999Z',
       currentTime: '1984-07-28T07:00:00.000Z',
       multiplier: 10000000,
       range: 'LOOP_STOP',
@@ -30755,7 +30755,7 @@ function setupView(viewer) {
   }));
 
   //data.getJSONData('data/MTBS/MTBSCZML.json', function(data) {
-  data.getJSONData('data/MTBS/MTBSOregonFiresGen20170330_FSampled.json', function (data) {
+  data.getJSONData('data/MTBS/MTBSOregonFiresGen20170531Sampled.json', function (data) {
     fireListData = data;
     var statsAndCZML = utils.makeCZMLAndStatsForListOfFires(fireListData);
     statsAll = statsAndCZML.statsAll;
@@ -30911,7 +30911,7 @@ function setUpCumulativeOption() {
       if (isCumulative) {
         entity.availability.addInterval(new Cesium.TimeInterval({
           start: timeInterval.start,
-          stop: Cesium.JulianDate.fromIso8601('2014-12-31T23:59:59.999Z')
+          stop: Cesium.JulianDate.fromIso8601(statsAll.toYear + '-12-31T23:59:59.999Z')
         }));
       } else {
         entity.availability.removeInterval(timeInterval);
@@ -31081,7 +31081,7 @@ function gotoFire(fireItems) {
 
 function gotoAll() {
   cleanupDrillDown();
-  $('#infoPanel').html((0, _fireListInfoPanel2.default)());
+  $('#infoPanel').html((0, _fireListInfoPanel2.default)(statsAll));
   setUpNonForestOption();
   setUpCumulativeOption();
   setUpInfoBox();
@@ -50582,7 +50582,7 @@ module.exports = (Handlebars["default"] || Handlebars).template({"1":function(co
 
   return "<div id=\"infoPanelContent\">\n  <div id=\"infoPanelTitle\"><b>Potential Wilderness Areas</b></div>\n  <div><small>(Click on an ecoregion to view areas)</small></div>\n  <div class=\"hline\"></div>\n  <div class=\"legend-box\">\n    <div class=\"legend-title\">Ecoregions</div>\n    <div class=\"legend-entry\" style=\"text-align: left; margin-left: 4px;\">\n      <div class=\"v-legend-scale\">\n        <ul class=\"v-legend-items\">\n"
     + ((stack1 = helpers.each.call(depth0 != null ? depth0 : {},(depth0 != null ? depth0.labels : depth0),{"name":"each","hash":{},"fn":container.program(1, data, 0),"inverse":container.noop,"data":data})) != null ? stack1 : "")
-    + "        </ul>\n      </div>\n    </div>\n  </div>\n  <div id=\"transparencyLegend\" class=\"legend-box\">\n    <div class=\"legend-title\">Transparency</div>\n    <div style=\"margin: 4px;\"><input id=\"infoPanelTransparency\" type=\"range\" min=\"0\" max=\"100\" value=\"100\" /></div>\n    <div class=\"legend-explanation\">Move the slider to adjust transparency</div>\n  </div>\n  <div id=\"infoPanelCredit\">Data Source: <a href=\"http://www.oregonwild.org/\" target=\"_blank\">Oregon Wild</a></div>\n</div>\n";
+    + "        </ul>\n      </div>\n    </div>\n  </div>\n  <div id=\"transparencyLegend\" class=\"legend-box\">\n    <div class=\"legend-title\">Transparency</div>\n    <div style=\"margin: 4px;\"><input id=\"infoPanelTransparency\" type=\"range\" min=\"0\" max=\"100\" value=\"100\" /></div>\n    <div class=\"legend-explanation\">Move the slider to adjust transparency</div>\n  </div>\n  <div class=\"legend-box\">\n    <div class=\"legend-title\">Wilderness Acreage</div>\n    <div class=\"legend-scale\">\n      <ul>\n        <li><span class='sshape' style='width: 60px; height: 20px;'></span><br>Less</li>\n        <li></li>\n        <li><span class='lshape' style='width: 60px; height: 50px;'></span><br> More</li>\n      </ul>\n    </div>\n  </div>\n  <div id=\"infoPanelCredit\">Data Source: <a href=\"http://www.oregonwild.org/\" target=\"_blank\">Oregon Wild</a></div>\n</div>\n";
 },"useData":true});
 
 /***/ }),
@@ -50722,7 +50722,13 @@ module.exports = (Handlebars["default"] || Handlebars).template({"compiler":[7,"
 var Handlebars = __webpack_require__(18);
 function __default(obj) { return obj && (obj.__esModule ? obj["default"] : obj); }
 module.exports = (Handlebars["default"] || Handlebars).template({"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
-    return "<div id=\"infoPanelContent\">\n  <div id=\"infoPanelTitle\"><b>History of Wildfire Severity</b></div>\n  <div><small>(Click on a cylinder to view details)</small></div>\n  <div class=\"hline\"></div>\n  <div class=\"legend-box\">\n    <div class=\"legend-title\">Wildfires from 1984 to 2014</div>\n  </div>\n  <div class=\"legend-box\">\n    <div class=\"legend-title\">Display Options</div>\n    <div class=\"legend-entry\"><span><input id=\"non-forest-option\" type=\"checkbox\"></span> Show non-forest (e.g., shrubland) fires</div>\n    <div class=\"legend-entry\"><span><input id=\"cumulative-option\" type=\"checkbox\"></span> Show cumulative fire events</div>\n  </div>\n  <div class=\"legend-box\">\n    <div class=\"legend-title\">Timeline playback</div>\n    <div class=\"legend-subtitle\">[Running @ <b><span id='secsperyear'>3</span></b> seconds per year]</div>\n    <div class=\"playback-controls\">\n      <div>\n        <div class=\"howl-control\">\n          <a id=\"pb-slower\" href=\"#\" title=\"Faster\"><img src=\"" + __webpack_require__(496) + "\"></a>\n        </div>\n        <div class=\"howl-control\">\n          <a id=\"pb-start\" href=\"#\" title=\"Start\"><span class=\"glyphicon glyphicon-step-backward\" aria-hidden=\"true\"></span></a>\n        </div>\n        <div class=\"howl-control\">\n          <a id=\"pb-play\" href=\"#\" title=\"Play/Pause\"><span class=\"glyphicon glyphicon-play\" aria-hidden=\"true\"></span></a>\n        </div>\n        <div class=\"howl-control\">\n          <a id=\"pb-end\" href=\"#\" title=\"End\"><span class=\"glyphicon glyphicon-step-forward\" aria-hidden=\"true\"></span></a>\n        </div>\n        <div class=\"howl-control\">\n          <a id=\"pb-faster\" href=\"#\" title=\"Faster\"><img src=\"" + __webpack_require__(495) + "\"></a>\n        </div>\n      </div>\n    </div>\n    <div class=\"legend-explanation\">Use buttons for playback control</div>\n  </div>\n  <div class=\"legend-box\">\n    <div class=\"legend-title\">Predominant Burn Severity</div>\n    <div class=\"legend-scale\">\n      <ul class=\"legend-items\">\n        <li><span style='background:#FF0000;'></span>High</li>\n        <li><span style='background:#FFFF00;'></span>Moderate</li>\n        <li><span style='background:#79FFD3;'></span>Low</li>\n      </ul>\n    </div>\n  </div>\n  <div class=\"legend-box\">\n    <div class=\"legend-title\">Area of Fire Boundary</div>\n    <div class=\"legend-scale\">\n      <ul>\n        <li><span class='lbox' style='width: 10px; height: 10px; border-radius: 5px'></span><br>Small</li>\n        <li><span class='lbox' style='width: 20px; height: 20px; border-radius: 10px'></span><br>Med</li>\n        <li><span class='lbox' style='width: 30px; height: 30px; border-radius: 15px'></span><br>Large</li>\n      </ul>\n    </div>\n  </div>\n  <div class=\"legend-box\">\n    <div class=\"legend-title\">High Severity Area</div>\n    <div class=\"legend-scale\">\n      <ul>\n        <li><span class='scyl' style='width: 30px; height: 20px;'></span><br>Small</li>\n        <li><span class='mcyl' style='width: 30px; height: 30px;'></span><br>Med</li>\n        <li><span class='lcyl' style='width: 30px; height: 50px;'></span><br>Large</li>\n      </ul>\n    </div>\n  </div>\n  <div id=\"infoPanelCredit\">Data Source: <a href=\"http://www.mtbs.gov/\" target=\"_blank\">MTBS</a></div>\n</div>\n";
+    var helper, alias1=depth0 != null ? depth0 : {}, alias2=helpers.helperMissing, alias3="function", alias4=container.escapeExpression;
+
+  return "<div id=\"infoPanelContent\">\n  <div id=\"infoPanelTitle\"><b>History of Wildfire Severity</b></div>\n  <div><small>(Click on a cylinder to view details)</small></div>\n  <div class=\"hline\"></div>\n  <div class=\"legend-box\">\n    <div class=\"legend-title\">Wildfires from "
+    + alias4(((helper = (helper = helpers.fromYear || (depth0 != null ? depth0.fromYear : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"fromYear","hash":{},"data":data}) : helper)))
+    + " to "
+    + alias4(((helper = (helper = helpers.toYear || (depth0 != null ? depth0.toYear : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"toYear","hash":{},"data":data}) : helper)))
+    + "</div>\n  </div>\n  <div class=\"legend-box\">\n    <div class=\"legend-title\">Display Options</div>\n    <div class=\"legend-entry\"><span><input id=\"non-forest-option\" type=\"checkbox\"></span> Show non-forest (e.g., shrubland) fires</div>\n    <div class=\"legend-entry\"><span><input id=\"cumulative-option\" type=\"checkbox\"></span> Show cumulative fire events</div>\n  </div>\n  <div class=\"legend-box\">\n    <div class=\"legend-title\">Timeline playback</div>\n    <div class=\"legend-subtitle\">[Running @ <b><span id='secsperyear'>3</span></b> seconds per year]</div>\n    <div class=\"playback-controls\">\n      <div>\n        <div class=\"howl-control\">\n          <a id=\"pb-slower\" href=\"#\" title=\"Faster\"><img src=\"" + __webpack_require__(496) + "\"></a>\n        </div>\n        <div class=\"howl-control\">\n          <a id=\"pb-start\" href=\"#\" title=\"Start\"><span class=\"glyphicon glyphicon-step-backward\" aria-hidden=\"true\"></span></a>\n        </div>\n        <div class=\"howl-control\">\n          <a id=\"pb-play\" href=\"#\" title=\"Play/Pause\"><span class=\"glyphicon glyphicon-play\" aria-hidden=\"true\"></span></a>\n        </div>\n        <div class=\"howl-control\">\n          <a id=\"pb-end\" href=\"#\" title=\"End\"><span class=\"glyphicon glyphicon-step-forward\" aria-hidden=\"true\"></span></a>\n        </div>\n        <div class=\"howl-control\">\n          <a id=\"pb-faster\" href=\"#\" title=\"Faster\"><img src=\"" + __webpack_require__(495) + "\"></a>\n        </div>\n      </div>\n    </div>\n    <div class=\"legend-explanation\">Use buttons for playback control</div>\n  </div>\n  <div class=\"legend-box\">\n    <div class=\"legend-title\">Predominant Burn Severity</div>\n    <div class=\"legend-scale\">\n      <ul class=\"legend-items\">\n        <li><span style='background:#FF0000;'></span>High</li>\n        <li><span style='background:#FFFF00;'></span>Moderate</li>\n        <li><span style='background:#79FFD3;'></span>Low</li>\n      </ul>\n    </div>\n  </div>\n  <div class=\"legend-box\">\n    <div class=\"legend-title\">Area of Fire Boundary</div>\n    <div class=\"legend-scale\">\n      <ul>\n        <li><span class='lbox' style='width: 10px; height: 10px; border-radius: 5px'></span><br>Small</li>\n        <li><span class='lbox' style='width: 20px; height: 20px; border-radius: 10px'></span><br>Med</li>\n        <li><span class='lbox' style='width: 30px; height: 30px; border-radius: 15px'></span><br>Large</li>\n      </ul>\n    </div>\n  </div>\n  <div class=\"legend-box\">\n    <div class=\"legend-title\">High Severity Area</div>\n    <div class=\"legend-scale\">\n      <ul>\n        <li><span class='scyl' style='width: 30px; height: 20px;'></span><br>Small</li>\n        <li><span class='mcyl' style='width: 30px; height: 30px;'></span><br>Med</li>\n        <li><span class='lcyl' style='width: 30px; height: 50px;'></span><br>Large</li>\n      </ul>\n    </div>\n  </div>\n  <div id=\"infoPanelCredit\">Data Source: <a href=\"http://www.mtbs.gov/\" target=\"_blank\">MTBS</a></div>\n</div>\n";
 },"useData":true});
 
 /***/ }),

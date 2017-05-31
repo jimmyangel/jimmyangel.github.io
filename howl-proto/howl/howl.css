@@ -8059,6 +8059,18 @@ html, body, #viewContainer {
   background-repeat: no-repeat;
 }
 
+.sshape {
+  display: inline-block;
+  background-image: url(./fonts/sshape.svg);
+  background-repeat: no-repeat;
+}
+
+.lshape {
+  display: inline-block;
+  background-image: url(./fonts/lshape.svg);
+  background-repeat: no-repeat;
+}
+
 .llbox {
   float: left;
   width: 30px;
