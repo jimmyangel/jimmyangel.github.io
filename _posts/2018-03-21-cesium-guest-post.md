@@ -2,7 +2,7 @@
 layout: post
 title: Guest post at the Cesium Blog
 ---
-### Do you want to how to use time animations in CesiumJS?
+### Do you want to learn how to use time animations in CesiumJS?
 ---
 Head over to the [Cesium Blog](https://cesium.com/blog/2018/03/21/czml-time-animation/) to read my guest post. 
 
